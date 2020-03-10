@@ -1,0 +1,24 @@
+{
+  "name": "robodada-server",
+  "version": "1.0.0",
+  "description": "a servor for experimental robotic communication",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HybridThingsLab/robodada.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HybridThingsLab/robodada/issues"
+  },
+  "homepage": "https://github.com/HybridThingsLab/robodada#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "osc": "^2.4.0",
+    "socket.io": "^2.3.0"
+  }
+}
