@@ -2,8 +2,12 @@ var socket = io();
 
 $(document).ready(function(){
     console.log("rdy");
-    $(".slider1").change(function(e){
+    $("input[type='range']").change(function(e){
+        console.log(e);
         console.log(e.currentTarget.value);
-        socket.emit('new_value', e.currentTarget.value);
-    });
+        socket.emit('new_value', {
+            target: e.currentTarget.className,
+            value: e.currentTarget.value
+        });
+    });    
 });

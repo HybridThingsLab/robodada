@@ -20,14 +20,14 @@ var udpPort = new osc.UDPPort({
 udpPort.open();
 
 io.on('connection', function(socket){
-    socket.on('new_value', function(val){
-        console.log("send new value " +val);
+    socket.on('new_value', function(e){
+        console.log("send new value " +e.value+ " to "+e.target);
         udpPort.send({
-            address: "/led",
+            address: "/"+e.target,
             args: [
                 {
                     type: "i",
-                    value: val
+                    value: e.value
                 }            
             ]
         }, "192.168.1.200", 9999);
