@@ -5,7 +5,7 @@
 #include <Servo.h>
 
 // Robot's properties
-const char* name = "Bender";
+const String name = "Bender";
 
 // WiFi stuff
 const char* ssid = "maschinenraum";
@@ -20,7 +20,7 @@ Servo s2;
 OscWiFi osc;
 const char* host = "192.168.1.100";
 const int recv_port = 9999;
-const int send_port = 8888;
+const int send_port = 9999;
 
 uint8_t servo1Pin = D1;
 uint8_t servo2Pin = D2;
@@ -47,30 +47,23 @@ void setup() {
   // ArduinoOSC
   osc.begin(recv_port);
 
+  delay(1000);
 
-  osc.subscribe("/x", [](OscMessage & m) {
-    Serial.print("x : ");
+  //say hello to the server in the pattern: name, ip address
+  osc.send(host, send_port, "/hello", name, ip.toString());
+  delay(1000);
+
+  osc.subscribe("/position", [](OscMessage & m) {
+    Serial.print("PosMsg : ");
     Serial.print(m.ip()); Serial.print(" ");
     Serial.print(m.port()); Serial.print(" ");
     Serial.print(m.size()); Serial.print(" ");
     Serial.print(m.address()); Serial.print(" ");
     Serial.println(m.arg<int>(0));
 
-    int pos = m.arg<int>(0);
-    controlServo1(pos);
-
-  });
-
-  osc.subscribe("/y", [](OscMessage & m) {
-    Serial.print("y : ");
-    Serial.print(m.ip()); Serial.print(" ");
-    Serial.print(m.port()); Serial.print(" ");
-    Serial.print(m.size()); Serial.print(" ");
-    Serial.print(m.address()); Serial.print(" ");
-    Serial.println(m.arg<int>(0));
-
-    int pos = m.arg<int>(0);
-    controlServo2(pos);
+    int x = m.arg<int>(0);
+    int y = m.arg<int>(1);
+    positionControl(x, y);
 
   });
 
@@ -81,14 +74,11 @@ void loop() {
 
 }
 
-void controlServo1(int pos) {
-  s1.write(pos);
-  Serial.print("Servo 1: ");
-  Serial.println(pos);
-}
-
-void controlServo2(int pos) {
-  s2.write(pos);
-  Serial.print("Servo 2: ");
-  Serial.println(pos);
+void positionControl(int x, int y) {
+  s1.write(x);
+  s2.write(y);
+  Serial.print("x: ");
+  Serial.print(x);
+  Serial.print(" y: ");
+  Serial.println(y);
 }
