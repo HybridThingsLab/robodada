@@ -1,13 +1,35 @@
 var socket = io();
 
+function map_range(value, low1, high1, low2, high2) {
+    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+}
+
 $(document).ready(function(){
+    let run = false;
+
     console.log("rdy");
-    $("input[type='range']").change(function(e){
-        console.log(e);
-        console.log(e.currentTarget.value);
-        socket.emit('new_value', {
-            target: e.currentTarget.className,
-            value: e.currentTarget.value
-        });
-    });    
+    
+     
+   
+    setInterval(calc, 10);
+      
 });
+
+$(".control").click(function(e){
+    console.log((e.pageX-$(this).position().left)+" "+(e.pageY-$(this).position().top));
+    run != run;
+    /*
+    socket.emit('moveToMsg', {
+        name: "Bender",
+        x: map_range(e.pageX-$(this).position().left, 0, 400, 0, 180),
+        y: map_range(e.pageY-$(this).position().top, 0, 400, 0, 180)
+    });
+    */
+   
+
+});
+
+function calc(){
+    var date = new Date();
+    console.log(Math.sin(date.getMilliseconds()/1000));
+}
