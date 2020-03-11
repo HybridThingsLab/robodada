@@ -4,6 +4,9 @@
 #include <ArduinoOSC.h> // https://github.com/hideakitai/ArduinoOSC
 #include <Servo.h>
 
+// Robot's properties
+const char* name = "Bender";
+
 // WiFi stuff
 const char* ssid = "maschinenraum";
 const char* pwd = "maschinenraum";
@@ -45,8 +48,8 @@ void setup() {
   osc.begin(recv_port);
 
 
-  osc.subscribe("/servo1", [](OscMessage & m) {
-    Serial.print("servo1 : ");
+  osc.subscribe("/x", [](OscMessage & m) {
+    Serial.print("x : ");
     Serial.print(m.ip()); Serial.print(" ");
     Serial.print(m.port()); Serial.print(" ");
     Serial.print(m.size()); Serial.print(" ");
@@ -58,8 +61,8 @@ void setup() {
 
   });
 
-  osc.subscribe("/servo2", [](OscMessage & m) {
-    Serial.print("servo2 : ");
+  osc.subscribe("/y", [](OscMessage & m) {
+    Serial.print("y : ");
     Serial.print(m.ip()); Serial.print(" ");
     Serial.print(m.port()); Serial.print(" ");
     Serial.print(m.size()); Serial.print(" ");
