@@ -27,7 +27,7 @@ uint8_t servo2Pin = D2;
 
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
 
   // pin modes
   pinMode(LED_BUILTIN, OUTPUT);
@@ -77,8 +77,10 @@ void loop() {
 void positionControl(int x, int y) {
   s1.write(x);
   s2.write(y);
+  /*
   Serial.print("x: ");
   Serial.print(x);
   Serial.print(" y: ");
   Serial.println(y);
+  */
 }
