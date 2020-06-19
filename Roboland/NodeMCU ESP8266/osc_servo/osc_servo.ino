@@ -20,7 +20,7 @@ Servo s2;
 OscWiFi osc;
 const char* host = "192.168.1.100";
 const int recv_port = 9999;
-const int send_port = 9999;
+const int send_port = 9998;
 
 uint8_t servo1Pin = D1;
 uint8_t servo2Pin = D2;
