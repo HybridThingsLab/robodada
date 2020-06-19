@@ -42,11 +42,11 @@ module.exports = class Controller {
             address: "/position",
             args: [
                 {
-                    type: "i",
+                    type: "f",
                     value: moveMsg.x
                 },
                 {
-                    type:"i",
+                    type:"f",
                     value: moveMsg.y
                 }            
             ]

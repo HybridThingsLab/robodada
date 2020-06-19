@@ -12,7 +12,8 @@ module.exports = class WebController{
             console.log("Listening on "+webPort+" in "+__dirname);
         });
         
-        app.use(express.static(path.join(__dirname + './../public')));
+        //app.use(express.static(path.join(__dirname + './../public')));
+        app.use(express.static(path.join(__dirname + './../../../Unfriendly robots/ROBODADA/public')));
                 
         io.on('connection', function(socket){
             socket.on('moveToMsg', function(e){
