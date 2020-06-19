@@ -54,15 +54,27 @@ void setup() {
   delay(1000);
 
   osc.subscribe("/position", [](OscMessage & m) {
+
+    /*
     Serial.print("PosMsg : ");
+         
     Serial.print(m.ip()); Serial.print(" ");
     Serial.print(m.port()); Serial.print(" ");
     Serial.print(m.size()); Serial.print(" ");
     Serial.print(m.address()); Serial.print(" ");
     Serial.println(m.arg<int>(0));
+    */
 
-    int x = m.arg<int>(0);
-    int y = m.arg<int>(1);
+    float x = m.arg<float>(0);
+    float y = m.arg<float>(1);
+    
+    /*
+    Serial.print("x: ");
+    Serial.println(x);
+    Serial.print("y: ");
+    Serial.println(y);
+    */
+    
     positionControl(x, y);
 
   });
@@ -74,13 +86,21 @@ void loop() {
 
 }
 
-void positionControl(int x, int y) {
-  s1.write(x);
-  s2.write(y);
+float float_map(float x, float in_min, float in_max, float out_min, float out_max)
+{
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
+void positionControl(float x, float y) {
+  int m_x = float_map(x, 0, 1, 0, 170);
+  int m_y = float_map(y, 0, 1, 0, 170);
+  s1.write(m_x);
+  s2.write(m_y);
+
   /*
   Serial.print("x: ");
-  Serial.print(x);
+  Serial.print(m_x);
   Serial.print(" y: ");
-  Serial.println(y);
+  Serial.println(m_y);
   */
 }
