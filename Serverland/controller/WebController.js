@@ -13,7 +13,7 @@ module.exports = class WebController{
         });
         
         //app.use(express.static(path.join(__dirname + './../public')));
-        app.use(express.static(path.join(__dirname + './../../../Unfriendly robots/ROBODADA/public')));
+        app.use(express.static(path.join(__dirname + './../../Userland/public')));
                 
         io.on('connection', function(socket){
             socket.on('moveToMsg', function(e){
