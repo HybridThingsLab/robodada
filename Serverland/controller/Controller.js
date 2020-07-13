@@ -1,4 +1,5 @@
 var osc = require('osc');
+var config = require('../config');
 
 
 module.exports = class Controller {
@@ -50,7 +51,7 @@ module.exports = class Controller {
                     value: moveMsg.y
                 }            
             ]
-        }, "192.168.1.200", 9999);
+        }, config.robot_ip, 9999);
         
     }
 

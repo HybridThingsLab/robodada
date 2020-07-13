@@ -4,6 +4,7 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var webPort = 3000;
 const path = require('path');
+var config = require('../config');
 
 module.exports = class WebController{
     constructor(){
@@ -13,7 +14,7 @@ module.exports = class WebController{
         });
         
         //app.use(express.static(path.join(__dirname + './../public')));
-        app.use(express.static(path.join(__dirname + './../../Userland/public')));
+        app.use(express.static(path.join(__dirname + config.frontend_location_relative)));
                 
         io.on('connection', function(socket){
             socket.on('moveToMsg', function(e){
