@@ -1,0 +1,18 @@
+{
+  "name": "robodada",
+  "version": "1.0.0",
+  "description": "an explorative toolkit for controlling robots by emotiondetection",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "node-sass": "^4.13.1"
+  }
+}

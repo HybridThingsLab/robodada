@@ -1,0 +1,6 @@
+<svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+  <circle class="circle-chart__background" stroke="#000000" stroke-width="8" fill="none" cx="50%" cy="50%" r="15.91549431" />
+  <circle class="circle-chart__background" stroke="#FFFFFF" stroke-width="6" fill="none" cx="50%" cy="50%" r="15.91549431" />
+  <circle class="circle-chart__circle" stroke="#000000" stroke-width="8" stroke-dasharray="50,100" stroke-linecap="round" fill="none" cx="50%" cy="50%" r="15.91549431" />
+  <circle class="circle-chart__circle" stroke="#A2D2F9FF" stroke-width="6" stroke-dasharray="50,100" stroke-linecap="round" fill="none" cx="50%" cy="50%" r="15.91549431" />
+</svg>

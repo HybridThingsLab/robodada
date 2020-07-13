@@ -1,0 +1,39 @@
+<html>
+    <script>
+        class Ping {
+            constructor(){
+                
+            }
+
+            ping(){
+                let ping_load = {
+                    load: "delicious pings, muh pingerino"
+                };
+
+                let evt = new CustomEvent("ping", {detail: ping_load});
+                dispatchEvent(evt);
+            }
+        }
+
+        class Pong extends EventTarget{
+            constructor(ping){
+                super();
+                this.ping = ping;
+                addEventListener("ping", this.pong);
+            }
+
+            pong(e){
+                console.log("pong");
+                console.log(e);
+            }
+
+        }
+
+        let ping = new Ping();
+        let pong = new Pong(ping);
+
+        ping.ping();
+
+
+    </script>
+</html>

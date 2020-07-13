@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.typekit.net/sql3vut.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> 
+    <title>ROBODADA</title>
+    
+</head>
+<body> 
+    <img src="img/cursor/cursor_arrow.svg" class="cursor" alt="">
+    <div class="main-screen">
+        <div class="main-menu">
+            <div class="buttons-top">
+                <div class="info-button button"><img class="icon" src="img/menu/robot.svg" alt=""></div>
+                <div class="settings-button button"><img class="icon" src="img/menu/settings.svg" alt=""></div>
+                <div class="save-button button"><img class="icon" src="img/menu/save.svg" alt=""></div>
+            </div>
+            <div class="wrapper-emotion">
+                <div class="button">
+                    <div class="button-content"><img src="img/emotions/neutral.svg" alt="">neutral</div>
+                </div>
+                <div class="button">
+                    <div class="button-content"><img src="img/emotions/happy.svg" alt="">happy</div>
+                </div>
+                <div class="button">
+                    <div class="button-content"><img src="img/emotions/angry.svg" alt="">angry</div>
+                </div>
+                <div class="button">
+                    <div class="button-content"><img src="img/emotions/surprised.svg" alt="">surprised</div>
+                </div>
+                <div class="button">
+                    <div class="button-content"><img src="img/emotions/disgusted.svg" alt="">disgusted</div>
+                </div>
+                <div class="button">
+                    <div class="button-content"><img src="img/emotions/sad.svg" alt="">sad</div>
+                </div>
+                <div class="button">
+                    <div class="button-content"><img src="img/emotions/fearful.svg" alt="">fearful</div>
+                </div>
+                <!--
+                <div class="button button-landmarks">
+                    <div class="button-content"><img src="img/thinking.svg" alt=""><canvas class="face-landmarks" width="200" height="200"></canvas>camera</div>
+                </div>
+                -->
+            </div>
+    
+            <div class="buttons-bottom">
+                <div class="camera-button button"><p>activate&nbsp;cam</p><img class="icon" src=img/menu/camera_on.svg alt=""></div>
+            </div>
+
+            <div class="camera-wrapper">
+                <div class="camera-border">
+                    <div class="camera">
+                        <video class="cam-video" onloadedmetadata="" autoplay muted></video>
+                        <canvas class="emoji-canvas"></canvas>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <div class="donut-wrapper">
+                <div class="inner-donut-wrapper">
+                    <img src="./img/emotions/angry.svg" alt="">
+                    <!--<img class="donut" src="./img/donut/donut.svg" alt="">-->
+                    <object class="donut" data="./img/donut/donut.svg" type="image/svg+xml"></object>
+                </div>
+                <div class="inner-donut-wrapper">
+                    <img src="./img/emotions/sad.svg" alt="">
+                    <!--<img class="donut" src="./img/donut/donut.svg" alt="">-->
+                    <object class="donut" data="./img/donut/donut.svg" type="image/svg+xml"></object>
+                </div>
+                <div class="inner-donut-wrapper">
+                    <img src="./img/emotions/neutral.svg" alt="">
+                    <!--<img class="donut" src="./img/donut/donut.svg" alt="">-->
+                    <object class="donut" data="./img/donut/donut.svg" type="image/svg+xml"></object>
+                </div>
+                <div class="inner-donut-wrapper">
+                    <img src="./img/emotions/fearful.svg" alt="">
+                    <!--<img class="donut" src="./img/donut/donut.svg" alt="">-->
+                    <object class="donut" data="./img/donut/donut.svg" type="image/svg+xml"></object>
+                </div>
+                <div class="inner-donut-wrapper">
+                    <img src="./img/emotions/happy.svg" alt="">
+                    <!--<img class="donut" src="./img/donut/donut.svg" alt="">-->
+                    <object class="donut" data="./img/donut/donut.svg" type="image/svg+xml"></object>
+                </div>
+                <div class="inner-donut-wrapper">
+                    <img src="./img/emotions/disgusted.svg" alt="">
+                    <!--<img class="donut" src="./img/donut/donut.svg" alt="">-->
+                    <object class="donut" data="./img/donut/donut.svg" type="image/svg+xml"></object>
+                </div>
+                <div class="inner-donut-wrapper">
+                    <img src="./img/emotions/surprised.svg" alt="">
+                    <!--<img class="donut" src="./img/donut/donut.svg" alt="">-->
+                    <object class="donut" data="./img/donut/donut.svg" type="image/svg+xml"></object>
+                </div>
+            </div>
+        </div>
+        
+       
+    
+        <div class="overlay">
+            <div class="close button">
+                <p>X</p>
+            </div>
+            <div class="instructions">
+                <p>How would a robot move when you look <span class="emotion-var">*emotion*</span>?</p> 
+                <p>Draw the motion path into the box.</p> 
+            </div>
+            <div class="interface-wrapper">
+                <div class="canvas-panel">
+                    <div class="canvas-wrapper">
+                        <canvas class="path-drawing-canvas" id="canvas"></canvas>                   
+                    </div>
+                    <span class="emotion-var">*emotion*</span>
+                </div>
+                <div class="interface-buttons">
+                    <div class="delete interface-button button"><img class="icon" src="img/overlay/delete.svg" alt=""></div>
+                    <div class="loop interface-button button"><img class="icon" src="img/overlay/loop.svg" alt=""></div>
+                    <div class="play interface-button button"><img class="icon" src="img/overlay/play.svg" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./js/lib/jQuery341.js"></script>
+    <script src="./js/lib/socket.io.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css"> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <!--<script src="./js/path_drawing.js"></script> -->
+    <script src="./js/lib/face-api.min.js"></script>
+    <script src="./js/lib/commons.js"></script>
+    <script src="./js/lib/faceDetectionControls.js"></script>    
+    <script src="./js/customCursor.js"></script>
+    <!-- <script src="./js/screen_mover.js"></script> -->
+    
+    <script src="./js/lib/p5.js"></script>
+    <script src="./js/model/MainModel.js"></script>
+    <script src="./js/model/EmotionModel.js"></script>
+    <script src="./js/view/MainView.js"></script>
+    <script src="./js/view/MainMenuView.js"></script>
+    <script src="./js/view/PathDrawingOverlayView.js"></script>
+    <script src="./js/view/RobotView.js"></script>
+    <script src="./js/view/DonutView.js"></script>
+    <script src="./js/controller/MainController.js"></script>
+    <script src="./js/controller/EmotionDetectionController.js"></script>
+    <script src="./js/controller/PathDrawingController.js"></script>
+    <script src="./js/controller/PlaybackController.js"></script>
+    <script src="./js/main.js"></script>
+  
+</body>
+</html>
