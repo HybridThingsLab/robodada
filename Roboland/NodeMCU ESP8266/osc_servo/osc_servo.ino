@@ -1,5 +1,8 @@
 // documentation ESP8266: https://www.mikrocontroller-elektronik.de/nodemcu-esp8266-tutorial-wlan-board-arduino-ide/
 
+// config 
+#include <config.h>
+
 // libraries
 #include <ArduinoOSC.h> // https://github.com/hideakitai/ArduinoOSC
 #include <Servo.h>
@@ -7,21 +10,21 @@
 // Robot's properties
 const String name = "Bender";
 
-// WiFi stuff
-const char* ssid = "maschinenraum";
-const char* pwd = "maschinenraum";
-const IPAddress ip(192, 168, 1, 200);
-const IPAddress gateway(192, 168, 1, 1);
-const IPAddress subnet(255, 255, 255, 0);
-Servo s1;
-Servo s2;
-
-// for ArduinoOSC
-OscWiFi osc;
+// WIFI stuff
+const char* ssid = „maschinenraum“;
+const char* pwd = „maschinenraum“;
 const char* host = "192.168.1.100";
 const int recv_port = 9999;
 const int send_port = 9998;
 
+// ArduinoOSC
+const char* host = "192.168.1.140";
+const int recv_port = 9999;
+const int send_port = 9998;
+
+// servos
+Servo s1;
+Servo s2;
 uint8_t servo1Pin = D1;
 uint8_t servo2Pin = D2;
 
@@ -44,37 +47,36 @@ void setup() {
   }
   Serial.print("WiFi connected, IP = "); Serial.println(WiFi.localIP());
 
-  // ArduinoOSC
-  osc.begin(recv_port);
 
   delay(1000);
 
   //say hello to the server in the pattern: name, ip address
-  osc.send(host, send_port, "/hello", name, ip.toString());
+  OscWiFi.send(host, send_port, "/hello", name, ip.toString());
   delay(1000);
 
-  osc.subscribe("/position", [](OscMessage & m) {
+  OscWiFi.subscribe(recv_port, "/position", [](OscMessage & m) {
 
-    /*
-    Serial.print("PosMsg : ");
-         
-    Serial.print(m.ip()); Serial.print(" ");
-    Serial.print(m.port()); Serial.print(" ");
+
+    /* Serial.print("PosMsg : ");
+
+    Serial.print(m.remoteIP()); Serial.print(" ");
+    Serial.print(m.remotePort()); Serial.print(" ");
     Serial.print(m.size()); Serial.print(" ");
     Serial.print(m.address()); Serial.print(" ");
-    Serial.println(m.arg<int>(0));
-    */
+    Serial.print(m.arg<float>(0)); Serial.print(" ");
+    Serial.println(m.arg<float>(1)); */
+
 
     float x = m.arg<float>(0);
     float y = m.arg<float>(1);
-    
+
     /*
-    Serial.print("x: ");
-    Serial.println(x);
-    Serial.print("y: ");
-    Serial.println(y);
+      Serial.print("x: ");
+      Serial.println(x);
+      Serial.print("y: ");
+      Serial.println(y);
     */
-    
+
     positionControl(x, y);
 
   });
@@ -82,8 +84,7 @@ void setup() {
 }
 
 void loop() {
-  osc.parse(); // should be called
-
+  OscWiFi.parse();
 }
 
 float float_map(float x, float in_min, float in_max, float out_min, float out_max)
@@ -98,9 +99,9 @@ void positionControl(float x, float y) {
   s2.write(m_y);
 
   /*
-  Serial.print("x: ");
-  Serial.print(m_x);
-  Serial.print(" y: ");
-  Serial.println(m_y);
+    Serial.print("x: ");
+    Serial.print(m_x);
+    Serial.print(" y: ");
+    Serial.println(m_y);
   */
 }
