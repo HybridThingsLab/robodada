@@ -121,7 +121,9 @@ $cam_height: 45vh;
         border: $stroke-weight solid black;
         border-radius: 6vh;
 
-        .camera        
+        .camera      
+            position: relative;
+            overflow: hidden;
             height: $cam_height;
             width: calc((#{$cam_height}/9) * 16);
 
