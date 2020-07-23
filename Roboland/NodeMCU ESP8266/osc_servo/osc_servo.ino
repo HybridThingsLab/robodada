@@ -1,7 +1,7 @@
 // documentation ESP8266: https://www.mikrocontroller-elektronik.de/nodemcu-esp8266-tutorial-wlan-board-arduino-ide/
 
 // config 
-#include <config.h>
+#include "config.h"
 
 // libraries
 #include <ArduinoOSC.h> // https://github.com/hideakitai/ArduinoOSC
@@ -11,16 +11,16 @@
 const String name = "Bender";
 
 // WIFI stuff
-const char* ssid = „maschinenraum“;
-const char* pwd = „maschinenraum“;
-const char* host = "192.168.1.100";
-const int recv_port = 9999;
-const int send_port = 9998;
+const char* ssid = SSID_NAME;
+const char* pwd = PWD;
+const IPAddress ip(IP);
+const IPAddress gateway(GATEWAY);
+const IPAddress subnet(SUBNET);
 
 // ArduinoOSC
-const char* host = "192.168.1.140";
-const int recv_port = 9999;
-const int send_port = 9998;
+const char* host = HOST;
+const int recv_port = RECV_PORT;
+const int send_port = SEND_PORT; 
 
 // servos
 Servo s1;
