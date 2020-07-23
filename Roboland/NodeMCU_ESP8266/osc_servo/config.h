@@ -7,4 +7,3 @@
 #define HOST "192, 168, 0, 21" // ip of the machine running ROBODADA Server
 #define RECV_PORT 9999 // receive port OSC
 #define SEND_PORT 9998 // send port
-port
