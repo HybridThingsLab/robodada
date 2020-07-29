@@ -1,3 +1,18 @@
+@font-face {
+  font-family: 'Nunito';
+  font-weight: 400;
+  src: url("fonts/nunito/Nunito-Regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Nunito';
+  font-weight: 700;
+  src: url("fonts/nunito/Nunito-Bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Nunito';
+  font-weight: 600;
+  src: url("fonts/nunito/Nunito-SemiBold.ttf") format("truetype"); }
+
 html {
   height: 100%;
   box-sizing: border-box;
@@ -10,7 +25,7 @@ html::-webkit-scrollbar {
 body {
   margin: 0;
   font-family: Nunito, proxima-soft, sans-serif;
-  font-weight: 1000;
+  font-weight: 700;
   font-style: normal;
   font-size: 5vh;
   line-height: 100%;
@@ -238,6 +253,8 @@ body {
     border: 0.8vh solid black;
     border-radius: 6vh; }
     .camera-wrapper .camera-border .camera {
+      position: relative;
+      overflow: hidden;
       height: 45vh;
       width: calc((45vh/9) * 16);
       border: 0.8vh solid black;
@@ -269,17 +286,18 @@ body {
 
 .cam-video {
   display: block;
-  max-width: 100%;
+  width: 100%;
   z-index: 0;
   top: 0;
   left: 0; }
 
 .emoji-canvas {
-  position: relative;
+  position: absolute;
   top: -45vh;
   left: 0;
+  top: 0;
   z-index: 1;
-  max-width: 100%;
+  width: 100%;
   pointer-events: none; }
 
 /*# sourceMappingURL=_maps/style.css.map */
