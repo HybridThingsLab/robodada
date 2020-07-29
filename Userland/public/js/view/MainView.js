@@ -90,7 +90,7 @@ class MainView {
     switchToPlanningView(){
         console.log("switching to planning view");
         let cam_button = document.querySelector(".camera-button");
-        document.getElementsByClassName("main-screen")[0].style.transform = "translate(0, 0)";
+        document.getElementsByClassName("main-screen")[0].style.transform = "";
         cam_button.firstElementChild.innerHTML = "<p>activate&nbsp;cam</p>";
         cam_button.lastElementChild.src = "img/menu/camera_on.svg";
     }

@@ -1,5 +1,5 @@
 ////IMPLEMENTS CUSTOM CURSORS TO REPLACE THE HIDDEN REAL CURSOR
-$(document).ready(function() {
+$(window).on("load", function() {
     let cursor = document.querySelector(".cursor");
     let page = document.querySelector("html");
     page.addEventListener('mousemove', function(evt) {
