@@ -46,12 +46,7 @@ void setup() {
     delay(500);
   }
   Serial.print("WiFi connected, IP = "); Serial.println(WiFi.localIP());
-
-
-  delay(1000);
-
-  //say hello to the server in the pattern: name, ip address
-  OscWiFi.send(host, send_port, "/hello", name, ip.toString());
+    
   delay(1000);
 
   OscWiFi.subscribe(recv_port, "/position", [](OscMessage & m) {
@@ -80,6 +75,15 @@ void setup() {
     positionControl(x, y);
 
   });
+
+  OscWiFi.subscribe(recv_port,"/hello", [](OscMessage & m) {
+    Serial.print(m.remoteIP()); Serial.print(" ");
+    Serial.print(m.remotePort()); Serial.print(" ");
+    Serial.print(m.size()); Serial.print(" ");
+    Serial.print(m.address()); Serial.print(" ");   
+  
+  });
+  
 
 }
 
