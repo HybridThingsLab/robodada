@@ -12,5 +12,6 @@ let mainController = new MainController(
     new PathDrawingController(),
     new PlaybackController(),
     new RobotView(),
-    new DonutView()
+    new DonutView(),
+    new AvailableRobotsController()
 );

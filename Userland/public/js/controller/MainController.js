@@ -1,5 +1,5 @@
 class MainController extends EventTarget{    
-    constructor(mainView, emotionDetectionController, mainModel, mainMenuView, pathDrawingOverlayView, emotionModel, pathDrawingController, playbackController, robotView, donutView){
+    constructor(mainView, emotionDetectionController, mainModel, mainMenuView, pathDrawingOverlayView, emotionModel, pathDrawingController, playbackController, robotView, donutView, availableRobotsController){
 
         super();
 
@@ -64,6 +64,9 @@ class MainController extends EventTarget{
          */
         this.playbackController = playbackController;
         addEventListener("notifyDetectedEmotionPlayback", this._handleDetectedEmotionPlayback.bind(this));
+
+        this.availableRobotsController = availableRobotsController;
+        addEventListener("notifyRecievedNewAvailableRobotsList", this._handleRecievedNewAvailableRobotsList.bind(this));
 
         /**
          * manage main model
@@ -344,5 +347,8 @@ class MainController extends EventTarget{
         this._openedWindow.postMessage(this.mainModel.selectedEmotion, "*");
     }
 
-    
+    //TODO
+    _handleRecievedNewAvailableRobotsList(event){
+        this.mainModel.availableRobots = event.detail;
+    }
 }
