@@ -15,28 +15,41 @@ class PathDrawingController {
 
     /**
      * @description begins drawing of path, dispatches RecordingStateEvent
-     * @param {MouseEvent} mouseEvent 
+     * @param {PointerEvent} pointerEvent 
      */
-    _beginDraw(mouseEvent){
+    _beginDraw(pointerEvent){
         this._dispatchRecordingStateEvent("during");
-        this._setMouseCoordinates(mouseEvent);
+        this._setPointerCoordinates(pointerEvent);
+        document.getElementById("canvas").setPointerCapture(pointerEvent.pointerId);
     }
     
     /**
      * @description stops drawing of path, dispatches RecordingStateEvent
-     * @param {MouseEvent} mouseEvent 
+     * @param {PointerEvent} pointerEvent 
      */
-    _endDraw(mouseEvent){
+    _endDraw(pointerEvent){
+        document.getElementById("canvas").releasePointerCapture(pointerEvent.pointerId);
         this._dispatchRecordingStateEvent("after");
     }
     
     /**
-     * @description saves coordinates from mouseEvent to controller specific variables
-     * @param {MouseEvent} mouseEvent 
+     * @description saves coordinates from pointerEvent to controller specific variables
+     * @param {PointerEvent} pointerEvent 
      */
-    _setMouseCoordinates(mouseEvent){
-        this._xValueNormalized = mouseEvent.offsetX / mouseEvent.target.width;
-        this._yValueNormalized = mouseEvent.offsetY / mouseEvent.target.height;
+    _setPointerCoordinates(pointerEvent){
+        this._xValueNormalized = this._clampValue(pointerEvent.offsetX / pointerEvent.target.width, 0.0, 1.0);
+        this._yValueNormalized = this._clampValue(pointerEvent.offsetY / pointerEvent.target.height, 0.0, 1.0);
+    }
+
+    /**
+     * @description clamps a value between two points, utility function for _setPointerCoordinates
+     * @param {float} val 
+     * @param {float} min 
+     * @param {float} max 
+     * @returns {float} clamped value
+     */
+    _clampValue(val, min, max){
+        return Math.min(Math.max(min, val), max);
     }
     
     /**
@@ -79,14 +92,14 @@ class PathDrawingController {
     }
 
     /**
-     * @description handles all MouseEvents and delegates to different functions based on MouseEvent.type
-     * @param {MouseEvent} mouseEvent 
+     * @description handles all PointerEvents and delegates to different functions based on PointerEvent.type
+     * @param {PointerEvent} pointerEvent 
      */
-    handleInput(mouseEvent) {
-        switch(mouseEvent.mouseEvent.type){
-            case "mousedown": this._beginDraw(mouseEvent.mouseEvent); break;
-            case "mouseup": this._endDraw(mouseEvent.mouseEvent); break;
-            case "mousemove": this._setMouseCoordinates(mouseEvent.mouseEvent); break;
+    handleInput(pointerEvent) {
+        switch(pointerEvent.pointerEvent.type){
+            case "pointerdown": this._beginDraw(pointerEvent.pointerEvent); break;
+            case "pointerup": this._endDraw(pointerEvent.pointerEvent); break;
+            case "pointermove": this._setPointerCoordinates(pointerEvent.pointerEvent); break;
         }
     }                            
 }

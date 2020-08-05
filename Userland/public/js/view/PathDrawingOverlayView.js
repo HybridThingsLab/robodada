@@ -43,12 +43,12 @@ class PathDrawingOverlayView{
     }
 
     /**
-     * @description adds mouse event listeners to drawing canvas
+     * @description adds pointer event listeners to drawing canvas
      */
     _addCanvasEventListeners(){
-        this._canvas.addEventListener('mousedown', this._mouseevent.bind(this));
-        this._canvas.addEventListener('mouseup', this._mouseevent.bind(this));
-        this._canvas.addEventListener('mousemove', this._mouseevent.bind(this));
+        this._canvas.addEventListener('pointerdown', this._pointerevent.bind(this));
+        this._canvas.addEventListener('pointerup', this._pointerevent.bind(this));
+        this._canvas.addEventListener('pointermove', this._pointerevent.bind(this));
     }
 
     /**
@@ -78,7 +78,7 @@ class PathDrawingOverlayView{
         })
         
         //stop recording when button is no longer pressed when outside canvas
-        this._overlay.addEventListener('mouseup', this._mouseevent.bind(this));
+        this._overlay.addEventListener('pointerup', this._pointerevent.bind(this));
     }
 
     /**
@@ -109,14 +109,14 @@ class PathDrawingOverlayView{
     }
 
     /**
-     * @description dispatches mouse event
-     * @event PathDrawingOverlayView#notifyMouseEvent notifies of any events regarding the mouse (mouseup, mousedown, mousemove)
-     * @property {mouseEvent} mouseEvent
+     * @description dispatches pointer event
+     * @event PathDrawingOverlayView#notifyPointerEvent notifies of any events regarding the pointer (pointerup, pointerdown, pointermove)
+     * @property {pointerEvent} pointerEvent
      */
-    _mouseevent(mouseevent){
-        let notifyMouseEvent = new CustomEvent("notifyMouseEvent");
-        notifyMouseEvent.mouseEvent = mouseevent;
-        dispatchEvent(notifyMouseEvent);
+    _pointerevent(pointerevent){
+        let notifyPointerEvent = new CustomEvent("notifyPointerEvent");
+        notifyPointerEvent.pointerEvent = pointerevent;
+        dispatchEvent(notifyPointerEvent);
     }
 
     /**

@@ -29,7 +29,7 @@ class MainController extends EventTarget{
          */
         this.pathDrawingOverlayView = pathDrawingOverlayView;
         addEventListener("notifyCloseOverlay", this._handleCloseOverlay.bind(this));
-        addEventListener("notifyMouseEvent", this._handleMouseEvent.bind(this));
+        addEventListener("notifyPointerEvent", this._handlePointerEvent.bind(this));
         addEventListener("notifyDeleteEvent", this._handlePathDeletion.bind(this));
         addEventListener("notifyLoopEvent", this._handleLoopEvent.bind(this));
         addEventListener("notifyPlaybackEvent", this._handlePlaybackEvent.bind(this));
@@ -222,15 +222,15 @@ class MainController extends EventTarget{
     }
 
     /**
-     * @description Handle mouse input based on recording state
+     * @description Handle pointer input based on recording state
      * 
-     * @param {mouseEvent} mouseEvent 
+     * @param {pointerEvent} pointerEvent 
      */
-    _handleMouseEvent(mouseEvent) {
+    _handlePointerEvent(pointerEvent) {
         let recordingState = this.mainModel.selectedEmotion.recordingState;
         if(recordingState == "before" || recordingState == "during"){
-            this.pathDrawingController.handleInput(mouseEvent);
-        } else if(mouseEvent.mouseEvent.type == 'mousedown') {
+            this.pathDrawingController.handleInput(pointerEvent);
+        } else if(pointerEvent.pointerEvent.type == 'pointerdown') {
             this.pathDrawingOverlayView.bounceTrashcan();
         }
     }
