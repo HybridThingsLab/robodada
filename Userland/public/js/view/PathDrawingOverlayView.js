@@ -20,6 +20,7 @@ class PathDrawingOverlayView{
         this._play = document.querySelector(".play");
         this._addEventListeners();
         this._colors = {"green": "#6bc95d", "red": "#EB3017", "orange": "#E27022"};
+        this._loadBackgroundImage();
     }
 
     /**
@@ -119,11 +120,33 @@ class PathDrawingOverlayView{
     }
 
     /**
+     * @description loads background image for canvas from disk
+     */
+    _loadBackgroundImage(){
+        this._backgroundImage = new Image();
+        this._backgroundImage.onload = function(){};
+        this._backgroundImage.src = "img/overlay/robot_movement.svg";
+    }
+
+    /**
      * @description clears canvas of any drawing
      */
     clearCanvas(){
         let context = this._canvas.getContext("2d");
         context.clearRect(0, 0, this._canvas.width, this._canvas.height);
+        this._drawBackgroundImage();
+    }
+
+    /**
+     * @description draws background of canvas, once per frame
+     */
+    _drawBackgroundImage(){
+        let context = this._canvas.getContext("2d");
+        let _imageScale = 0.8;
+        if(this._backgroundImage.width > 0)
+            context.globalAlpha = 0.1;
+            context.drawImage(this._backgroundImage, this._canvas.width * (1.0 - _imageScale) / 2.0, this._canvas.height * (1.0 - _imageScale) / 2.0, this._canvas.width * _imageScale, this._canvas.height * _imageScale);
+            context.globalAlpha = 1.0;
     }
 
     /**
