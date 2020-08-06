@@ -10,7 +10,6 @@ class RobotView {
      * @param {float} y 
      */
     handleMovementCommand(robotName, x, y) {
-        robotName = "Bender";
         console.log(robotName, "moveto:", x, y);
 
         this.socket.emit('moveToMsg', {
