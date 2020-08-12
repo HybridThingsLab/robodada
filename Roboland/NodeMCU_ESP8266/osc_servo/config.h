@@ -4,4 +4,3 @@
 #define PWD "password of your WiFi"
 
 #define RECV_PORT 9999 // receive port OSC
-#define SEND_PORT 9998 // send port

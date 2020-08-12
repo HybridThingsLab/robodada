@@ -6,8 +6,7 @@ var os = require('os');
 module.exports = class Controller {
     constructor(model){
         this.model = model;
-        let self = this;
-
+        
         this.udpPort = new osc.UDPPort({
             localAddress: "0.0.0.0",
             localPort: 9999,
@@ -21,12 +20,8 @@ module.exports = class Controller {
             
             switch(oscMsg.address){
                 case "/helloServer":
-                    let robot = model.helloRobot(oscMsg);
-                    self.moveTo({
-                        name: robot.name,
-                        x: 60,
-                        y: 60
-                    });
+                    console.log("Hello Server received from ");
+                    console.log(oscMsg);                    
                     break;
                 
             }
@@ -35,8 +30,10 @@ module.exports = class Controller {
         
         this.udpPort.on("ready", function(){
             console.log("UDP ready");
-            self.searchRobots();
-        });
+
+            //look for robots every 15s
+            setInterval(this.searchRobots.bind(this), 15000);
+        }.bind(this));
     }
     
 
@@ -58,7 +55,8 @@ module.exports = class Controller {
         
     }
 
-    searchRobots(){        
+    searchRobots(){ 
+        
         let ifaces = os.networkInterfaces();
         let searchIf = "";
         let searchalias;
