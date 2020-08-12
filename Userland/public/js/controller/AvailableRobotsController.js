@@ -17,4 +17,13 @@ class AvailableRobotsController {
     claimRobot(robotName) {
         this.socket.emit("claimRobotMessage", {robotName: robotName});
     }
+
+    /**
+     * @description notifies server that robot has been released
+     * @param {string} robotName 
+     */
+    //TODO
+    releaseRobot(robotName) {
+        this.socket.emit("releaseRobotMessage", {robotName: robotName});
+    }
 }

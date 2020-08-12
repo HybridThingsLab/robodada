@@ -65,8 +65,13 @@ class MainController extends EventTarget{
         this.playbackController = playbackController;
         addEventListener("notifyDetectedEmotionPlayback", this._handleDetectedEmotionPlayback.bind(this));
 
+        /**
+         * Manage available robots controller
+         */
         this.availableRobotsController = availableRobotsController;
         addEventListener("notifyRecievedNewAvailableRobotsList", this._handleRecievedNewAvailableRobotsList.bind(this));
+        addEventListener("notifyClaimRobot", this._handleClaimRobot().bind(this));
+        addEventListener("notifyReleaseRobot", this._handleReleaseRobot().bind(this));
 
         /**
          * manage main model
@@ -347,8 +352,30 @@ class MainController extends EventTarget{
         this._openedWindow.postMessage(this.mainModel.selectedEmotion, "*");
     }
 
-    //TODO
-    _handleRecievedNewAvailableRobotsList(event){
-        this.mainModel.availableRobots = event.detail;
+    
+    /**
+     * @description Will be triggered by an incoming message from the server when the list of available robots has changed.
+     * @param {event} e
+     */
+    _handleRecievedNewAvailableRobotsList(e){
+        this.mainModel.availableRobots = e.detail;
+    }
+
+    /**
+     * @description This function will be triggered by the views "notifyClaimRobot" event. It saves the name of the claimed robot in the main model.
+     * @param {event} e
+     */
+    _handleClaimRobot(e){
+        this.mainModel.connectedRobotName = e.robotName;
+        this.availableRobotsController.claimRobot(this.mainModel.connectedRobotName);
+    }
+    
+    /**
+     * @description This function will be triggered by the views "notifyReleaseRobot" event. It unsets the connectedRobotName field in the main model.
+     * @param {event} e
+     */
+    _handleReleaseRobot(){
+        this.availableRobotsController.releaseRobot(this.mainModel.connectedRobotName);
+        this.mainModel.connectedRobotName = undefined;
     }
 }
