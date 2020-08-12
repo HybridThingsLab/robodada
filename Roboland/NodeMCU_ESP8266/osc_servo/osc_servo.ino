@@ -49,7 +49,7 @@ void setup() {
     positionControl(x, y);
   });
 
-  OscWiFi.subscribe(RECV_PORT,"/hello", [](OscMessage & m) {
+  OscWiFi.subscribe(RECV_PORT,"/helloRobot", [](OscMessage & m) {
     Serial.print(m.remoteIP()); Serial.print(" ");
     Serial.print(m.remotePort()); Serial.print(" ");
     Serial.print(m.size()); Serial.print(" ");

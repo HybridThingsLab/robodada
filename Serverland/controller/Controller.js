@@ -16,11 +16,11 @@ module.exports = class Controller {
 
         this.udpPort.open();
 
-        /*
+        
         this.udpPort.on("message", function(oscMsg){
             
             switch(oscMsg.address){
-                case "/hello":
+                case "/helloServer":
                     let robot = model.helloRobot(oscMsg);
                     self.moveTo({
                         name: robot.name,
@@ -31,7 +31,7 @@ module.exports = class Controller {
                 
             }
         });
-        */
+        
         
         this.udpPort.on("ready", function(){
             console.log("UDP ready");
@@ -93,9 +93,7 @@ module.exports = class Controller {
        
         for(let n = 0; n<netmask.length; n++){
             cnt = cnt + parseInt(netmask[n]);
-        }
-
-        
+        }        
 
         if(cnt != 3*255){
             console.log("The robosearch works only for class-c nets at the moment...sorry!");
@@ -108,9 +106,8 @@ module.exports = class Controller {
         for(let i = 1; i<255; i++){
             let searchip = ipstring+i;                     
             this.udpPort.send({
-                address: "/hello",
-                args: []
-    
+                address: "/helloRobot",
+                args: []    
             }, searchip, 9999);
             
         }
