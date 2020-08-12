@@ -7,8 +7,10 @@ const path = require('path');
 var config = require('../config');
 
 module.exports = class WebController{
-    constructor(){
+    constructor(model){
+        
         let self = this;
+        this._model = model;
         server.listen(webPort, function(){
             console.log("Listening on "+webPort+" in "+__dirname);
         });
@@ -17,15 +19,21 @@ module.exports = class WebController{
         app.use(express.static(path.join(__dirname + config.frontend_location_relative)));
                 
         io.on('connection', function(socket){
-            socket.on('moveToMsg', function(e){
-                console.log("send new value " +e.x+ " to "+e.y);
+            socket.on('moveToMsg', function(e){                
                 self.controller.moveTo(e);
             })
-        });   
+        });
+        
+        this._model.on("notifyRobotListChanged", this._notifyRobotListChangedClients.bind(this));
         
     }
 
     setController(controller){
         this.controller = controller;
+    }
+
+    _notifyRobotListChangedClients(robots){
+       
+        io.emit("availableRobotsMessage", robots);        
     }
 }

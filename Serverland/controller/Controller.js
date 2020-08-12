@@ -14,15 +14,11 @@ module.exports = class Controller {
             setInterval(this.searchRobots.bind(this), 15000);
         });
         
-        this.oscserver.on("message", function(oscMsg, rinfo){
-                  
-            console.log("Hello Server received from ");
-            console.log(oscMsg);
-            console.log(rinfo);
+        this.oscserver.on("message", function(oscMsg, rinfo){                  
+            
             switch(oscMsg[0]){
                 case '/helloServer':
-                    let newRobot = new Robot(oscMsg[1], rinfo.address);
-                    console.log(model);
+                    let newRobot = new Robot(oscMsg[1], rinfo.address);                    
                     //check if robot is already in database
                     if(! model.robots.find(element => element.name == newRobot.name)){
                         model.addRobot(newRobot);
@@ -33,31 +29,23 @@ module.exports = class Controller {
                     console.warn('Undefined robot msg!');
             }
                              
-        });
-        
-        
-       
-
-               
-    }
+        });              
+    }   
     
-    //TODO: rewrite for node-osc, and roboname
     moveTo(moveMsg){
-        
-        this.udpPort.send({
-            address: "/position",
-            args: [
-                {
-                    type: "f",
-                    value: moveMsg.x
-                },
-                {
-                    type:"f",
-                    value: moveMsg.y
-                }            
-            ]
-        }, config.robot_ip, 9999);
-        
+        if(this.model.robots.find(element => element.name == moveMsg.name)){
+            let client_send = new osc.Client(this.getRobotIpFromName(moveMsg.name), '9999');
+            client_send.send('/position',moveMsg.x, moveMsg.y, () => {
+                client_send.close();
+            })
+        } else {
+            console.warn("Requested Robot "+ moveMsg.name +" does not exist!");
+        }        
+              
+    }
+
+    getRobotIpFromName(name){
+        return this.model.robots.find(element => element.name == name).ip;
     }
 
     searchRobots(){ 
@@ -112,7 +100,7 @@ module.exports = class Controller {
             client_send.send('/helloRobot','',() => {client_send.close(); });                                
         }
        
-    }
+    }    
 
 }
 

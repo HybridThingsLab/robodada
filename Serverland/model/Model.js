@@ -1,18 +1,23 @@
-module.exports = class Model {
+const EventEmitter = require('events');
+
+module.exports = class Model extends EventEmitter{
     constructor(){
+        super();
         this._robots = [];
     }    
     
     addRobot(robot){
         this._robots.push(robot);
         console.log("Added " + JSON.stringify(robot) + "to robots");
+        this.dispatchRobotListChanged();
     }
 
     get robots(){
         return this._robots;
     }
 
-    getRobotIpFromName(name){
-        return this.robots.find(element => element.name == name).ip;
+    dispatchRobotListChanged(){
+        this.emit("notifyRobotListChanged", this.robots);       
     }
+   
 }
