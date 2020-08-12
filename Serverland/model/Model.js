@@ -1,5 +1,3 @@
-var Robot = require("./Robot");
-
 module.exports = class Model {
     constructor(){
         this._robots = [];
@@ -10,7 +8,7 @@ module.exports = class Model {
         console.log("Added " + JSON.stringify(robot) + "to robots");
     }
 
-    get robots() {
+    get robots(){
         return this._robots;
     }
 

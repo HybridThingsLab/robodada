@@ -1,6 +1,7 @@
 var osc = require('node-osc');
 var config = require('../config');
 var os = require('os');
+var Robot = require("../model/Robot");
 
 
 module.exports = class Controller {
@@ -13,17 +14,18 @@ module.exports = class Controller {
             setInterval(this.searchRobots.bind(this), 15000);
         });
         
-        this.oscserver.on("message", function(oscMsg, rinfo){               
+        this.oscserver.on("message", function(oscMsg, rinfo){
+                  
             console.log("Hello Server received from ");
             console.log(oscMsg);
             console.log(rinfo);
             switch(oscMsg[0]){
                 case '/helloServer':
                     let newRobot = new Robot(oscMsg[1], rinfo.address);
-
+                    console.log(model);
                     //check if robot is already in database
-                    if(! this.model.robots().find(element => element.name == newRobot.name)){
-                        this.model.addRobot(newRobot);
+                    if(! model.robots.find(element => element.name == newRobot.name)){
+                        model.addRobot(newRobot);
                     }
 
                     break;
