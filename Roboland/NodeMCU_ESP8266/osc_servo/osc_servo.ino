@@ -19,7 +19,6 @@ uint8_t servo2Pin = D2;
 
 // server
 String server_ip;
-int server_port;
 
 void setup() {
   Serial.begin(115200);
@@ -58,10 +57,9 @@ void setup() {
     Serial.print(m.size()); Serial.print(" ");
     Serial.print(m.address()); Serial.print(" ");
 
-    server_ip = m.remoteIP();
-    server_port = m.remotePort();
+    server_ip = m.remoteIP();    
 
-    OscWiFi.publish(server_ip, server_port, "/helloServer", ROBO_NAME);
+    OscWiFi.publish(server_ip, SEND_PORT, "/helloServer", ROBO_NAME);
     OscWiFi.post();
   });
 }

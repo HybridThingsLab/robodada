@@ -7,29 +7,25 @@ module.exports = class Controller {
     constructor(model){
         this.model = model;
         
-        this.oscserver = new osc.Server(9999, '0.0.0.0');
+        this.oscserver = new osc.Server(9998, '0.0.0.0', () => {
+            //when server is running, look for robots every 15s
+            this.searchRobots();
+            setInterval(this.searchRobots.bind(this), 15000);
+        });
         
-        this.oscserver.on("message", function(oscMsg, rinfo){
-            
-            switch(oscMsg.address){
-                case "/helloServer":
-                    console.log("Hello Server received from ");
-                    console.log(oscMsg);
-                    console.log(rinfo);                    
-                    break;
-                
-            }
+        this.oscserver.on("message", function(oscMsg, rinfo){               
+            console.log("Hello Server received from ");
+            console.log(oscMsg);
+            console.log(rinfo);               
         });
         
         
        
 
-        //look for robots every 15s
-        this.searchRobots();
-        setInterval(this.searchRobots.bind(this), 15000);       
+               
     }
     
-
+    //TODO: rewrite for node-osc
     moveTo(moveMsg){
         
         this.udpPort.send({
