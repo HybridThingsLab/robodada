@@ -15,10 +15,10 @@ class DonutView {
         return (function(p){
             let width = window.innerHeight;
             let height = window.innerHeight * 0.15;
-            let strokeWeight = 6;
+            let strokeWeight = p.windowHeight / 200;
             let donutScale = 0.9;
             let innerDonutScale = 0.7;
-            let emojiScale = 1.6;
+            let emojiScale = 1.55;
             let emojiNames = ["angry", "disgusted", "fearful", "happy", "neutral", "sad", "surprised"];
             let emojiPath = "img/emotions/";
             let graphColor = "#A2D2F9";
