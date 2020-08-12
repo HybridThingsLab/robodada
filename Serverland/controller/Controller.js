@@ -16,7 +16,21 @@ module.exports = class Controller {
         this.oscserver.on("message", function(oscMsg, rinfo){               
             console.log("Hello Server received from ");
             console.log(oscMsg);
-            console.log(rinfo);               
+            console.log(rinfo);
+            switch(oscMsg[0]){
+                case '/helloServer':
+                    let newRobot = new Robot(oscMsg[1], rinfo.address);
+
+                    //check if robot is already in database
+                    if(! this.model.robots().find(element => element.name == newRobot.name)){
+                        this.model.addRobot(newRobot);
+                    }
+
+                    break;
+                default:
+                    console.warn('Undefined robot msg!');
+            }
+                             
         });
         
         
@@ -25,7 +39,7 @@ module.exports = class Controller {
                
     }
     
-    //TODO: rewrite for node-osc
+    //TODO: rewrite for node-osc, and roboname
     moveTo(moveMsg){
         
         this.udpPort.send({
