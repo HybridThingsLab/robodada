@@ -11,11 +11,6 @@
 const char* ssid = SSID_NAME;
 const char* pwd = PWD;
 
-// ArduinoOSC
-const char* host = HOST;
-const int recv_port = RECV_PORT;
-const int send_port = SEND_PORT; 
-
 // servos
 Servo s1;
 Servo s2;
@@ -48,13 +43,13 @@ void setup() {
     
   delay(1000);
 
-  OscWiFi.subscribe(recv_port, "/position", [](OscMessage & m) {
+  OscWiFi.subscribe(RECV_PORT, "/position", [](OscMessage & m) {
     float x = m.arg<float>(0);
     float y = m.arg<float>(1);
     positionControl(x, y);
   });
 
-  OscWiFi.subscribe(recv_port,"/hello", [](OscMessage & m) {
+  OscWiFi.subscribe(RECV_PORT,"/hello", [](OscMessage & m) {
     Serial.print(m.remoteIP()); Serial.print(" ");
     Serial.print(m.remotePort()); Serial.print(" ");
     Serial.print(m.size()); Serial.print(" ");
