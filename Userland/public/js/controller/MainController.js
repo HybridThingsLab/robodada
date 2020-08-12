@@ -372,7 +372,6 @@ class MainController extends EventTarget{
     
     /**
      * @description This function will be triggered by the views "notifyReleaseRobot" event. It unsets the connectedRobotName field in the main model.
-     * @param {event} e
      */
     _handleReleaseRobot(){
         this.availableRobotsController.releaseRobot(this.mainModel.connectedRobotName);
