@@ -11,6 +11,7 @@ class RobotView {
      */
     handleMovementCommand(robotName, x, y) {
         console.log(robotName, "moveto:", x, y);
+        robotName = "Bender";
 
         this.socket.emit('moveToMsg', {
             name: robotName,
