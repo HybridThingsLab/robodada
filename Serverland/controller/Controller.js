@@ -48,6 +48,10 @@ module.exports = class Controller {
         return this.model.robots.find(element => element.name == name).ip;
     }
 
+    getRobotByName(name){
+        return this.model.robots.find(element => element.name == name);
+    }
+
     searchRobots(){ 
         
         let ifaces = os.networkInterfaces();
@@ -100,8 +104,9 @@ module.exports = class Controller {
             client_send.send('/helloRobot','',() => {client_send.close(); });                                
         }
        
-    }    
-
+    }
+    
+    
 }
 
 
