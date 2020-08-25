@@ -22,6 +22,28 @@ module.exports = class WebController{
             socket.on('moveToMsg', function(e){                
                 self.controller.moveTo(e);
             })
+
+            socket.on('getAvailableRobots', function(e){
+                self._sendAvailableRobots(socket);
+            })
+
+            socket.on('claimRobot', function(e){
+                //check if robot exists
+                if(self.controller.getRobotByName(e.name)){
+                    self._model.claimRobot(name, socket.id);
+                    socket.emit("robotClaimed", self.controller.getRobotByName(e.name));
+                } else {
+                    console.warn("Client tried to claim nonexistent robot");
+                    socket.emit("robotClaimed", false);
+                }
+            })
+
+            socket.on('releaseRobot', function(e){
+
+            })
+
+            self._sendAvailableRobots(socket);            
+            
         });
         
         this._model.on("notifyRobotListChanged", this._notifyRobotListChangedClients.bind(this));
@@ -32,8 +54,11 @@ module.exports = class WebController{
         this.controller = controller;
     }
 
-    _notifyRobotListChangedClients(robots){
-       
+    _notifyRobotListChangedClients(robots){       
         io.emit("availableRobotsMessage", robots);        
+    }
+
+    _sendAvailableRobots(sck){
+        sck.emit("availableRobotsMessage", this._model.robots);
     }
 }
