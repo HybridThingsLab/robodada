@@ -27,19 +27,26 @@ module.exports = class WebController{
                 self._sendAvailableRobots(socket);
             })
 
-            socket.on('claimRobot', function(e){
+            socket.on('claimRobot', function(name){
                 //check if robot exists
-                if(self.controller.getRobotByName(e.name)){
+                if(self.controller.getRobotByName(name)){
                     self._model.claimRobot(name, socket.id);
-                    socket.emit("robotClaimed", self.controller.getRobotByName(e.name));
+                    socket.emit("robotClaimed", self.controller.getRobotByName(name));
                 } else {
-                    console.warn("Client tried to claim nonexistent robot");
+                    console.warn("Client tried to claim nonexistent robot!");
                     socket.emit("robotClaimed", false);
                 }
             })
 
             socket.on('releaseRobot', function(e){
-
+                
+                if(self.controller.getRobotBySocketId(socket)){
+                    self._model.releaseRobot(self.controller.getRobotBySocketId(socket).name);
+                    socket.emit("robotReleased", self.controller.getRobotBySocketId(socket));
+                } else {
+                    console.warn("Client tried to release a robot that he didn't claim or does not exist!");
+                    socket.emit("robotReleased", false);
+                }
             })
 
             self._sendAvailableRobots(socket);            
@@ -55,7 +62,9 @@ module.exports = class WebController{
     }
 
     _notifyRobotListChangedClients(robots){       
-        io.emit("availableRobotsMessage", robots);        
+        io.emit("availableRobotsMessage", robots);
+        console.log("send available robots message");
+        console.log(robots);        
     }
 
     _sendAvailableRobots(sck){

@@ -14,11 +14,17 @@ module.exports = class Model extends EventEmitter{
     }
 
     claimRobot(name, clientSocketId){
-        this._robots[name].state = RobotState.CLAIMED;
-        this._robots[name].clientDetails = {
+        this._robots.find(element => element.name == name).state = RobotState.CLAIMED;
+        this._robots.find(element => element.name == name).clientDetails = {
             id: clientSocketId
         }
 
+        this.dispatchRobotListChanged();
+    }
+
+    releaseRobot(name){
+        this._robots.find(element => element.name == name).state = RobotState.AVAILABLE;
+        this._robots.find(element => element.name == name).clientDetails = {};
         this.dispatchRobotListChanged();
     }
 

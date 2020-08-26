@@ -1,7 +1,7 @@
 var osc = require('node-osc');
 var config = require('../config');
 var os = require('os');
-var Robot = require("../model/Robot");
+var Robot = require("../model/Robot").Robot;
 
 
 module.exports = class Controller {
@@ -50,6 +50,10 @@ module.exports = class Controller {
 
     getRobotByName(name){
         return this.model.robots.find(element => element.name == name);
+    }
+
+    getRobotBySocketId(socket){
+        return this.model.robots.find(element => element.clientDetails.id == socket.id); 
     }
 
     searchRobots(){ 
