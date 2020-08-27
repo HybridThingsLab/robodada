@@ -6,7 +6,7 @@
     top: 0;
     z-index: 1;
     display: none;
-    
+
     .close
         position: fixed;
         top: 10px;
@@ -19,19 +19,26 @@
         padding: 2vh;
         p
             transform: translate(0, 2px);
-
+    
     .instructions
         text-align: center;
         margin-top: 5vh;
 
     .interface-wrapper
-        width: 45vh;
-        height: 60vh;
         margin: auto;
         display: flex;
         flex-wrap: wrap;
         justify-content: center; 
 
+.robo-chooser-overlay
+    .interface-wrapper
+        width: 60vw;
+        height: 70vh;
+
+.drawing-overlay
+    .interface-wrapper
+        width: 45vh;
+        height: 60vh;
         .canvas-panel            
             border: $stroke-weight solid black;
             border-radius: 1.5rem;

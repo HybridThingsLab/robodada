@@ -12,9 +12,25 @@ class MainMenuView{
     _addButtonEventListeners() {
         this._addEmotionEventlisteners();
         this._addCameraEventlistener();
+        this._addMenuEventlisteners();
     }
-    
-    
+
+    _addMenuEventlisteners() {
+        document.querySelector(".robo-button").addEventListener('click', function() {
+            let event = new CustomEvent("notifyOpenRoboChooserOverlay");
+            dispatchEvent(event);
+        });
+
+        document.querySelector(".save-button").addEventListener('click', function() {
+            let event = new CustomEvent("notifySaveToJSONFile");
+            dispatchEvent(event);
+        });
+
+        document.querySelector('.help-button').addEventListener('click', function() {
+            let event = new CustomEvent("notifyOpenHelpOverlay");
+            dispatchEvent(event);
+        })
+    }    
     
     /**
      * @description adds EventListeners to all emotion buttons

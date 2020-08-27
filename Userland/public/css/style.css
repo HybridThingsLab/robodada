@@ -93,64 +93,70 @@ body {
     text-align: center;
     margin-top: 5vh; }
   .overlay .interface-wrapper {
-    width: 45vh;
-    height: 60vh;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center; }
-    .overlay .interface-wrapper .canvas-panel {
+
+.robo-chooser-overlay .interface-wrapper {
+  width: 60vw;
+  height: 70vh; }
+
+.drawing-overlay .interface-wrapper {
+  width: 45vh;
+  height: 60vh; }
+  .drawing-overlay .interface-wrapper .canvas-panel {
+    border: 0.8vh solid black;
+    border-radius: 1.5rem;
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFFFFF;
+    box-sizing: border-box; }
+    .drawing-overlay .interface-wrapper .canvas-panel .canvas-wrapper {
+      width: 40vh !important;
+      height: 40vh !important;
+      margin-top: 2.2vh;
       border: 0.8vh solid black;
       border-radius: 1.5rem;
-      min-width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: #FFFFFF;
-      box-sizing: border-box; }
-      .overlay .interface-wrapper .canvas-panel .canvas-wrapper {
-        width: 40vh !important;
-        height: 40vh !important;
-        margin-top: 2.2vh;
-        border: 0.8vh solid black;
-        border-radius: 1.5rem;
-        box-sizing: border-box;
-        position: relative; }
-        .overlay .interface-wrapper .canvas-panel .canvas-wrapper .indicator {
-          width: 9%;
-          height: 9%;
-          position: absolute;
-          top: 4%;
-          left: 4%;
-          border-radius: 50%;
-          opacity: 1.0; }
-        .overlay .interface-wrapper .canvas-panel .canvas-wrapper .path-drawing-canvas {
-          box-sizing: border-box; }
-      .overlay .interface-wrapper .canvas-panel .draw-icon {
-        width: 10vh;
-        pointer-events: none;
-        -webkit-user-drag: none; }
-    .overlay .interface-wrapper .interface-buttons {
-      width: 100%;
-      display: flex;
-      justify-content: flex-end;
-      flex-direction: row;
-      margin-top: 1vh; }
-      .overlay .interface-wrapper .interface-buttons img {
-        transform: scale(1.3, 1.3); }
-      .overlay .interface-wrapper .interface-buttons .interface-button {
-        border: 0.8vh solid black;
-        border-radius: 2.5vh;
-        padding: .3rem;
-        width: 5vh;
-        height: 5vh;
-        margin-left: 1vh; }
-      .overlay .interface-wrapper .interface-buttons .delete {
-        margin-left: 0;
-        margin-right: auto;
-        transition: 0.25s ease-in-out; }
-        .overlay .interface-wrapper .interface-buttons .delete:active {
-          background: #EA5A47; }
+      box-sizing: border-box;
+      position: relative; }
+      .drawing-overlay .interface-wrapper .canvas-panel .canvas-wrapper .indicator {
+        width: 9%;
+        height: 9%;
+        position: absolute;
+        top: 4%;
+        left: 4%;
+        border-radius: 50%;
+        opacity: 1.0; }
+      .drawing-overlay .interface-wrapper .canvas-panel .canvas-wrapper .path-drawing-canvas {
+        box-sizing: border-box; }
+    .drawing-overlay .interface-wrapper .canvas-panel .draw-icon {
+      width: 10vh;
+      pointer-events: none;
+      -webkit-user-drag: none; }
+  .drawing-overlay .interface-wrapper .interface-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    margin-top: 1vh; }
+    .drawing-overlay .interface-wrapper .interface-buttons img {
+      transform: scale(1.3, 1.3); }
+    .drawing-overlay .interface-wrapper .interface-buttons .interface-button {
+      border: 0.8vh solid black;
+      border-radius: 2.5vh;
+      padding: .3rem;
+      width: 5vh;
+      height: 5vh;
+      margin-left: 1vh; }
+    .drawing-overlay .interface-wrapper .interface-buttons .delete {
+      margin-left: 0;
+      margin-right: auto;
+      transition: 0.25s ease-in-out; }
+      .drawing-overlay .interface-wrapper .interface-buttons .delete:active {
+        background: #EA5A47; }
 
 @keyframes blinking {
   50% {
@@ -183,14 +189,14 @@ body {
       justify-content: center; }
       .main-menu .buttons-top .button img {
         transform: scale(2, 2) translate(0, 0.5px); }
-    .main-menu .buttons-top .info-button {
+    .main-menu .buttons-top .robo-button {
       margin-right: auto; }
-    .main-menu .buttons-top .settings-button {
+    .main-menu .buttons-top .save-button {
       margin-right: 2vh; }
-      .main-menu .buttons-top .settings-button img {
-        transform: scale(1.8, 1.8); }
-    .main-menu .buttons-top .save-button img {
-      transform: scale(1.5, 1.5); }
+      .main-menu .buttons-top .save-button img {
+        transform: scale(1.5, 1.5); }
+    .main-menu .buttons-top .help-button img {
+      transform: scale(1.8, 1.8); }
   .main-menu .wrapper-emotion {
     position: relative;
     display: flex;
@@ -227,17 +233,20 @@ body {
       display: flex;
       height: 2vh;
       justify-content: space-between;
-      padding-right: 0;
+      padding: 3vh;
+      padding-right: 1vh;
+      padding-left: 2.5vh;
       align-items: center; }
       .main-menu .buttons-bottom .camera-button p {
-        margin-right: 1vh; }
+        margin-right: 1vh;
+        transform: translate(0px, -1px); }
       .main-menu .buttons-bottom .camera-button img {
         max-width: none;
         max-height: none;
         width: 8vh;
         height: 8vh;
         margin-right: 1vh;
-        transform: translate(0, 2px); }
+        transform: translate(0, 1px); }
 
 .camera-wrapper {
   position: absolute;

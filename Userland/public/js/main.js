@@ -13,5 +13,6 @@ let mainController = new MainController(
     new PlaybackController(),
     new RobotView(),
     new DonutView(),
-    new AvailableRobotsController()
+    new AvailableRobotsController(),
+    new RoboChooserOverlayView()
 );

@@ -1,5 +1,5 @@
 class MainController extends EventTarget{    
-    constructor(mainView, emotionDetectionController, mainModel, mainMenuView, pathDrawingOverlayView, emotionModel, pathDrawingController, playbackController, robotView, donutView, availableRobotsController){
+    constructor(mainView, emotionDetectionController, mainModel, mainMenuView, pathDrawingOverlayView, emotionModel, pathDrawingController, playbackController, robotView, donutView, availableRobotsController, roboChooserOverlayView){
 
         super();
 
@@ -23,6 +23,13 @@ class MainController extends EventTarget{
         this.mainMenuView = mainMenuView;
         addEventListener("notifyOpenOverlay", this._handleOpenOverlay.bind(this));
         addEventListener("notifySwitchView", this._requestSwitchView.bind(this));
+        addEventListener("notifyOpenRoboChooserOverlay", this._handleOpenRoboChooserOverlay.bind(this));
+        addEventListener("notifyOpenHelpOverlay", this._handleOpenHelpOverlay.bind(this));
+
+        /**
+         * Manage view of RoboChooser overlay
+         */
+        this.roboChooserOverlayView = roboChooserOverlayView;
         
         /**
          * Manage view of path drawing overlay
@@ -70,8 +77,8 @@ class MainController extends EventTarget{
          */
         this.availableRobotsController = availableRobotsController;
         addEventListener("notifyRecievedNewAvailableRobotsList", this._handleRecievedNewAvailableRobotsList.bind(this));
-        addEventListener("notifyClaimRobot", this._handleClaimRobot().bind(this));
-        addEventListener("notifyReleaseRobot", this._handleReleaseRobot().bind(this));
+        addEventListener("notifyClaimRobot", this._handleClaimRobot.bind(this));
+        addEventListener("notifyReleaseRobot", this._handleReleaseRobot.bind(this));
 
         /**
          * manage main model
@@ -350,6 +357,16 @@ class MainController extends EventTarget{
     _handleDevVisualization() {
         this._openedWindow = window.open("dev_visualization.html","dev_visualization","channelmode, width=700, height=600, menubar=no, scrollbars=no, status=no, toolbar=no");
         this._openedWindow.postMessage(this.mainModel.selectedEmotion, "*");
+    }
+
+
+    _handleOpenRoboChooserOverlay(){
+        console.log("open RoboChooser™ overlay");
+        this.roboChooserOverlayView.openOverlay();
+    }
+
+    _handleOpenHelpOverlay(){
+        console.log("open Help overlay")
     }
 
     
