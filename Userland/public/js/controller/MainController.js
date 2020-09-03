@@ -95,6 +95,8 @@ class MainController extends EventTarget{
         addEventListener("notifyStateChanged", this._handleSwitchState.bind(this));
         addEventListener("notifyTrackedEmotionChanged", this._handleTrackedEmotionChanged.bind(this));
 
+        this.availableRobotsController.getAvailableRobots();
+
         /**
          * Check if there is already a connected robot and update status icon
          */

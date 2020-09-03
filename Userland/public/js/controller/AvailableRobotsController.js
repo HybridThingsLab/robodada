@@ -35,4 +35,8 @@ class AvailableRobotsController {
     releaseRobot() {
         this.socket.emit("releaseRobot", {});
     }
+
+    getAvailableRobotsList(){
+        this.socket.emit("getAvailableRobots");
+    }
 }
