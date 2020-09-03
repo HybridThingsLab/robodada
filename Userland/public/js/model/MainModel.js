@@ -13,8 +13,8 @@ class MainModel{
         this._trackedEmotion = {};
         this._currentState = StatesEnum.planning;
         this._selectedEmotion = undefined;
-        this._connectedRobotName = "t-1000";
-        this._availableRobots = [{name:"bender", ip:"1.2.3.4.5", state:0, clientDetails:{}}, {name:"r2d2", ip:"5.4.3.4.5", state:1, clientDetails:{}}, {name:"c3po", ip:"5.4.3.4.5", state:1, clientDetails:{}}, {name:"t-1000", ip:"5.4.3.4.5", state:0, clientDetails:{}}];
+        this._connectedRobotName = undefined;
+        this._availableRobots = [];
     }
 
     /**
