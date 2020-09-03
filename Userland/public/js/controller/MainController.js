@@ -84,6 +84,8 @@ class MainController extends EventTarget{
         addEventListener("notifyRecievedNewAvailableRobotsList", this._handleRecievedNewAvailableRobotsList.bind(this));
         addEventListener("notifyClaimRobot", this._handleClaimRobot.bind(this));
         addEventListener("notifyReleaseRobot", this._handleReleaseRobot.bind(this));
+        addEventListener("notifyClaimRobotConfirmed", this._handleClaimRobotConfirmed.bind(this));
+        addEventListener("notifyReleaseRobotConfirmed", this._handleReleaseRobotConfirmed.bind(this));
 
         /**
          * manage main model
@@ -93,6 +95,10 @@ class MainController extends EventTarget{
         addEventListener("notifyStateChanged", this._handleSwitchState.bind(this));
         addEventListener("notifyTrackedEmotionChanged", this._handleTrackedEmotionChanged.bind(this));
 
+        /**
+         * Check if there is already a connected robot and update status icon
+         */
+        this.mainMenuView.updateRoboButtonIcon(this.mainModel.connectedRobotName != undefined);
 
         /**
          * Manage emotion model
@@ -385,6 +391,7 @@ class MainController extends EventTarget{
      */
     _handleRecievedNewAvailableRobotsList(e){
         this.mainModel.availableRobots = e.detail;
+        this.roboChooserOverlayView.updateOverlayContent(this.mainModel.availableRobots, this.mainModel.connectedRobotName);
     }
 
     /**
@@ -392,15 +399,36 @@ class MainController extends EventTarget{
      * @param {event} e
      */
     _handleClaimRobot(e){
-        this.mainModel.connectedRobotName = e.robotName;
         this.availableRobotsController.claimRobot(this.mainModel.connectedRobotName);
+        console.log("claim: " + e.robotName);
     }
     
     /**
-     * @description This function will be triggered by the views "notifyReleaseRobot" event. It unsets the connectedRobotName field in the main model.
+     * @description This function will be triggered by the views "notifyReleaseRobot" event. 
      */
     _handleReleaseRobot(){
         this.availableRobotsController.releaseRobot(this.mainModel.connectedRobotName);
-        this.mainModel.connectedRobotName = undefined;
+        console.log("disconnect: " + this.mainModel.connectedRobotName);
     }
+    
+    /**
+     * @description Triggered when the server confirms that the robot has been claimed. It sets the connectedRobotName field in the main model.
+     * @param {event} e 
+     */
+    _handleClaimRobotConfirmed(e){
+        this.mainModel.connectedRobotName = e.robotName;
+        this.mainMenuView.updateRoboButtonIcon(this.mainModel.connectedRobotName != undefined);
+        this.roboChooserOverlayView.updateOverlayContent(this.mainModel.availableRobots, this.mainModel.connectedRobotName);
+    }
+    
+    /**
+     * @description Triggered when the server confirms that the robot has been released. It unsets the connectedRobotName field in the main model.
+     * @param {event} e 
+     */
+    _handleReleaseRobotConfirmed(e){
+        this.mainModel.connectedRobotName = undefined;
+        this.mainMenuView.updateRoboButtonIcon(this.mainModel.connectedRobotName != undefined);
+        this.roboChooserOverlayView.updateOverlayContent(this.mainModel.availableRobots, this.mainModel.connectedRobotName);
+    }
+
 }

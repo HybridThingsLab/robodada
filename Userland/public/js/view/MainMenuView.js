@@ -65,4 +65,12 @@ class MainMenuView{
             dispatchEvent(notifySwitchView);
         });
     }
+
+    updateRoboButtonIcon(connected){
+        if(connected){
+            document.querySelector(".robo-button").firstElementChild.src = "img/menu/connected.svg";
+        } else {
+            document.querySelector(".robo-button").firstElementChild.src = "img/menu/not_connected.svg";
+        }
+    }
 }

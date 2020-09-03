@@ -36,7 +36,7 @@ class RoboChooserOverlayView{
         this._interfaceWrapper.innerHTML = "";
         roboList.forEach(robo => {
             let icon = document.createElement("img");
-            icon.src = "img/menu/robot.svg";
+            icon.src = "img/roboChooser/available.svg";
             icon.classList.add("robo-icon");
 
             let name = document.createElement("p");
@@ -54,13 +54,29 @@ class RoboChooserOverlayView{
 
             if(robo.state == 1){
                 infoText.innerText = robo.name + " is ready to be used.";
-                claimButton.innerText = "connect now"
+                claimButton.innerText = "connect now";
+                claimButton.addEventListener('click', () => {
+                    let event = new CustomEvent("notifyClaimRobot");
+                    event.robotName = robo.name;
+                    dispatchEvent(event);
+                });
             } else if(robo.state == 0 && currentRobo == robo.name){
+                icon.src = "img/roboChooser/connected.svg"
                 infoText.innerText = "you are using " + robo.name + " as your robo.";
-                claimButton.innerText = "disconnect"
-            }else{
+                claimButton.innerText = "disconnect";
+                claimButton.addEventListener('click', () => {
+                    let event = new CustomEvent("notifyReleaseRobot");
+                    dispatchEvent(event);
+                });
+            } else {
+                icon.src = "img/roboChooser/connected_other.svg"
                 infoText.innerText = robo.name + " is in use by someone else.";
-                claimButton.innerText = "connect anyway"
+                claimButton.innerText = "connect anyway";
+                claimButton.addEventListener('click', () => {
+                    let event = new CustomEvent("notifyClaimRobot");
+                    event.robotName = robo.name;
+                    dispatchEvent(event);
+                });
             }
             
             

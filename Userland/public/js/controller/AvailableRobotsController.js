@@ -6,7 +6,17 @@ class AvailableRobotsController {
             console.log(message);
             let event = new CustomEvent("notifyRecievedNewAvailableRobotsList", {detail: message});
             dispatchEvent(event);
-        })
+        });
+
+        this.socket.on("claimedRobot", (message) => {
+            let event = new CustomEvent("notifyClaimRobotConfirmed", {detail: message});
+            dispatchEvent(event);
+        });
+        
+        this.socket.on("robotReleased", (message) => {
+            let event = new CustomEvent("notifyReleaseRobotConfirmed", {detail: message});
+            dispatchEvent(event);
+        });
     }
 
     /**
@@ -15,15 +25,14 @@ class AvailableRobotsController {
      */
     //TODO
     claimRobot(robotName) {
-        this.socket.emit("claimRobotMessage", {robotName: robotName});
+        this.socket.emit("claimRobot", {name: robotName});
     }
 
     /**
-     * @description notifies server that robot has been released
-     * @param {string} robotName 
+     * @description notifies server that robot should be released
      */
     //TODO
-    releaseRobot(robotName) {
-        this.socket.emit("releaseRobotMessage", {robotName: robotName});
+    releaseRobot() {
+        this.socket.emit("releaseRobot", {});
     }
 }
