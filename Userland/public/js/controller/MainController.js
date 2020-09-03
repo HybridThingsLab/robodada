@@ -417,7 +417,7 @@ class MainController extends EventTarget{
      * @param {event} e 
      */
     _handleClaimRobotConfirmed(e){
-        this.mainModel.connectedRobotName = e.robotName;
+        this.mainModel.connectedRobotName = e.detail.name;
         this.mainMenuView.updateRoboButtonIcon(this.mainModel.connectedRobotName != undefined);
         this.roboChooserOverlayView.updateOverlayContent(this.mainModel.availableRobots, this.mainModel.connectedRobotName);
     }
