@@ -391,6 +391,7 @@ class MainController extends EventTarget{
      */
     _handleRecievedNewAvailableRobotsList(e){
         this.mainModel.availableRobots = e.detail;
+        this.mainMenuView.updateRoboButtonIcon(this.mainModel.connectedRobotName != undefined);
         this.roboChooserOverlayView.updateOverlayContent(this.mainModel.availableRobots, this.mainModel.connectedRobotName);
     }
 
