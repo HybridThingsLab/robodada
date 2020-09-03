@@ -8,7 +8,7 @@ class AvailableRobotsController {
             dispatchEvent(event);
         });
 
-        this.socket.on("claimedRobot", (message) => {
+        this.socket.on("robotClaimed", (message) => {
             let event = new CustomEvent("notifyClaimRobotConfirmed", {detail: message});
             dispatchEvent(event);
         });
