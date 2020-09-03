@@ -25,7 +25,7 @@ class AvailableRobotsController {
      */
     //TODO
     claimRobot(robotName) {
-        this.socket.emit("claimRobot", {name: robotName});
+        this.socket.emit("claimRobot", robotName);
     }
 
     /**
