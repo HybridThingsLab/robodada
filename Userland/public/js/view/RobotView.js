@@ -12,9 +12,6 @@ class RobotView {
     handleMovementCommand(robotName, x, y) {
         console.log(robotName, "moveto:", x, y);
 
-        //TODO remove hardcoded robot name
-        robotName = "Bender";
-
         //movement commands should only be sent if a robot is connected
         if(robotName != undefined){
             this.socket.emit('moveToMsg', {
