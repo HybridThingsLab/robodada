@@ -4,7 +4,7 @@ class AvailableRobotsController {
         this.socket.on("availableRobotsMessage", (message) =>{
             console.log("Recieved new available Robots list:");
             console.log(message);
-            let event = new CustomEvent("notifyRecievedNewAvailableRobotsList", {detail: message});
+            let event = new CustomEvent("notifyRecievedNewAvailableRobotsList", {detail: message, socketId: this.socket.id});
             dispatchEvent(event);
         });
 
