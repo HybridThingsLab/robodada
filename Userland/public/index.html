@@ -124,12 +124,70 @@
                 <p>X</p>
             </div>
             <div class="instructions">
-                <p>This is your personal RoboChooser™ interface</p>
+                <p>This is your personal RoboChooser™ interface.</p>
             </div>
             <div class="interface-wrapper">
-                <div class="test" style="width: 60vw; height: 70vh; background-color: salmon; border: solid black 10px; border-radius: 5vh;"></div>
+                
+                <div class="robo-chooser-button button">
+                    <img class="robo-icon" src="img/menu/robot.svg" alt="">
+                    <p class="robo-name">bender</p>
+                </div>
+                <div class="robo-chooser-button button">
+                    <img class="robo-icon" src="img/menu/robot.svg" alt="">
+                    <p class="robo-name">bender</p>
+                </div>
+                <div class="robo-chooser-button button">
+                    <img class="robo-icon" src="img/menu/robot.svg" alt="">
+                    <p class="robo-name">bender</p>
+                </div>
+                <div class="robo-chooser-button button active">
+                    <img class="robo-icon" src="img/menu/robot.svg" alt="">
+                    <p class="robo-name">bender</p>
+                </div>
+                <div class="robo-chooser-button button">
+                    <img class="robo-icon" src="img/menu/robot.svg" alt="">
+                    <p class="robo-name">bender</p>
+                </div>
+                </div>
             </div>
         </div>
+
+        <div class="save-load-overlay overlay">
+            <div class="close button">
+                <p>X</p>
+            </div>
+            <div class="instructions">
+                <p>Save or load your drawn paths.</p>
+            </div>
+            <div class="interface-wrapper">
+                <div class="save-paths-button button">
+                    <img class="icon" src="img/menu/save.svg" alt="">
+                    <p>save</p>
+                </div>
+                <div class="load-paths-button button">
+                    <img class="icon" src="img/menu/load.svg" alt="">
+                    <p>load</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="help-overlay overlay">
+            <div class="close button">
+                <p>X</p>
+            </div>
+            <div class="instructions">
+                <p>ROBODADA™ Hybrid Things Lab 2020</p>
+            </div>
+            <div class="interface-wrapper">
+                <p class="help-text">
+                    Lorem ipsum dolor sit.  ROBODADA is an open-source toolkit to map facial expressions to body language of a robot. By adapting appearance and kinetic behavior, different aspects of interaction with emotion-aware robots can be explored in a playful manner.
+                </p>
+                <p class="help-text">
+                    HYBRID-THINGS-LAB 2020
+                </p>
+            </div>
+        </div>
+
     </div>
     
     <script src="./js/lib/jQuery341.js"></script>
@@ -154,6 +212,8 @@
     <script src="./js/controller/PlaybackController.js"></script>
     <script src="./js/controller/AvailableRobotsController.js"></script>
     <script src="./js/view/RoboChooserOverlayView.js"></script>
+    <script src="./js/view/SaveLoadOverloadView.js"></script>
+    <script src="./js/view/HelpOverlayView.js"></script>
     <script src="./js/main.js"></script>
   
 </body>

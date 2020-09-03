@@ -25,6 +25,10 @@
         margin-top: 5vh;
 
     .interface-wrapper
+        width: 60vw; 
+        border: solid black $stroke-weight; 
+        border-radius: 5vh;
+        background-color: white;
         margin: auto;
         display: flex;
         flex-wrap: wrap;
@@ -32,11 +36,88 @@
 
 .robo-chooser-overlay
     .interface-wrapper
-        width: 60vw;
-        height: 70vh;
+        padding: 2vh;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        overflow-y: auto;
+        overflow-x: hidden;
+        .robo-chooser-button
+            margin: 1vh;
+            display: flex;
+            flex-direction: column;
+            max-height: 20vh;
+            width: 17vh;
+            border: solid black $stroke-weight;
+            border-radius: 5vh;
+            .robo-icon
+                height: 70%; 
+                transform: scale(1.5, 1.5);
+            .robo-name
+                margin: 0;
+                margin-top: 2.5vh;
+            .info-text
+                font-size: 2.5vh;
+                width: 7vh;
+                text-align: left;
+                line-height: 1.2;
+                margin-left: 1vh;
+                margin-top: 1vh;
+                padding-left: 1vh;
+            .claim-button
+                font-size: 3vh;
+                padding-top: .5vh;
+                padding-bottom: .5vh;
+            .button
+                border-radius: 2.5vh;
+                height: 3vh;
+
+        .active
+            // flex-grow: 1;
+            flex-wrap: wrap;
+            flex-direction: row;
+            width: 30vh;
+            &:hover
+                transform: scale(1.00);
+        
+            &:active
+                transform: scale(1.00);
+            
+
+
+.save-load-overlay
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .instructions
+        margin-top: 15vh;
+    .interface-wrapper
+        height: 30vh;
+        width: 60vh;
+        margin-top: 0;
+        padding: 5vh;
+        display: flex;
+        justify-content: space-between;
+        .button
+            height: auto;
+            width: auto;
+            .icon
+                min-width: 20vh;
+            p
+                margin: 0;
+
+.help-overlay
+    .interface-wrapper
+        .help-text 
+            width: 100%;
+            padding-left: 2vh;
+            padding-right: 2vh;
+            text-align: center;
 
 .drawing-overlay
     .interface-wrapper
+        border: none;
+        background-color: transparent;
         width: 45vh;
         height: 60vh;
         .canvas-panel            

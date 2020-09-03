@@ -22,7 +22,7 @@ class MainMenuView{
         });
 
         document.querySelector(".save-button").addEventListener('click', function() {
-            let event = new CustomEvent("notifySaveToJSONFile");
+            let event = new CustomEvent("notifyOpenSaveLoadOverlay");
             dispatchEvent(event);
         });
 

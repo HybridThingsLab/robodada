@@ -14,5 +14,7 @@ let mainController = new MainController(
     new RobotView(),
     new DonutView(),
     new AvailableRobotsController(),
-    new RoboChooserOverlayView()
+    new RoboChooserOverlayView(),
+    new SaveLoadOverlayView(),
+    new HelpOverlayView()
 );

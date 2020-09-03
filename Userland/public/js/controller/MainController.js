@@ -1,5 +1,5 @@
 class MainController extends EventTarget{    
-    constructor(mainView, emotionDetectionController, mainModel, mainMenuView, pathDrawingOverlayView, emotionModel, pathDrawingController, playbackController, robotView, donutView, availableRobotsController, roboChooserOverlayView){
+    constructor(mainView, emotionDetectionController, mainModel, mainMenuView, pathDrawingOverlayView, emotionModel, pathDrawingController, playbackController, robotView, donutView, availableRobotsController, roboChooserOverlayView, saveLoadOverlayView, helpOverlayView){
 
         super();
 
@@ -25,11 +25,16 @@ class MainController extends EventTarget{
         addEventListener("notifySwitchView", this._requestSwitchView.bind(this));
         addEventListener("notifyOpenRoboChooserOverlay", this._handleOpenRoboChooserOverlay.bind(this));
         addEventListener("notifyOpenHelpOverlay", this._handleOpenHelpOverlay.bind(this));
+        addEventListener("notifyOpenSaveLoadOverlay", this._handleOpenSaveLoadOverlay.bind(this));
 
         /**
          * Manage view of RoboChooser overlay
          */
         this.roboChooserOverlayView = roboChooserOverlayView;
+
+        this.saveLoadOverlayView = saveLoadOverlayView;
+
+        this.helpOverlayView = helpOverlayView;
         
         /**
          * Manage view of path drawing overlay
@@ -349,9 +354,10 @@ class MainController extends EventTarget{
     _handleJSONFileLoaded(e){
         console.log(this.emotionModel._emotionArray);
         console.log(e.detail);
-
+        
         this.emotionModel.emotionArray = e.detail;
         console.log(this.emotionModel._emotionArray);
+        this.saveLoadOverlayView.closeOverlay();
     }
 
     _handleDevVisualization() {
@@ -361,12 +367,15 @@ class MainController extends EventTarget{
 
 
     _handleOpenRoboChooserOverlay(){
-        console.log("open RoboChooser™ overlay");
-        this.roboChooserOverlayView.openOverlay();
+        this.roboChooserOverlayView.openOverlay(this.mainModel.availableRobots, this.mainModel.connectedRobotName);
+    }
+
+    _handleOpenSaveLoadOverlay(){
+        this.saveLoadOverlayView.openOverlay();
     }
 
     _handleOpenHelpOverlay(){
-        console.log("open Help overlay")
+        this.helpOverlayView.openOverlay();
     }
 
     
