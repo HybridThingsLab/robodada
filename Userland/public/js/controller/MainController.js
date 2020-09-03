@@ -400,7 +400,7 @@ class MainController extends EventTarget{
      * @param {event} e
      */
     _handleClaimRobot(e){
-        this.availableRobotsController.claimRobot(this.mainModel.connectedRobotName);
+        this.availableRobotsController.claimRobot(e.robotName);
         console.log("claim: " + e.robotName);
     }
     
