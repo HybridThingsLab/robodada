@@ -33,7 +33,7 @@ module.exports = class WebController{
                     self._model.claimRobot(name, socket.id);
                     socket.emit("robotClaimed", self.controller.getRobotByName(name));
                 } else {
-                    console.warn("Client tried to claim nonexistent robot!");
+                    console.warn("Client tried to claim nonexistent robot: " + name);
                     socket.emit("robotClaimed", false);
                 }
             })
