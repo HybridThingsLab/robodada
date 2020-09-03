@@ -392,9 +392,9 @@ class MainController extends EventTarget{
      * @param {event} e
      */
     _handleRecievedNewAvailableRobotsList(e){
-        this.mainModel.availableRobots = e.detail;
-        e.detail.forEach(robot => {
-            if(robot.state == 0 && robot.clientDetails.id == e.socketId){
+        this.mainModel.availableRobots = e.detail.robots;
+        e.detail.robots.forEach(robot => {
+            if(robot.state == 0 && robot.clientDetails.id == e.detail.socketId){
                 this.mainModel.connectedRobotName = robot.name;
             }
         });
