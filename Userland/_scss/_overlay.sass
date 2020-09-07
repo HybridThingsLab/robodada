@@ -58,18 +58,31 @@
                 margin-top: 2.5vh;
             .info-text
                 font-size: 2.5vh;
-                width: 7vh;
+                width: 12vh;
                 text-align: left;
                 line-height: 1.2;
                 margin-left: 1vh;
                 margin-top: 1vh;
-                padding-left: 1vh;
-            .claim-button
-                font-size: 3vh;
-                padding-top: .5vh;
-                padding-bottom: .5vh;
+                padding-left: 2vh;
+                margin-block-end: 0;
+            .button-wrapper
+                margin-top: 1vh;
+                justify-content: space-around;
+                width: 100%;
+                .claim-button
+                    font-size: 3vh;
+                .wave-button 
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .wave-emoji
+                        width: 1vh;
+                        transform-origin: center;
+                        transform: scale(5) translate(.07vh, -.33vh);
             .button
                 border-radius: 2.5vh;
+                padding-top: .5vh;
+                padding-bottom: .5vh;
                 height: 3vh;
 
         .active
