@@ -13,7 +13,7 @@ To use ROBODADA you need:
 First of all you need to install NodeJS from [here](https://nodejs.org/en/download/). We recommend using the Installer.
 
 Check your working NodeJS installation by opening your terminal and type
-```
+```shell
 node --version
 ```
 which should show something like `v12.18.3`.
@@ -23,18 +23,18 @@ Download the ROBODADA archive from [here](https://github.com/HybridThingsLab/rob
 
 Next, we will install the neccessary packages: Go __with your terminal__ inside the `robodada-master` folder and into the folder `Serverland`. In this folder you see things like `app.js` and `package.json`.
 The following command will automagically install all the needed things for you, while amazing you with nice terminal animations:
-```
+```shell
 npm install
 ```
 After a successful installation, again __with your terminal__ and inside the folder `robodada-master/Serverland` start the server with this command:
-```
+```shell
 node app.js
 ```
 The server is starting up, telling you:
-```
+```shell
 Searching robots on <Your interface and ip here>
 Listening on 3000 in <Your Path>robodada-master/Serverland/controller
-````
+```
 It will search robots every few seconds - so don't mind the messages.
 
 Congratulations! You've made it!
