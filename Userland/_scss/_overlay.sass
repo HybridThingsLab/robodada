@@ -6,7 +6,7 @@
     top: 0;
     z-index: 1;
     display: none;
-    
+
     .close
         position: fixed;
         top: 10px;
@@ -19,22 +19,120 @@
         padding: 2vh;
         p
             transform: translate(0, 2px);
-
+    
     .instructions
         text-align: center;
         margin-top: 5vh;
-        p 
-            margin-bottom: 2.5vh;
-            margin-top: 2.5vh;
 
     .interface-wrapper
-        width: 55vh;
-        height: 60vh;
+        width: 60vw; 
+        border: solid black $stroke-weight; 
+        border-radius: 5vh;
+        background-color: white;
         margin: auto;
         display: flex;
         flex-wrap: wrap;
         justify-content: center; 
 
+.robo-chooser-overlay
+    .interface-wrapper
+        padding: 2vh;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        overflow-y: auto;
+        overflow-x: hidden;
+        .robo-chooser-button
+            margin: 1vh;
+            display: flex;
+            flex-direction: column;
+            max-height: 20vh;
+            width: 17vh;
+            border: solid black $stroke-weight;
+            border-radius: 5vh;
+            .robo-icon
+                height: 70%; 
+                transform: scale(1.5, 1.5);
+            .robo-name
+                margin: 0;
+                margin-top: 2.5vh;
+            .info-text
+                font-size: 2.5vh;
+                width: 12vh;
+                text-align: left;
+                line-height: 1.2;
+                margin-left: 1vh;
+                margin-top: 1vh;
+                padding-left: 2vh;
+                margin-block-end: 0;
+            .button-wrapper
+                margin-top: 1vh;
+                justify-content: space-around;
+                width: 100%;
+                .claim-button
+                    font-size: 3vh;
+                .wave-button 
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .wave-emoji
+                        width: 1vh;
+                        transform-origin: center;
+                        transform: scale(5) translate(.07vh, -.33vh);
+            .button
+                border-radius: 2.5vh;
+                padding-top: .5vh;
+                padding-bottom: .5vh;
+                height: 3vh;
+
+        .active
+            // flex-grow: 1;
+            flex-wrap: wrap;
+            flex-direction: row;
+            width: 30vh;
+            &:hover
+                transform: scale(1.00);
+        
+            &:active
+                transform: scale(1.00);
+            
+
+
+.save-load-overlay
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .instructions
+        margin-top: 15vh;
+    .interface-wrapper
+        height: 30vh;
+        width: 60vh;
+        margin-top: 0;
+        padding: 5vh;
+        display: flex;
+        justify-content: space-between;
+        .button
+            height: auto;
+            width: auto;
+            .icon
+                min-width: 20vh;
+            p
+                margin: 0;
+
+.help-overlay
+    .interface-wrapper
+        .help-text 
+            width: 100%;
+            padding-left: 2vh;
+            padding-right: 2vh;
+            text-align: center;
+
+.drawing-overlay
+    .interface-wrapper
+        border: none;
+        background-color: transparent;
+        width: 45vh;
+        height: 60vh;
         .canvas-panel            
             border: $stroke-weight solid black;
             border-radius: 1.5rem;
@@ -46,8 +144,8 @@
             box-sizing: border-box; // WHY do i need this if i have border box defined in html
         
             .canvas-wrapper
-                width: 50vh !important;
-                height: 50vh !important;
+                width: 40vh !important;
+                height: 40vh !important;
                 margin-top: 2.2vh;
                 border: $stroke-weight solid black;
                 border-radius: 1.5rem;

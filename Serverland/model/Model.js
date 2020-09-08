@@ -1,22 +1,40 @@
-var Robot = require("./Robot");
+const EventEmitter = require('events');
+const { RobotState } = require('./Robot');
 
-module.exports = class Model {
+module.exports = class Model extends EventEmitter{
     constructor(){
-        this.robots = [];
+        super();
+        this._robots = [];
+    }    
+    
+    addRobot(robot){
+        this._robots.push(robot);
+        console.log("Added " + JSON.stringify(robot) + "to robots");
+        this.dispatchRobotListChanged();
     }
 
-    helloRobot(helloMsg){        
-        let robot = new Robot(helloMsg.args[0].value, helloMsg.args[1].value);
-        if(!this.robots.find(element => element.name == robot.name)){
-            this.robots.push(robot);
-            console.log("Added " + JSON.stringify(robot) + "to robots");
-        } else {
-            console.warn(JSON.stringify(robot) + " already exists");
+    claimRobot(name, clientSocketId){
+        this._robots.find(element => element.name == name).state = RobotState.CLAIMED;
+        this._robots.find(element => element.name == name).clientDetails = {
+            id: clientSocketId
         }
-        return robot;
+
+        this.dispatchRobotListChanged();
     }
 
-    getRobotIpFromName(name){
-        return this.robots.find(element => element.name == name).ip;
+    releaseRobot(name){
+        this._robots.find(element => element.name == name).state = RobotState.AVAILABLE;
+        this._robots.find(element => element.name == name).clientDetails = {};
+        this.dispatchRobotListChanged();
     }
+
+
+    get robots(){
+        return this._robots;
+    }
+
+    dispatchRobotListChanged(){
+        this.emit("notifyRobotListChanged", this.robots);       
+    }
+   
 }

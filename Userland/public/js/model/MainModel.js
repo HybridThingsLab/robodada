@@ -14,6 +14,7 @@ class MainModel{
         this._currentState = StatesEnum.planning;
         this._selectedEmotion = undefined;
         this._connectedRobotName = undefined;
+        this._availableRobots = [];
     }
 
     /**
@@ -70,6 +71,16 @@ class MainModel{
 
     get connectedRobotName(){
         return this._connectedRobotName;
+    }
+
+    set availableRobots(val){
+        this._availableRobots = val;
+        let event = new CustomEvent("notifyAvailableRobotsChanged", {detail: this._availableRobots});
+        dispatchEvent(event);
+    }
+
+    get availableRobots() {
+        return this._availableRobots;
     }
 
 }

@@ -25,9 +25,13 @@ html
     //hide original cursor
     cursor: none;
 
-// hides scrollbar    
 html::-webkit-scrollbar
+    //hides scrollbar    
     display: none;
+
+img
+    //disables selecting of images
+    -webkit-user-drag: none;
 
 body
     margin: 0;
@@ -61,8 +65,6 @@ body
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    //disables selecting
-    -webkit-user-drag: none;
     pointer-events: none;
 
 .button
@@ -73,9 +75,11 @@ body
     line-height: 100%;
     padding: .5em;
     transition: .1s ease-in-out;
+    box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.2);
 
     &:hover
         transform: scale(1.02);
+
     
     &:active
         transform: scale(0.98);

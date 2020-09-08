@@ -11,7 +11,7 @@
  */
 class PathDrawingOverlayView{
     constructor(){
-        this._overlay = document.querySelector(".overlay");
+        this._overlay = document.querySelector(".drawing-overlay");
         this._mainMenu = document.querySelector(".main-menu");
         this._canvas = document.querySelector(".path-drawing-canvas");
         this._delete = document.querySelector(".delete");

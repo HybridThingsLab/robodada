@@ -27,17 +27,17 @@ $cam_height: 45vh;
             img 
                 transform: scale(2,2) translate(0, 0.5px);
 
-        .info-button
+        .robo-button
             margin-right: auto;
 
-        .settings-button
+        .save-button
             margin-right: 2vh;
             img
-                transform: scale(1.8,1.8);
-
-        .save-button
-            img
                 transform: scale(1.5,1.5);
+
+        .help-button
+            img
+                transform: scale(1.8,1.8);
                 
 
 
@@ -69,8 +69,7 @@ $cam_height: 45vh;
                     height: calc(75vh / 3);
                     object-fit: contain;
                     transform: scale(1.2,1.2);
-                    //disables selecting
-                    -webkit-user-drag: none;
+
                     pointer-events: none;
 
 
@@ -86,17 +85,20 @@ $cam_height: 45vh;
             display: flex;
             height: 2vh;
             justify-content: space-between;
-            padding-right: 0;
+            padding: 3vh; 
+            padding-right: 1vh;
+            padding-left: 2.5vh;
             align-items: center;
             p 
                 margin-right: 1vh;
+                transform: translate(0px, -1px);
             img 
                 max-width: none;
                 max-height: none;
-                width: 8vh;
-                height: 8vh;
-                margin-right: 1vh;
-                transform: translate(0, 2px);
+                width: 9vh;
+                height: 9vh;
+                margin-right: .5vh;
+                transform: translate(0, 1px);
 
 
 

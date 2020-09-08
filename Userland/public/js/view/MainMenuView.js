@@ -12,9 +12,25 @@ class MainMenuView{
     _addButtonEventListeners() {
         this._addEmotionEventlisteners();
         this._addCameraEventlistener();
+        this._addMenuEventlisteners();
     }
-    
-    
+
+    _addMenuEventlisteners() {
+        document.querySelector(".robo-button").addEventListener('click', function() {
+            let event = new CustomEvent("notifyOpenRoboChooserOverlay");
+            dispatchEvent(event);
+        });
+
+        document.querySelector(".save-button").addEventListener('click', function() {
+            let event = new CustomEvent("notifyOpenSaveLoadOverlay");
+            dispatchEvent(event);
+        });
+
+        document.querySelector('.help-button').addEventListener('click', function() {
+            let event = new CustomEvent("notifyOpenHelpOverlay");
+            dispatchEvent(event);
+        })
+    }    
     
     /**
      * @description adds EventListeners to all emotion buttons
@@ -48,5 +64,13 @@ class MainMenuView{
             let notifySwitchView = new CustomEvent("notifySwitchView", {detail: eventDetails});
             dispatchEvent(notifySwitchView);
         });
+    }
+
+    updateRoboButtonIcon(connected){
+        if(connected){
+            document.querySelector(".robo-button").firstElementChild.src = "img/menu/connected.svg";
+        } else {
+            document.querySelector(".robo-button").firstElementChild.src = "img/menu/not_connected.svg";
+        }
     }
 }

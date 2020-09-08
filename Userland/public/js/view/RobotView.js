@@ -10,13 +10,15 @@ class RobotView {
      * @param {float} y 
      */
     handleMovementCommand(robotName, x, y) {
-        robotName = "Bender";
         console.log(robotName, "moveto:", x, y);
 
-        this.socket.emit('moveToMsg', {
-            name: robotName,
-            x: x,
-            y: y
-        });
+        //movement commands should only be sent if a robot is connected
+        if(robotName != undefined){
+            this.socket.emit('moveToMsg', {
+                name: robotName,
+                x: x,
+                y: y
+            });
+        }
     }
 }

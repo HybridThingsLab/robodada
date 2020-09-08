@@ -1,5 +1,5 @@
 class MainController extends EventTarget{    
-    constructor(mainView, emotionDetectionController, mainModel, mainMenuView, pathDrawingOverlayView, emotionModel, pathDrawingController, playbackController, robotView, donutView){
+    constructor(mainView, emotionDetectionController, mainModel, mainMenuView, pathDrawingOverlayView, emotionModel, pathDrawingController, playbackController, robotView, donutView, availableRobotsController, roboChooserOverlayView, saveLoadOverlayView, helpOverlayView){
 
         super();
 
@@ -23,6 +23,18 @@ class MainController extends EventTarget{
         this.mainMenuView = mainMenuView;
         addEventListener("notifyOpenOverlay", this._handleOpenOverlay.bind(this));
         addEventListener("notifySwitchView", this._requestSwitchView.bind(this));
+        addEventListener("notifyOpenRoboChooserOverlay", this._handleOpenRoboChooserOverlay.bind(this));
+        addEventListener("notifyOpenHelpOverlay", this._handleOpenHelpOverlay.bind(this));
+        addEventListener("notifyOpenSaveLoadOverlay", this._handleOpenSaveLoadOverlay.bind(this));
+
+        /**
+         * Manage view of RoboChooser overlay
+         */
+        this.roboChooserOverlayView = roboChooserOverlayView;
+
+        this.saveLoadOverlayView = saveLoadOverlayView;
+
+        this.helpOverlayView = helpOverlayView;
         
         /**
          * Manage view of path drawing overlay
@@ -66,6 +78,16 @@ class MainController extends EventTarget{
         addEventListener("notifyDetectedEmotionPlayback", this._handleDetectedEmotionPlayback.bind(this));
 
         /**
+         * Manage available robots controller
+         */
+        this.availableRobotsController = availableRobotsController;
+        addEventListener("notifyRecievedNewAvailableRobotsList", this._handleRecievedNewAvailableRobotsList.bind(this));
+        addEventListener("notifyClaimRobot", this._handleClaimRobot.bind(this));
+        addEventListener("notifyReleaseRobot", this._handleReleaseRobot.bind(this));
+        addEventListener("notifyClaimRobotConfirmed", this._handleClaimRobotConfirmed.bind(this));
+        addEventListener("notifyReleaseRobotConfirmed", this._handleReleaseRobotConfirmed.bind(this));
+
+        /**
          * manage main model
          */
         this.mainModel = mainModel;
@@ -73,6 +95,12 @@ class MainController extends EventTarget{
         addEventListener("notifyStateChanged", this._handleSwitchState.bind(this));
         addEventListener("notifyTrackedEmotionChanged", this._handleTrackedEmotionChanged.bind(this));
 
+        this.availableRobotsController.getAvailableRobotsList();
+
+        /**
+         * Check if there is already a connected robot and update status icon
+         */
+        this.mainMenuView.updateRoboButtonIcon(this.mainModel.connectedRobotName != undefined);
 
         /**
          * Manage emotion model
@@ -334,9 +362,10 @@ class MainController extends EventTarget{
     _handleJSONFileLoaded(e){
         console.log(this.emotionModel._emotionArray);
         console.log(e.detail);
-
+        
         this.emotionModel.emotionArray = e.detail;
         console.log(this.emotionModel._emotionArray);
+        this.saveLoadOverlayView.closeOverlay();
     }
 
     _handleDevVisualization() {
@@ -344,5 +373,70 @@ class MainController extends EventTarget{
         this._openedWindow.postMessage(this.mainModel.selectedEmotion, "*");
     }
 
+
+    _handleOpenRoboChooserOverlay(){
+        this.roboChooserOverlayView.openOverlay(this.mainModel.availableRobots, this.mainModel.connectedRobotName);
+    }
+
+    _handleOpenSaveLoadOverlay(){
+        this.saveLoadOverlayView.openOverlay();
+    }
+
+    _handleOpenHelpOverlay(){
+        this.helpOverlayView.openOverlay();
+    }
+
     
+    /**
+     * @description Will be triggered by an incoming message from the server when the list of available robots has changed.
+     * @param {event} e
+     */
+    _handleRecievedNewAvailableRobotsList(e){
+        this.mainModel.availableRobots = e.detail.robots;
+        e.detail.robots.forEach(robot => {
+            if(robot.state == 0 && robot.clientDetails.id == e.detail.socketId){
+                this.mainModel.connectedRobotName = robot.name;
+            }
+        });
+        this.mainMenuView.updateRoboButtonIcon(this.mainModel.connectedRobotName != undefined);
+        this.roboChooserOverlayView.updateOverlayContent(this.mainModel.availableRobots, this.mainModel.connectedRobotName);
+    }
+
+    /**
+     * @description This function will be triggered by the views "notifyClaimRobot" event. It saves the name of the claimed robot in the main model.
+     * @param {event} e
+     */
+    _handleClaimRobot(e){
+        this.availableRobotsController.claimRobot(e.robotName);
+        console.log("claim: " + e.robotName);
+    }
+    
+    /**
+     * @description This function will be triggered by the views "notifyReleaseRobot" event. 
+     */
+    _handleReleaseRobot(){
+        this.availableRobotsController.releaseRobot(this.mainModel.connectedRobotName);
+        console.log("disconnect: " + this.mainModel.connectedRobotName);
+    }
+    
+    /**
+     * @description Triggered when the server confirms that the robot has been claimed. It sets the connectedRobotName field in the main model.
+     * @param {event} e 
+     */
+    _handleClaimRobotConfirmed(e){
+        this.mainModel.connectedRobotName = e.detail.name;
+        this.mainMenuView.updateRoboButtonIcon(this.mainModel.connectedRobotName != undefined);
+        this.roboChooserOverlayView.updateOverlayContent(this.mainModel.availableRobots, this.mainModel.connectedRobotName);
+    }
+    
+    /**
+     * @description Triggered when the server confirms that the robot has been released. It unsets the connectedRobotName field in the main model.
+     * @param {event} e 
+     */
+    _handleReleaseRobotConfirmed(e){
+        this.mainModel.connectedRobotName = undefined;
+        this.mainMenuView.updateRoboButtonIcon(this.mainModel.connectedRobotName != undefined);
+        this.roboChooserOverlayView.updateOverlayContent(this.mainModel.availableRobots, this.mainModel.connectedRobotName);
+    }
+
 }
