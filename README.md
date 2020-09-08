@@ -45,7 +45,7 @@ Take your favourite browser, we recommend Firefox and Chrome and go to [localhos
 Shortcut to debug-view.
 
 ## Build your own Robot
-
+<image of robot>
 * Pan Tilt -> Verweis
 * Dokumentation Platine
 * Beschriftetes Foto & Illustrator
@@ -63,13 +63,51 @@ You will build three components:
 * a soldered PCB board which will hold the microcontroller and connects to the servos
 
 ### DaguRobot Pan/Tilt module
+_image of pan/tilt module>_
+
 You need [this](http://www.dagurobot.com/Sensor_pan_tilt_kit_DGS3003_servo?search=pan%20tilt&category_id=0) module. You will find it at your favourite distributor over the internet. __Make sure you get the long version!__
-Build the module as described in the manual. When fixing the servo hubs, mount them in a position that the servers are in a 50% position when pointing upright/centered.
+Build the module as described in the manual. When fixing the servo hubs, mount them in a position that the servers are in a __50% position__ when pointing upright/centered.
 
 ### Servostand
+_image of servostand_
+
 Our servostand is a lasercut stand which will perfectly fit the pan/tilt module and has fixing holes for the PCB and power connector.
-You can cut it out of a 3mm thick material of your choice - we recommend MDF board or something similar, non-conductive, glueable.
+You can cut it out of a __3mm__ thick material of your choice - we recommend MDF board or something similar, non-conductive, glueable.
  
+### Circuit board
+_image of soldered board_
+
+The circuit board holds the electric heart of your robot: a NodeMCU wireless controller (free the robots!). Additionally it provides a voltage converter and a (huge) capacitor to provide the servos with power, while supporting a wide range of input voltages. It also has mounting holes and a terminal connector for the powerboard too keep everything organized.
+
+#### Building the board
+_image of circuit_
+
+Solder the board as shown in the diagram. We use a breadboard, labeled on the top side and cut with a lasercutter. Make sure you hit the board on its holes when labeling your conductor paths.
+
+We strongly recommend to use wire for the long connections.
+
+#### Flashing the Robot
+_image of arduino flashing_
+We do this with the Arduino software. Don't worry - it's straight forward.
+
+Before programming the robot, you need to add the board to the Arduino's board library and do some minor configurations. It is well documented [here](https://www.instructables.com/id/Setting-Up-the-Arduino-IDE-to-Program-the-ESP8266-/).
+
+After setting up your Arduino environment, go to ```robodada-master/Roboland/NodeMCU_ESP8266/osc_servo``` and open up the ```osc_servo.ino``` file with your Arduino programming environment. You will notice that the patch consists of two files: beside the ```osc_servo.ino``` there is also a ```config.h```.
+
+Open the ```config.h``` and fill the following information:
+```cpp
+#define ROBO_NAME "Bender"
+
+#define SSID_NAME "name of your WiFi"
+#define PWD "password of your WiFi"
+```
+
+* ROBO_NAME: name of your robot, choose wisely, __if you use multiple robots, names must be unique__
+* SSID_NAME: as your robot connects via WiFi it has to know your credentials. This one is the name/ssid of your WiFi.
+* PWD: the secret of your WiFi
+
+Save your changes and upload the patch to your NodeMCU. Your Arduino Software should show the upload progress and something like "completed" in the end. If it does not finish/start the upload, most probably something went wrong with the NodeMCU driver installation or the board configuration.
+
 
 ## About
 Team
