@@ -45,7 +45,7 @@ Take your favourite browser, we recommend Firefox and Chrome and go to [localhos
 Shortcut to debug-view.
 
 ## Build your own Robot
-<image of robot>
+_image of robot_
 * Pan Tilt -> Verweis
 * Dokumentation Platine
 * Beschriftetes Foto & Illustrator
