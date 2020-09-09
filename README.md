@@ -105,12 +105,14 @@ Our servostand is a lasercut stand which will perfectly fit the pan/tilt module 
 You can cut it out of a __3mm__ thick material of your choice - we recommend MDF board or something similar, non-conductive, glueable.
  
 ### Circuit board
-_image of soldered board_
+![board_top](./docs/board_top.JPG)
+![board_bottom](./docs/board_bottom.JPG)
+![board_controller](./docs/board_controller.JPG)
 
 The circuit board holds the electric heart of your robot: a NodeMCU wireless controller (free the robots!). Additionally it provides a voltage converter and a (huge) capacitor to provide the servos with power, while supporting a wide range of input voltages. It also has mounting holes and a terminal connector for the powerboard too keep everything organized.
 
 #### Building the board
-_image of circuit_
+![circuit](./docs/circuit-01.JPG)
 
 To build the circuit you need:
 * NodeMCU ESP8266
@@ -127,7 +129,7 @@ We use a breadboard, labeled on the top side and cut with a lasercutter. Make su
 Solder the board as shown in the diagram. Start with the wire for the long connections, then add the other components.
 
 #### Flashing the Robot
-_image of arduino flashing_
+![flashing](./docs/flashing.jpg)
 We do this with the Arduino software. Don't worry - it's straight forward.
 
 Before programming the robot, you need to add the board to the Arduino's board library and do some minor configurations. It is well documented [here](https://www.instructables.com/id/Setting-Up-the-Arduino-IDE-to-Program-the-ESP8266-/).
