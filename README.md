@@ -4,9 +4,15 @@
 ## Table of Contents
 * [What is ROBODADA](#what-is-robodada)
 * [Requirements](#requirements)
+    * [Nice to have](#nice-to-have)
 * [Installation](#installation)
 * [How to use](#how-to-use)
 * [Build your own Robot](#build-your-own-robot)
+    * [Pan/Tilt module](#dagurobot-pantilt-module)
+    * [Servostand](#servostand)
+    * [Circuit board](#circuit-board)
+        * [Building the board](#building-the-board)
+        * [Flashing the Robot](#flashing-the-robot)
 * [About](#about)
 * [License](#license)
 ## What is ROBODADA?
