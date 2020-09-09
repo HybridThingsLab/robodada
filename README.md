@@ -98,7 +98,7 @@ Build the module as described in the manual. When fixing the servo hubs, mount t
 
 ### Servostand
 
-||||
+|Cutting|Parts|Build the stand|
 |-|-|-|
 |![stand_cut](./docs/stand_cut.JPG)|![stand_parts](./docs/stand_parts.JPG)|![stand_build](./docs/stand_build.JPG)|
 
@@ -107,9 +107,10 @@ Our servostand is a lasercut stand which will perfectly fit the pan/tilt module 
 You can cut it out of a __3mm__ thick material of your choice - we recommend MDF board or something similar, non-conductive, glueable.
  
 ### Circuit board
-![board_top](./docs/board_top.JPG)
-![board_bottom](./docs/board_bottom.JPG)
-![board_controller](./docs/board_controller.JPG)
+
+|Top|Bottom|With NodeMCU|
+|-|-|-|
+|![board_top](./docs/board_top.JPG)|![board_bottom](./docs/board_bottom.JPG)|![board_controller](./docs/board_controller.JPG)|
 
 The circuit board holds the electric heart of your robot: a NodeMCU wireless controller (free the robots!). Additionally it provides a voltage converter and a (huge) capacitor to provide the servos with power, while supporting a wide range of input voltages. It also has mounting holes and a terminal connector for the powerboard too keep everything organized.
 
