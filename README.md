@@ -6,6 +6,7 @@
 * [Requirements](#requirements)
     * [Nice to have](#nice-to-have)
 * [Installation](#installation)
+* [Startup](#startup)
 * [How to use](#how-to-use)
 * [Build your own Robot](#build-your-own-robot)
     * [Pan/Tilt module](#dagurobot-pantilt-module)
@@ -13,6 +14,9 @@
     * [Circuit board](#circuit-board)
         * [Building the board](#building-the-board)
         * [Flashing the Robot](#flashing-the-robot)
+        * [Put it all together](#put-it-all-together)
+        * [Powering up your Robot](#powering-up-your-robot)
+        * [Good to know](#good-to-know)
 * [About](#about)
 * [License](#license)
 ## What is ROBODADA?
@@ -42,6 +46,8 @@ The following command will automagically install all the needed things for you, 
 ```shell
 npm install
 ```
+
+## Startup
 After a successful installation, again __with your terminal__ and inside the folder `robodada-master/Serverland` start the server with this command:
 ```shell
 node app.js
@@ -102,6 +108,8 @@ Solder the board as shown in the diagram. We use a breadboard, labeled on the to
 
 We strongly recommend to use wire for the long connections.
 
+Drill holes
+
 #### Flashing the Robot
 _image of arduino flashing_
 We do this with the Arduino software. Don't worry - it's straight forward.
@@ -124,6 +132,36 @@ Open the ```config.h``` and fill the following information:
 
 Save your changes and upload the patch to your NodeMCU. Your Arduino Software should show the upload progress and something like "completed" in the end. If it does not finish/start the upload, most probably something went wrong with the NodeMCU driver installation or the board configuration.
 
+### Put it all together
+Nearly there..
+
+Solder two cables (6cm) to your power connector, isolate, and seal the open ends by soldering or crimping sleeves.
+Fix your power connector in the prepared mounting hole in the servostand.
+
+Fix your circuitboard with M3 screws and washers in the four holes inside the servostand. Add a distance ring between the stand and the board. Connect the power connector to the terminal of the board. __Take care of the polarity!__
+
+Fix the pan/tilt module in the stand with M3 screws and washers. Guide the servocables through the holes and connect them to the board. Again: __Care the polarity!__ You don't want to fry your robots limbs at the first powerup.
+
+### Powering up your Robot
+Congratulations when you made it till here! It is time to awake your new robo-friend!
+
+Disconnect the NodeMCU module from your computer, make sure you are in the same WiFi with your computer like your robot.
+
+Check your power supply: It has to provide __6V to 9V direct current the power rail at the connectors pin and ground at the ring__. Watch the diagram at the motorstand.
+
+Power up your robot by plugging in the power supply. No white smoke of enlightment? Congrats!
+The servos should move a little bit and you should feel restistance when you try to manipulate them. Inside the servostand you should see the led of the NodeMCU beeing lit.
+
+Start your ROBODADA server like described [here](#startup). Visit your server on ```http://loacalhost:3000```. Open up the Robo-Chooser by clicking the robo-head with the "?" on it. After a while your robot should show up. Click it to connect.
+
+When you are painting motionpaths your robot should move accordingly.
+
+It does? You did it!
+
+### Good to know
+If it feels somehow strange with the directions when painting movement paths, try switching the servos on their connector at the circuit board. Here you can change the mapping left/right/up/down - pan/tilt.
+
+The servos are driven by the voltage converter on the board. If you plan to lift heavy loads with your servos or keep them under permanent stress, consider adding a heatspreader.
 
 
 
