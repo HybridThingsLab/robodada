@@ -1,4 +1,14 @@
+
+
 # ROBODADA
+## Table of Contents
+* [What is ROBODADA](#what-is-robodada)
+* [Requirements](#requirements)
+* [Installation](#installation)
+* [How to use](#how-to-use)
+* [Build your own Robot](#build-your-own-robot)
+* [About](#about)
+* [License](#license)
 ## What is ROBODADA?
 
 ## Requirements
@@ -107,6 +117,8 @@ Open the ```config.h``` and fill the following information:
 * PWD: the secret of your WiFi
 
 Save your changes and upload the patch to your NodeMCU. Your Arduino Software should show the upload progress and something like "completed" in the end. If it does not finish/start the upload, most probably something went wrong with the NodeMCU driver installation or the board configuration.
+
+
 
 
 ## About
