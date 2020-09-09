@@ -98,7 +98,10 @@ Build the module as described in the manual. When fixing the servo hubs, mount t
 
 ### Servostand
 
+||||
+|-|-|-|
 |![stand_cut](./docs/stand_cut.JPG)|![stand_parts](./docs/stand_parts.JPG)|![stand_build](./docs/stand_build.JPG)|
+
 
 Our servostand is a lasercut stand which will perfectly fit the pan/tilt module and has fixing holes for the PCB and power connector.
 You can cut it out of a __3mm__ thick material of your choice - we recommend MDF board or something similar, non-conductive, glueable.
