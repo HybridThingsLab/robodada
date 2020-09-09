@@ -24,7 +24,7 @@
 ## Requirements
 To use ROBODADA you need:
 * NodeJS with NPM
-* Webcam
+* Laptop/Computer with Webcam (tested on Windows and MacOS)
 
 ### Nice to have
 * a Robot (everything is nicer with a robot, isn't it?)
@@ -59,7 +59,7 @@ Listening on 3000 in <Your Path>robodada-master/Serverland/controller
 ```
 It will search robots every few seconds - so don't mind the messages.
 
-Congratulations! You've made it!
+Congratulations! This wasn't too hard, was it?
 
 ## How to use
 Take your favourite browser, we recommend Firefox and Chrome and go to [localhost:3000](localhost:3000).
@@ -68,21 +68,27 @@ Shortcut to debug-view.
 
 ## Build your own Robot
 _image of robot_
-* Pan Tilt -> Verweis
-* Dokumentation Platine
-* Beschriftetes Foto & Illustrator
-* NodeMCU
 
 So you decided to build your own robot - in the future this will be done by robots for you but until then you have to do it yourselves.
 
-We assume that you have worked with Arduinos or similar in the past and __you know what you are doing__ when plugging in soldered stuff into your beloved Laptop.
+We assume that you have worked with Arduinos or similar in the past and __you know what you are doing__ when plugging in soldered stuff into your beloved Laptop/Computer.
 
 The robot we will build is just a proposal, and you can modify it in any way you like. [Let us know](mailto:) when you did something cool!
 
-You will build three components:
+You will build three main components:
 * a dagu robot servo pan tilt module
 * a lasercut stand for the servos
 * a soldered PCB board which will hold the microcontroller and connects to the servos
+
+Additionally to the items listed in the components you will need:
+* 8x M3 bolts, 16mm
+* 16x M3 washers
+* 4x distance ring M3, 5mm, non-conductive
+* wire
+* 2x wire terminator
+* barrel plug female, 5.0-2.5, for 3mm panel installation
+* power supply 6V to 9V direct current, barrel plug male, 5.0-2.5, the power rail at the connectors pin and ground at the ring
+
 
 ### DaguRobot Pan/Tilt module
 _image of pan/tilt module>_
@@ -104,11 +110,19 @@ The circuit board holds the electric heart of your robot: a NodeMCU wireless con
 #### Building the board
 _image of circuit_
 
-Solder the board as shown in the diagram. We use a breadboard, labeled on the top side and cut with a lasercutter. Make sure you hit the board on its holes when labeling your conductor paths.
+To build the circuit you need:
+* NodeMCU ESP8266
+* breadboard 100mm x 33mm, 2.54 grid
+* 2x connector strip female, 1x15
+* 1x connector strip male, 2x3
+* voltage converter L7805
+* capacitor 3300uF, 16V
+* screw terminal block 2 pin
+* wire
 
-We strongly recommend to use wire for the long connections.
+We use a breadboard, labeled on the top side and cut with a lasercutter. Make sure you hit the board on its holes when labeling your conductor paths with a lasercutter. Drill 3mm holes at the correct positions.
 
-Drill holes
+Solder the board as shown in the diagram. Start with the wire for the long connections, then add the other components.
 
 #### Flashing the Robot
 _image of arduino flashing_
