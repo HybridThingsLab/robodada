@@ -87,7 +87,7 @@ Additionally to the items listed in the components you will need:
 * wire
 * 2x wire terminator
 * barrel plug female, 5.0-2.5, for 3mm panel installation
-* power supply 6V to 9V direct current, barrel plug male, 5.0-2.5, the power rail at the connectors pin and ground at the ring
+* power supply 6V to 9V direct current, >=1500mW, barrel plug male, 5.0-2.5, the power rail at the connectors pin and ground at the ring
 
 
 ### DaguRobot Pan/Tilt module
