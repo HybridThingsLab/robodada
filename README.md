@@ -112,7 +112,7 @@ You can cut it out of a __3mm__ thick material of your choice - we recommend MDF
 The circuit board holds the electric heart of your robot: a NodeMCU wireless controller (free the robots!). Additionally it provides a voltage converter and a (huge) capacitor to provide the servos with power, while supporting a wide range of input voltages. It also has mounting holes and a terminal connector for the powerboard too keep everything organized.
 
 #### Building the board
-![circuit](./docs/circuit-01.JPG)
+![circuit](./docs/circuit-01.jpg)
 
 To build the circuit you need:
 * NodeMCU ESP8266
