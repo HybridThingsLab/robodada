@@ -206,6 +206,6 @@ P5JS
 NodeJS
 
 ## License
-The modified emoticons from [OpenMoji](https://openmoji.org/) are licensed under CC BY SA 4.0. Changes are documented [here](./Serverland/public/img/ATTRIBUTION.md).
+The modified emoticons from [OpenMoji](https://openmoji.org/) are licensed under CC BY SA 4.0. Changes are documented [here](./Userland/public/img/ATTRIBUTION.md).
 
 The source code is published under the [MIT license](./LICENSE)
