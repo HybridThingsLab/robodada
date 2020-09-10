@@ -1,7 +1,7 @@
 
 
 # ROBODADA
-v1.0.0
+
 ## Table of Contents
 * [What is ROBODADA](#what-is-robodada)
 * [Requirements](#requirements)
@@ -18,7 +18,8 @@ v1.0.0
         * [Put it all together](#put-it-all-together)
         * [Powering up your Robot](#powering-up-your-robot)
         * [Good to know](#good-to-know)
-* [About](#about)
+* [Team](#team)
+* [Credits](#credits)
 * [License](#license)
 ## What is ROBODADA?
 
@@ -26,6 +27,7 @@ v1.0.0
 To use ROBODADA you need:
 * NodeJS with NPM
 * Laptop/Computer with Webcam (tested on Windows and MacOS)
+* Firefox or Chrome
 
 ### Nice to have
 * a Robot (everything is nicer with a robot, isn't it?)
@@ -189,10 +191,21 @@ The servos are driven by the voltage converter on the board. If you plan to lift
 
 
 
-## About
+## Team
 Team
 Lab
 HSA
 
+## Credits
+OpenMoji
+face-api
+ArduinoOSC
+NodeMCU
+Arduino
+P5JS
+NodeJS
+
 ## License
-CC BY SA
+The modified emoticons from [OpenMoji](https://openmoji.org/) are licensed under CC BY SA 4.0. Changes are documented [here](./Serverland/public/img/ATTRIBUTION.md).
+
+The source code is published under the (MIT license)[./LICENSE]
