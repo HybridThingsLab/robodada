@@ -1,6 +1,6 @@
 
 
-# ROBODADA
+# ROBODADA > Logo Here
 
 ## Table of Contents
 * [What is ROBODADA?](#what-is-robodada)
@@ -22,25 +22,32 @@
 * [Credits](#credits)
 * [License](#license)
 ## What is ROBODADA?
+_animated gif here (face expression plus movement robot)_
+
+ROBODADA is an open-source toolkit to map facial expressions to body language of a robot. By adapting appearance and kinetic behavior, different aspects of interaction with emotion-aware robots can be explored in a playful manner.
+
+Our goal is to offer a tool as simple as possible, no coding skills are required. ROBODADA also provides multi-user and robots support in a local network running one server. Users do not need to install any packages or hardware drivers which is great when you have many people and less time (for example in a workshop). Just open your browser and connect to the server to play with your robot.
+
+We use the [face-api.js API](https://github.com/justadudewhohacks/face-api.js/) for face expression detection and our server is implemented with [Node.js](https://nodejs.org). Interface elements and emojis are based on [OpenMoji](https://openmoji.org/). For the hardware part we use NodeMCU ESP8266 modules to control the robots via OSC (Open Sound Control) wirelessly over the local network.
 
 ## Requirements
 To use ROBODADA you need:
-* [NodeJS](https://nodejs.org/en/download/) with NPM
+* [Node.js](https://nodejs.org/en/download/) with npm
 * Laptop/Computer with Webcam (tested on Windows and MacOS)
 * Firefox or Chrome
 
 ### Nice to have
-* a Robot (everything is nicer with a robot, isn't it?)
+* a robot (everything is nicer with a robot, isn't it?)
 
 ## Installation
-First of all you need to install NodeJS from [here](https://nodejs.org/en/download/). We recommend using the Installer.
+First of all you need to install Node.js from [here](https://nodejs.org/en/download/). We recommend using the installer.
 
-Check your working NodeJS installation by opening your terminal and type
+Check your working Node.js installation by opening your terminal and type
 ```shell
 node --version
 ```
 which should show something like `v12.18.3`.
-If your terminal tells you `Command not found` or similar, something went wrong with your NodeJS Installation.
+If your terminal tells you `Command not found` or similar, something went wrong with your Node.js Installation.
 
 Download the ROBODADA archive from [here](https://github.com/HybridThingsLab/robodada/archive/master.zip) and unzip it to a suitable directory. There will be a folder called `robodada-master`.
 
@@ -60,31 +67,36 @@ The server is starting up, telling you:
 Searching robots on <Your interface and ip here>
 Listening on 3000 in <Your Path>robodada-master/Serverland/controller
 ```
-It will search robots every few seconds - so don't mind the messages.
+It will search robots every few seconds - so don't mind the messages. Congratulations! This wasn't too hard, was it?
+If no "real" robot is connected to the network or you still have to build one, there is a robot simulation view available, see next part [How to use](#how-to-use).
 
-Congratulations! This wasn't too hard, was it?
 
 ## How to use
 Take your favourite browser, we recommend Firefox and Chrome and go to [localhost:3000](localhost:3000).
+
 _animates gifs walktrough_
 short explanation
 
-Shortcut to debug-view.
+Shortcut to robot simulation view.
 
 ## Multi-User support
-ToDO: one server, multiple users in local network.
+To access the webinterface and server from another machine in the local network use the IP and port number of the machine running the server. For example ```http://192.168.188.22:3000```
+
+Right now we have some issues to access the webcam if not running on localhost. For now this can be fixed in the settings of your webbrowser. For example in Chrome open ```chrome://flags/``` and add IP & port of the machine running the server.
+
+![flashing](./docs/screenshot_chrome.png)
 
 ## Build your own Robot
 _image of robot_
 
 So you decided to build your own robot - in the future this will be done by robots for you but until then you have to do it yourselves.
 
-We assume that you have worked with Arduinos or similar in the past and __you know what you are doing__ when plugging in soldered stuff into your beloved Laptop/Computer.
+We assume that you have worked with [Arduino](https://www.arduino.cc/) or similar in the past and __you know what you are doing__ when plugging in soldered stuff into your beloved Laptop/Computer.
 
-The robot we will build is just a proposal, and you can modify it in any way you like. [Let us know](mailto:) when you did something cool!
+The robot we will build is just a proposal, and you can modify it in any way you like. [Let us know](mailto:robodada@hybridthings.com) when you did something cool!
 
 You will build three main components:
-* a dagu robot servo pan tilt module
+* a servo pan tilt module (we recommend modules from [DaguRobot](http://www.dagurobot.com/Sensor_pan_tilt_kit_DGS3003_servo?search=pan%20tilt&category_id=0))
 * a lasercut stand for the servos
 * a soldered PCB board which will hold the microcontroller and connects to the servos
 
@@ -98,10 +110,10 @@ Additionally to the items listed in the components you will need:
 * power supply 6V to 9V direct current, >=1500mW, barrel plug male, 5.0-2.5, the power rail at the connectors pin and ground at the ring
 
 
-### DaguRobot Pan/Tilt module
+### Pan/Tilt module
 ![pan/tilt](./docs/pantilt.JPG)
 
-You need [this](http://www.dagurobot.com/Sensor_pan_tilt_kit_DGS3003_servo?search=pan%20tilt&category_id=0) module. You will find it at your favourite distributor over the internet. __Make sure you get the long version!__
+We recommend [this](http://www.dagurobot.com/Sensor_pan_tilt_kit_DGS3003_servo?search=pan%20tilt&category_id=0) module from DaguRobot. You will find it at your favourite distributor over the internet. __Make sure you get the long version!__
 Build the module as described in the manual. When fixing the servo hubs, mount them in a position that the servers are in a __50% position__ when pointing upright/centered.
 
 ### Servostand
@@ -147,6 +159,8 @@ We do this with the Arduino software. Don't worry - it's straight forward.
 
 Before programming the robot, you need to add the board to the Arduino's board library and do some minor configurations. It is well documented [here](https://www.instructables.com/id/Setting-Up-the-Arduino-IDE-to-Program-the-ESP8266-/).
 
+You also need to add the [ArduinoOSC](https://github.com/hideakitai/ArduinoOSC) library.
+
 After setting up your Arduino environment, go to ```robodada-master/Roboland/NodeMCU_ESP8266/osc_servo``` and open up the ```osc_servo.ino``` file with your Arduino programming environment. You will notice that the patch consists of two files: beside the ```osc_servo.ino``` there is also a ```config.h```.
 
 Open the ```config.h``` and fill the following information:
@@ -183,7 +197,7 @@ Check your power supply: It has to provide __6V to 9V direct current the power r
 Power up your robot by plugging in the power supply. No white smoke of enlightment? Congrats!
 The servos should move a little bit and you should feel restistance when you try to manipulate them. Inside the servostand you should see the led of the NodeMCU beeing lit.
 
-Start your ROBODADA server like described [here](#startup). Visit your server on ```http://loacalhost:3000```. Open up the Robo-Chooser by clicking the robo-head with the "?" on it. After a while your robot should show up. Click it to connect.
+Start your ROBODADA server like described [here](#startup). Visit your server on ```http://localhost:3000```. Open up the Robo-Chooser by clicking the robo-head with the "?" on it. After a while your robot should show up. Click it to connect.
 
 When you are painting motionpaths your robot should move accordingly.
 
@@ -193,7 +207,6 @@ It does? You did it!
 If it feels somehow strange with the directions when painting movement paths, try switching the servos on their connector at the circuit board. Here you can change the mapping left/right/up/down - pan/tilt.
 
 The servos are driven by the voltage converter on the board. If you plan to lift heavy loads with your servos or keep them under permanent stress, consider adding a heatspreader.
-
 
 
 ## Team
@@ -209,15 +222,19 @@ Fabian Pitzer
 Andreas Kraus
 
 ## Credits
-OpenMoji
-face-api
-ArduinoOSC
-NodeMCU
-Arduino
-P5JS
-NodeJS
+ROBODADA is built upon elements of other open source projects and libraries.
+
+Thanks to:
+* [Arduino](https://www.arduino.cc/)
+* [p5js](https://p5js.org/)
+* [Node.js](https://nodejs.org/)
+* [face-api.js](https://github.com/justadudewhohacks/face-api.js/)
+* [OpenMoji](https://openmoji.org/)
+* [ArduinoOSC](https://github.com/hideakitai/ArduinoOSC)
+* [NodeMCU](https://www.nodemcu.com/)
+
 
 ## License
-The modified emoticons from [OpenMoji](https://openmoji.org/) are licensed under CC BY SA 4.0. Changes are documented [here](./Userland/public/img/ATTRIBUTION.md).
+The modified emojis from [OpenMoji](https://openmoji.org/) are licensed under CC BY SA 4.0. Changes are documented [here](./Userland/public/img/ATTRIBUTION.md).
 
 The source code is published under the [MIT license](./LICENSE)
