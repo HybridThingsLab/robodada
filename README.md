@@ -192,9 +192,16 @@ The servos are driven by the voltage converter on the board. If you plan to lift
 
 
 ## Team
-Team
-Lab
-HSA
+ROBODADA is an open source project of the [HYBRID THINGS LAB](https://hybridthings.hs-augsburg.de/) at the [University of Applied Sciences Augsburg](https://www.hs-augsburg.de/), [Faculty of Design](https://www.hs-augsburg.de/Gestaltung.html).
+
+### concept, design & development
+[Andreas Muxel](https://www.andreasmuxel.com) & [Elias Naphausen](http://www.naphausen.info)
+
+### design & development
+Fabian Pitzer
+
+### development
+Andreas Kraus
 
 ## Credits
 OpenMoji
