@@ -97,10 +97,12 @@ You need [this](http://www.dagurobot.com/Sensor_pan_tilt_kit_DGS3003_servo?searc
 Build the module as described in the manual. When fixing the servo hubs, mount them in a position that the servers are in a __50% position__ when pointing upright/centered.
 
 ### Servostand
-
-|Cutting|Parts|Build the stand|
-|-|-|-|
-|![stand_cut](./docs/stand_cut.JPG)|![stand_parts](./docs/stand_parts.JPG)|![stand_build](./docs/stand_build.JPG)|
+|||
+|-|-|
+|Planning|Cutting|
+|![servo_mount_svg](./docs/servo_mount_v6.svg)|![stand_cut](./docs/stand_cut.JPG)|
+|Parts|Build the stand|
+|![stand_parts](./docs/stand_parts.JPG)|![stand_build](./docs/stand_build.JPG)|
 
 
 Our servostand is a lasercut stand which will perfectly fit the pan/tilt module and has fixing holes for the PCB and power connector.
