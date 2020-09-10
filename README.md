@@ -25,7 +25,7 @@
 
 ## Requirements
 To use ROBODADA you need:
-* NodeJS with NPM
+* [NodeJS](https://nodejs.org/en/download/) with NPM
 * Laptop/Computer with Webcam (tested on Windows and MacOS)
 * Firefox or Chrome
 
@@ -66,8 +66,13 @@ Congratulations! This wasn't too hard, was it?
 
 ## How to use
 Take your favourite browser, we recommend Firefox and Chrome and go to [localhost:3000](localhost:3000).
+_animates gifs walktrough_
+short explanation
 
 Shortcut to debug-view.
+
+## Multi-User support
+ToDO: one server, multiple users in local network.
 
 ## Build your own Robot
 _image of robot_
@@ -102,7 +107,7 @@ Build the module as described in the manual. When fixing the servo hubs, mount t
 ### Servostand
 |||
 |-|-|
-|Planning|Cutting|
+|SVG file|Cutting|
 |![servo_mount_svg](./docs/servo_mount_v6.svg)|![stand_cut](./docs/stand_cut.JPG)|
 |Parts|Build the stand|
 |![stand_parts](./docs/stand_parts.JPG)|![stand_build](./docs/stand_build.JPG)|
