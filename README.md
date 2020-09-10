@@ -1,6 +1,7 @@
 
 
 # ROBODADA
+v1.0.0
 ## Table of Contents
 * [What is ROBODADA](#what-is-robodada)
 * [Requirements](#requirements)
