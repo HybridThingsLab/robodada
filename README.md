@@ -3,7 +3,7 @@
 # ROBODADA
 
 ## Table of Contents
-* [What is ROBODADA](#what-is-robodada)
+* [What is ROBODADA?](#what-is-robodada)
 * [Requirements](#requirements)
     * [Nice to have](#nice-to-have)
 * [Installation](#installation)
