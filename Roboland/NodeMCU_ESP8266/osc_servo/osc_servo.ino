@@ -1,4 +1,4 @@
-// documentation ESP8266: https://www.mikrocontroller-elektronik.de/nodemcu-esp8266-tutorial-wlan-board-arduino-ide/
+// tutorial ESP8266: https://www.instructables.com/id/Setting-Up-the-Arduino-IDE-to-Program-the-ESP8266-/
   
 // config 
 #include "config.h"
