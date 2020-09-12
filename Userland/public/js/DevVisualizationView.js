@@ -15,7 +15,7 @@ let rotationSpeedTop = 1;
 function draw(){
     //getRotationValues();
 
-    background(230);    
+    background(255);    
     smooth();
     push();
     fill(0);
