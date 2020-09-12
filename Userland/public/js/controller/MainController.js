@@ -371,6 +371,13 @@ class MainController extends EventTarget{
     _handleDevVisualization() {
         this._openedWindow = window.open("dev_visualization.html","dev_visualization","channelmode, width=700, height=600, menubar=no, scrollbars=no, status=no, toolbar=no");
         this._openedWindow.postMessage(this.mainModel.selectedEmotion, "*");
+        
+        //Workaround for losing reference to devviz window on reload. This closes the devviz whenever the main window closes or reloads.
+        window.onunload = () => {
+            if(this._openedWindow && !this._openedWindow.closed){
+                this._openedWindow.close();
+            }
+        }    
     }
 
 
