@@ -40,20 +40,22 @@ class RoboChooserOverlayView{
             claimButton.classList.add("button");
             claimButton.style.display = "none";
             
-            let waveButton = document.createElement("div");
-            waveButton.classList.add("wave-button");
-            waveButton.classList.add("button");
-            waveButton.style.display = "none";
+            // Wave button is not needed for now
             
-            let waveEmoji = document.createElement("img");
-            waveEmoji.src = "img/roboChooser/wave.svg"
-            waveEmoji.classList.add("wave-emoji");
-            waveButton.appendChild(waveEmoji);
+            // let waveButton = document.createElement("div");
+            // waveButton.classList.add("wave-button");
+            // waveButton.classList.add("button");
+            // waveButton.style.display = "none";
+            
+            // let waveEmoji = document.createElement("img");
+            // waveEmoji.src = "img/roboChooser/wave.svg"
+            // waveEmoji.classList.add("wave-emoji");
+            // waveButton.appendChild(waveEmoji);
             
             let buttonWrapper = document.createElement("div");
             buttonWrapper.classList.add("button-wrapper");
             buttonWrapper.appendChild(claimButton);
-            buttonWrapper.appendChild(waveButton);
+            // buttonWrapper.appendChild(waveButton);
 
             let infoText = document.createElement("p");
             infoText.classList.add("info-text");
