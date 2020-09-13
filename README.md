@@ -9,6 +9,7 @@
 * [Installation](#installation)
 * [Startup](#startup)
 * [How to use](#how-to-use)
+* [Multi-user support](#multi-user-support)
 * [Build your own Robot](#build-your-own-robot)
     * [Pan/Tilt module](#dagurobot-pantilt-module)
     * [Servostand](#servostand)
@@ -79,7 +80,7 @@ short explanation
 
 Shortcut to robot simulation view.
 
-## Multi-User support
+## Multi-user support
 To access the webinterface and server from another machine in the local network use the IP and port number of the machine running the server. For example ```http://192.168.188.22:3000```
 
 Right now we have some issues to access the webcam if not running on localhost. For now this can be fixed in the settings of your webbrowser. For example in Chrome open ```chrome://flags/``` and add IP & port of the machine running the server.
@@ -197,7 +198,7 @@ Check your power supply: It has to provide __6V to 9V direct current the power r
 Power up your robot by plugging in the power supply. No white smoke of enlightment? Congrats!
 The servos should move a little bit and you should feel restistance when you try to manipulate them. Inside the servostand you should see the led of the NodeMCU beeing lit.
 
-Start your ROBODADA server like described [here](#startup). Visit your server on ```http://localhost:3000```. Now let's choose your robot by clicking the robo-head with the "?" on it. After a while your robot should show up. Click it to connect.
+Start your ROBODADA server like described [here](#startup). Visit your server on ```http://localhost:3000```. Now let's choose your robot by clicking the robo-head with the "?" on it. Follow instructions [here](#how-to-use). After a while your robot should show up. Click it to connect.
 
 When you are painting motionpaths your robot should move accordingly.
 
@@ -222,7 +223,7 @@ Fabian Pitzer
 Andreas Kraus
 
 ### contact
-Any questions or Feedback? Get in [contact](mailto:robodada@hybridthings.com) with us.
+Any questions or feedback? Get in [contact](mailto:robodada@hybridthings.com) with us.
 
 ## Credits
 ROBODADA is built upon elements of other open source projects and libraries.
