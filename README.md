@@ -222,7 +222,7 @@ Fabian Pitzer
 Andreas Kraus
 
 ### contact
-Any questions or Feedback? Get in contact with us [robodada@hybridthings.com](mailto:robodada@hybridthings.com).
+Any questions or Feedback? Get in [contact](mailto:robodada@hybridthings.com) with us.
 
 ## Credits
 ROBODADA is built upon elements of other open source projects and libraries.
