@@ -221,6 +221,9 @@ Fabian Pitzer
 ### development
 Andreas Kraus
 
+### contact
+Any questions or Feedback? Get in contact with us [robodada@hybridthings.com](mailto:robodada@hybridthings.com).
+
 ## Credits
 ROBODADA is built upon elements of other open source projects and libraries.
 
