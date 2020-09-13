@@ -197,7 +197,7 @@ Check your power supply: It has to provide __6V to 9V direct current the power r
 Power up your robot by plugging in the power supply. No white smoke of enlightment? Congrats!
 The servos should move a little bit and you should feel restistance when you try to manipulate them. Inside the servostand you should see the led of the NodeMCU beeing lit.
 
-Start your ROBODADA server like described [here](#startup). Visit your server on ```http://localhost:3000```. Open up the Robo-Chooser by clicking the robo-head with the "?" on it. After a while your robot should show up. Click it to connect.
+Start your ROBODADA server like described [here](#startup). Visit your server on ```http://localhost:3000```. Now let's choose your robot by clicking the robo-head with the "?" on it. After a while your robot should show up. Click it to connect.
 
 When you are painting motionpaths your robot should move accordingly.
 
