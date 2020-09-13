@@ -27,7 +27,7 @@ _animated gif here (face expression plus movement robot)_
 
 ROBODADA is an open-source toolkit to map facial expressions to body language of a robot. By adapting appearance and kinetic behavior, different aspects of interaction with emotion-aware robots can be explored in a playful manner.
 
-Using a web-based interface two-dimensional movement structures can be recorded, assigned to human emotions and played back via a simple two-axis pan and tilt robot. Using the computer mouse to predefine motion paths the user is put into the position of a puppeteer, performing the robot’s movement and map it to emotional expressions. ROBODADA interprets your emotion using a machine learning classifier based on the seven basic emotions by (Ekman)[https://www.researchgate.net/publication/318447136_Basic_Emotions].
+Using a web-based interface two-dimensional movement structures can be recorded, assigned to human emotions and played back via a simple two-axis pan and tilt robot. The user is put into the position of a puppeteer, performing the robot’s movement and map it to emotional expressions. ROBODADA interprets your emotion using a machine learning classifier based on the seven basic emotions by [Ekman](https://www.researchgate.net/publication/318447136_Basic_Emotions).
 
 Our goal is to offer a tool as simple as possible, no coding skills are required. ROBODADA also provides multi-user and robots support in a local network running the server just on one machine. Users do not need to install any packages or hardware drivers which is great when you may have many people and less time (for example in a workshop). Just open your browser and connect to the server to play with your robot.
 
