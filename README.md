@@ -27,7 +27,7 @@ _animated gif here (face expression plus movement robot)_
 
 ROBODADA is an open-source toolkit to map facial expressions to body language of a robot. By adapting appearance and kinetic behavior, different aspects of interaction with emotion-aware robots can be explored in a playful manner.
 
-Our goal is to offer a tool as simple as possible, no coding skills are required. ROBODADA also provides multi-user and robots support in a local network running one server. Users do not need to install any packages or hardware drivers which is great when you may have many people and less time (for example in a workshop). Just open your browser and connect to the server to play with your robot.
+Our goal is to offer a tool as simple as possible, no coding skills are required. ROBODADA also provides multi-user and robots support in a local network running the server just on one machine. Users do not need to install any packages or hardware drivers which is great when you may have many people and less time (for example in a workshop). Just open your browser and connect to the server to play with your robot.
 
 We use the [face-api.js API](https://github.com/justadudewhohacks/face-api.js/) for face expression detection and our server is implemented with [Node.js](https://nodejs.org). Interface elements and emojis are based on [OpenMoji](https://openmoji.org/). For the hardware part we use NodeMCU ESP8266 modules to control the robots via OSC (Open Sound Control) wirelessly over the local network.
 
