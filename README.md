@@ -23,15 +23,17 @@
 * [Credits](#credits)
 * [License](#license)
 ## What is ROBODADA?
-_animated gif here (face expression plus movement robot)_
+![robodada_01](./docs/ROBODADA_01.gif)
 
-ROBODADA is an open-source toolkit to map facial expressions to body language of a robot. By adapting appearance and kinetic behavior, different aspects of interaction with emotion-aware robots can be explored in a playful manner.
+### ROBODADA is an open-source toolkit to map facial expressions to body language of a robot. By adapting appearance and kinetic behavior, different aspects of interaction with emotion-aware robots can be explored in a playful manner.
 
-Using a web-based interface two-dimensional movement structures can be recorded, assigned to human emotions and played back via a simple two-axis pan and tilt robot. The user is put into the position of a puppeteer, performing the robot’s movement and map it to emotional expressions. ROBODADA interprets your emotion using a machine learning classifier based on the seven basic emotions by [Ekman](https://www.researchgate.net/publication/318447136_Basic_Emotions).
+A web-based interface allows you to move a two-axis robot, record different motion patterns and assign them to the seven basic emotions by [Ekman](https://www.researchgate.net/publication/318447136_Basic_Emotions). When you activate your webcam, ROBODADA starts to interpret your emotion based on a pretrained model for face expression and selects the corresponding motion pattern of the robot. We use the [face-api.js API](https://github.com/justadudewhohacks/face-api.js/) for face expression detection.
 
-Our goal is to offer a tool as simple as possible, no coding skills are required. ROBODADA also provides multi-user and robots support in a local network running the server just on one machine. Users do not need to install any packages or hardware drivers which is great when you may have many people and less time (for example in a workshop). Just open your browser and connect to the server to play with your robot.
+![robodada_01](./docs/ROBODADA_01.gif)
 
-We use the [face-api.js API](https://github.com/justadudewhohacks/face-api.js/) for face expression detection and our server is implemented with [Node.js](https://nodejs.org). Interface elements and emojis are based on [OpenMoji](https://openmoji.org/). For the hardware part we use NodeMCU ESP8266 modules to control the robots via OSC (Open Sound Control) wirelessly over the local network.
+Our goal is to offer a tool as simple as possible, no coding skills are required. The simple robot module offers endless possibilites to add different analog materials and extensions. ROBODADA also provides multi-user and robots support in a local network running just one server. Users do not need to install any packages or hardware drivers which is great when you may have many people and less time (for example in a workshop). Just browse to the server, find your robot and perform it.
+
+Our server is implemented with [Node.js](https://nodejs.org), interface elements and emojis are based on [OpenMoji](https://openmoji.org/). For the hardware part we use NodeMCU ESP8266 modules to control the robots via OSC (Open Sound Control) wirelessly over the local network.
 
 ## Requirements
 To use ROBODADA you need:
@@ -87,10 +89,10 @@ To access the webinterface and server from another machine in the local network 
 
 Right now we have some issues to access the webcam if not running on localhost. For now this can be fixed in the settings of your webbrowser. For example in Chrome open ```chrome://flags/``` and add IP & port of the machine running the server.
 
-![flashing](./docs/screenshot_chrome.png)
+![security](./docs/screenshot_chrome.png)
 
 ## Build your own Robot
-_image of robot_
+_image of robots_
 
 So you decided to build your own robot - in the future this will be done by robots for you but until then you have to do it yourselves.
 
