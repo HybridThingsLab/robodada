@@ -28,18 +28,18 @@ __kurzer Walkthrouhg hier (select motion, record motion, emotion detection to mo
 
 ROBODADA is an open-source toolkit to map facial expressions to body language of a robot. By adapting appearance and kinetic behavior, different aspects of interaction with emotion-aware robots can be explored in a playful manner.
 
-A web-based interface allows you to move a two-axis robot, record different motion patterns and assign them to the seven basic emotions by [Ekman](https://www.researchgate.net/publication/318447136_Basic_Emotions). When you activate your webcam, ROBODADA tries to interpret your emotion based on a pretrained model for face expression and selects the corresponding motion pattern of the robot. We use the [face-api.js API](https://github.com/justadudewhohacks/face-api.js/) for face expression detection. We are aware, that machine based emotion detection has to be critically [discussed](https://www.theverge.com/2019/7/25/8929793/emotion-recognition-analysis-ai-machine-learning-facial-expression-review). ROBODADA underlines, that a machine is not really able to detect emotions, it just tries to classify features of [face landmarks](https://github.com/justadudewhohacks/face-api.js/#models-face-landmark-detection) through a pretrained model. The system just makes decisions on values, which can be measured.
+A web-based interface allows you to move a two-axis robot, record different motion patterns and assign them to [basic emotions](https://www.researchgate.net/publication/318447136_Basic_Emotions). When you activate your webcam, ROBODADA tries to interpret your emotion based on a pretrained model and selects the corresponding motion pattern of the robot. We use the [face-api.js API](https://github.com/justadudewhohacks/face-api.js/) for face expression detection. We are aware, that emotion detection has to be [discussed](https://www.theverge.com/2019/7/25/8929793/emotion-recognition-analysis-ai-machine-learning-facial-expression-review) critically. ROBODADA underlines, that a machine is not really able to detect emotions, it just detects patterns of [face landmarks](https://github.com/justadudewhohacks/face-api.js/#models-face-landmark-detection) in a pretrained model. The machine just makes decisions on values, which can be measured.
 
 We see ROBODADA as a playful approach for further discussion:
-* How does a machine actually sees us?
+* To which level can a machine detect emotions and what is not measurable?
 * How do we interpret the behaviour of a machine?
 * How is a machine’s behaviour affecting our behaviour?
 * ...
 
 
-Our goal is to offer a tool as simple as possible, no coding skills are required. The simple robot module offers endless possibilites to add different analog materials and extensions. ROBODADA also provides multi-user and robots support in a local network running on just one server. Users of the web interface do not need to install any packages or hardware drivers. Just browse to the server, find your robot and perform it.
+Our goal is to offer a tool as simple as possible, no coding skills are required. The robot module offers endless possibilites to add different analog materials and extensions. ROBODADA also provides multi-user and robots support in a local network. Users of the web interface do not need to install any packages or hardware drivers. Just open your browser, find your robot and perform it.
 
-Our server is implemented with [Node.js](https://nodejs.org), interface elements and emojis are based on [OpenMoji](https://openmoji.org/). For the hardware part we use NodeMCU ESP8266 modules to control the robots via OSC (Open Sound Control) wirelessly over the local network.
+Our server is implemented with [Node.js](https://nodejs.org), interface elements and emojis are based on [OpenMoji](https://openmoji.org/). For the hardware part we use [NodeMCU ESP8266](https://en.wikipedia.org/wiki/NodeMCU) modules to control the robots via OSC (Open Sound Control) wirelessly over the local network.
 
 ## Requirements
 To use ROBODADA as a single user you need:
@@ -85,17 +85,17 @@ If no "real" robot is connected to the network or you still have to build one, t
 ## How to use
 Take your favourite browser, we recommend Firefox and Chrome and go to [localhost:3000](localhost:3000).
 
-* choose your robot icon top-left 🤖 and connect 🤝
+* choose your robot using button top-left 🤖 and connect 🤝
+* if there is no "real" robot available we offer a simulation view on __'F2'__ of your keyboard ⌨️
 * choose an emotion 🤢, 😥, 😧, 😐, 😄, 😡, 😯
-* draw motion path ✏️
+* draw motion path ✏️ to move robot 
 * set loop mode on/off ▶️
-* you can save or load motion paths using the icon top-right 💾
+* save or load motion paths using the button top-right 💾
 * activate webcam 📸
 
-If there is no "real" robot connected we offer a simulation of the two-axis module. Press __'F2'__ to open view.
 
 ## Multi-user support
-To access the webinterface and server from another machine in the local network use the IP and port number of the machine running the server. For example ```http://192.168.188.22:3000```
+To access the webinterface from another machine in the local network use the IP and port number of the machine running the server. For example ```http://192.168.188.22:3000```
 
 Right now we have some issues to access the webcam if not running on localhost. For now this can be fixed in the settings of your webbrowser. For example in Chrome open ```chrome://flags/``` and add IP & port of the machine running the server.
 
@@ -108,9 +108,9 @@ So you decided to build your own robot - in the future this will be done by robo
 
 We assume that you have worked with [Arduino](https://www.arduino.cc/) or similar in the past and __you know what you are doing__ when plugging in soldered stuff into your beloved Laptop/Computer.
 
-The robot we will build is just a proposal, and you can modify it in any way you like. [Let us know](mailto:robodada@hybridthings.com) when you did something cool!
+Our robot module is just a proposal, and you can modify it in any way you like. [Let us know](mailto:robodada@hybridthings.com) when you did something cool!
 
-You will build three main components:
+It consists of three main components:
 * a servo pan tilt module (we recommend modules from [DaguRobot](http://www.dagurobot.com/Sensor_pan_tilt_kit_DGS3003_servo?search=pan%20tilt&category_id=0))
 * a lasercut stand for the servos
 * a soldered PCB board which will hold the microcontroller and connects to the servos
@@ -140,8 +140,8 @@ Build the module as described in the manual. When fixing the servo hubs, mount t
 |![stand_parts](./docs/stand_parts.JPG)|![stand_build](./docs/stand_build.JPG)|
 
 
-Our servostand is a lasercut stand which will perfectly fit the pan/tilt module and has fixing holes for the PCB and power connector.
-You can cut it out of a __3mm__ thick material of your choice - we recommend MDF board or something similar, non-conductive, glueable.
+Our servostand is a lasercutted and perfectly fits the pan/tilt module. There are fixing holes for the PCB and power connector.
+You can cut it out of a __3mm__ thick material of your choice - we recommend MDF board or something similar, non-conductive and glueable.
  
 ### Circuit board
 
@@ -155,7 +155,7 @@ The circuit board holds the electric heart of your robot: a NodeMCU wireless con
 ![circuit](./docs/circuit-01.jpg)
 
 To build the circuit you need:
-* NodeMCU ESP8266
+* [NodeMCU ESP8266](https://en.wikipedia.org/wiki/NodeMCU)
 * breadboard 100mm x 33mm, 2.54 grid
 * 2x connector strip female, 1x15
 * 1x connector strip male, 2x3
