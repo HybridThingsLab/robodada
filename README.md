@@ -9,7 +9,7 @@
 * [Installation](#installation)
 * [Startup](#startup)
 * [How to use](#how-to-use)
-* [Multi-user support](#multi-user-support)
+* [Multi-user and robots support](#multi-user-support)
 * [Build your own Robot](#build-your-own-robot)
     * [Pan/Tilt module](#dagurobot-pantilt-module)
     * [Servostand](#servostand)
@@ -28,21 +28,21 @@ __kurzer Walkthrouhg hier (select motion, record motion, emotion detection to mo
 
 ROBODADA is an open-source toolkit to map facial expressions to body language of a robot. By adapting appearance and kinetic behavior, different aspects of interaction with emotion-aware robots can be explored in a playful manner.
 
-A web-based interface allows you to move a two-axis robot, record different motion patterns and assign them to [basic emotions](https://www.researchgate.net/publication/318447136_Basic_Emotions). When you activate your webcam, ROBODADA tries to interpret your emotion based on a pretrained model and selects the corresponding motion pattern of the robot. We use the [face-api.js API](https://github.com/justadudewhohacks/face-api.js/) for face expression detection. We are aware, that emotion detection has to be [discussed](https://www.theverge.com/2019/7/25/8929793/emotion-recognition-analysis-ai-machine-learning-facial-expression-review) critically. ROBODADA underlines, that a machine is not really able to detect emotions, it just detects patterns of [face landmarks](https://github.com/justadudewhohacks/face-api.js/#models-face-landmark-detection) in a pretrained model. The machine just makes decisions on values, which can be measured.
+A web-based interface allows you to move a two-axis robot, record different movement patterns and assign them to [basic emotions](https://www.researchgate.net/publication/318447136_Basic_Emotions). Activating your webcam, ROBODADA tries to interpret your emotion based on a pre-trained model and activates the robot's recorded movement. We use the [face-api.js API](https://github.com/justadudewhohacks/face-api.js/) for face expression detection. We are aware, that emotion detection has to be [discussed](https://www.theverge.com/2019/7/25/8929793/emotion-recognition-analysis-ai-machine-learning-facial-expression-review) critically. ROBODADA underlines, that a machine is not really able to detect emotions. It just makes decisions on values, which can be [measured](https://github.com/justadudewhohacks/face-api.js/#features).
 
 We see ROBODADA as a playful approach for further discussion:
-* To which level can a machine detect emotions and what is not measurable?
-* How do we interpret the behaviour of a machine?
+* To which level can a machine detect emotions?
+* How do we interpret the corresponding behaviour of a machine?
 * How is a machine’s behaviour affecting our behaviour?
 * ...
 
 
-Our goal is to offer a tool as simple as possible, no coding skills are required. The robot module offers endless possibilites to add different analog materials and extensions. ROBODADA also provides multi-user and robots support in a local network. Users of the web interface do not need to install any packages or hardware drivers. Just open your browser, find your robot and perform it.
+Our goal is to offer a tool as simple as possible, no coding skills are required. The robot module offers endless possibilites to add different analog materials and extensions. ROBODADA also provides multi-user and robots support in a local network. Users do not need to install any packages or hardware drivers. Just open your browser and select your robot.
 
-Our server is implemented with [Node.js](https://nodejs.org), interface elements and emojis are based on [OpenMoji](https://openmoji.org/). For the hardware part we use [NodeMCU ESP8266](https://en.wikipedia.org/wiki/NodeMCU) modules to control the robots via OSC (Open Sound Control) wirelessly over the local network.
+Our server is implemented with [Node.js](https://nodejs.org), interface elements and emojis are based on [OpenMoji](https://openmoji.org/). For the hardware part we use a [NodeMCU ESP8266](https://en.wikipedia.org/wiki/NodeMCU) module to control the servo motors wirelessly.
 
 ## Requirements
-To use ROBODADA as a single user you need:
+To start with ROBODADA you need:
 * [Node.js](https://nodejs.org/en/download/) with npm
 * Laptop/Computer with Webcam (tested on Windows and MacOS)
 * Firefox or Chrome
@@ -79,14 +79,14 @@ Searching robots on <Your interface and ip here>
 Listening on 3000 in <Your Path>robodada-master/Serverland/controller
 ```
 It will search robots every few seconds - so don't mind the messages. Congratulations! This wasn't too hard, was it?
-If no "real" robot is connected to the network or you still have to build one, there is a robot simulation view available, see next part [How to use](#how-to-use).
+If you don't have a robot yet, there is a robot simulation view available, see next part [How to use](#how-to-use).
 
 
 ## How to use
 Take your favourite browser, we recommend Firefox and Chrome and go to [localhost:3000](localhost:3000).
 
 * choose your robot using button top-left 🤖 and connect 🤝
-* if there is no "real" robot available we offer a simulation view on __'F2'__ of your keyboard ⌨️
+* if there is no "real" robot available we offer a simulation view pressing __'F2'__ on your keyboard ⌨️
 * choose an emotion 🤢, 😥, 😧, 😐, 😄, 😡, 😯
 * draw motion path ✏️ to move robot 
 * set loop mode on/off ▶️
@@ -94,7 +94,7 @@ Take your favourite browser, we recommend Firefox and Chrome and go to [localhos
 * activate webcam 📸
 
 
-## Multi-user support
+## Multi-user and robots support
 To access the webinterface from another machine in the local network use the IP and port number of the machine running the server. For example ```http://192.168.188.22:3000```
 
 Right now we have some issues to access the webcam if not running on localhost. For now this can be fixed in the settings of your webbrowser. For example in Chrome open ```chrome://flags/``` and add IP & port of the machine running the server.
@@ -170,7 +170,7 @@ Solder the board as shown in the diagram. Start with the wire for the long conne
 
 #### Flashing the Robot
 ![flashing](./docs/flashing.jpg)
-We do this with the Arduino software. Don't worry - it's straight forward.
+We do this with the [Arduino](https://www.arduino.cc/en/Main/Software) software. Don't worry - it's straight forward.
 
 Before programming the robot, you need to add the board to the Arduino's board library and do some minor configurations. It is well documented [here](https://www.instructables.com/id/Setting-Up-the-Arduino-IDE-to-Program-the-ESP8266-/).
 
