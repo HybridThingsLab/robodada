@@ -28,10 +28,10 @@ __kurzer Walkthrouhg hier (select motion, record motion, emotion detection to mo
 
 ROBODADA is an open-source toolkit to map facial expressions to body language of a robot. By adapting appearance and kinetic behavior, different aspects of interaction with emotion-aware robots can be explored in a playful manner.
 
-A web-based interface allows you to move a two-axis robot, record different motion patterns and assign them to the seven basic emotions by [Ekman](https://www.researchgate.net/publication/318447136_Basic_Emotions). When you activate your webcam, ROBODADA tries to interpret your emotion based on a pretrained model for face expression and selects the corresponding motion pattern of the robot. We use the [face-api.js API](https://github.com/justadudewhohacks/face-api.js/) for face expression detection. We are aware, that machine based emotion detection has to be critically [discussed](https://www.theverge.com/2019/7/25/8929793/emotion-recognition-analysis-ai-machine-learning-facial-expression-review). ROBODADA underlines, that a machine is not really able to detect emotions, it just tries to classify features of [face landmarks](https://github.com/justadudewhohacks/face-api.js/#models-face-landmark-detection) through a pretrained model.
+A web-based interface allows you to move a two-axis robot, record different motion patterns and assign them to the seven basic emotions by [Ekman](https://www.researchgate.net/publication/318447136_Basic_Emotions). When you activate your webcam, ROBODADA tries to interpret your emotion based on a pretrained model for face expression and selects the corresponding motion pattern of the robot. We use the [face-api.js API](https://github.com/justadudewhohacks/face-api.js/) for face expression detection. We are aware, that machine based emotion detection has to be critically [discussed](https://www.theverge.com/2019/7/25/8929793/emotion-recognition-analysis-ai-machine-learning-facial-expression-review). ROBODADA underlines, that a machine is not really able to detect emotions, it just tries to classify features of [face landmarks](https://github.com/justadudewhohacks/face-api.js/#models-face-landmark-detection) through a pretrained model. The system just makes decisions on values, which can be measured.
 
-ROBODADA is a playful approach for further discussion:
-* How does a machine sees us?
+We see ROBODADA as a playful approach for further discussion:
+* How does a machine actually sees us?
 * How do we interpret the behaviour of a machine?
 * How is a machine’s behaviour affecting our behaviour?
 * ...
