@@ -24,7 +24,7 @@
 * [License](#license)
 ## What is ROBODADA?
 ![robodada_01](./docs/ROBODADA_01.gif)
-__kurzer Walkthrouhg hier (record motion, detection expression to motion max. 10 Sekunden)__
+__kurzer Walkthrouhg hier (select motion, record motion, emotion detection to motion robot max. 10 Sekunden)__
 
 ROBODADA is an open-source toolkit to map facial expressions to body language of a robot. By adapting appearance and kinetic behavior, different aspects of interaction with emotion-aware robots can be explored in a playful manner.
 
@@ -33,16 +33,16 @@ A web-based interface allows you to move a two-axis robot, record different moti
 ROBODADA is a playful approach for further discussion:
 * How does a machine sees us?
 * How do we interpret the behaviour of a machine?
-* How affects a machine’s behaviour our behaviour?
+* How is a machine’s behaviour affecting our behaviour?
 * ...
 
 
-Our goal is to offer a tool as simple as possible, no coding skills are required. The simple robot module offers endless possibilites to add different analog materials and extensions. ROBODADA also provides multi-user and robots support in a local network running just one server. Users do not need to install any packages or hardware drivers which is great when you may have many people and less time (for example in a workshop). Just browse to the server, find your robot and perform it.
+Our goal is to offer a tool as simple as possible, no coding skills are required. The simple robot module offers endless possibilites to add different analog materials and extensions. ROBODADA also provides multi-user and robots support in a local network running on just one server. Users of the web interface do not need to install any packages or hardware drivers. Just browse to the server, find your robot and perform it.
 
 Our server is implemented with [Node.js](https://nodejs.org), interface elements and emojis are based on [OpenMoji](https://openmoji.org/). For the hardware part we use NodeMCU ESP8266 modules to control the robots via OSC (Open Sound Control) wirelessly over the local network.
 
 ## Requirements
-To use ROBODADA you need:
+To use ROBODADA as a single user you need:
 * [Node.js](https://nodejs.org/en/download/) with npm
 * Laptop/Computer with Webcam (tested on Windows and MacOS)
 * Firefox or Chrome
@@ -85,12 +85,14 @@ If no "real" robot is connected to the network or you still have to build one, t
 ## How to use
 Take your favourite browser, we recommend Firefox and Chrome and go to [localhost:3000](localhost:3000).
 
-* step 1
-* step 2
-* step 3
-* step 4...
+* choose your robot, icon top-left 🤖 and connect 🤝
+* choose an emotion 🤢, 😥, 😧, 😐, 😄, 😡, 😯
+* draw motion path ✏️
+* set loop mode on/off ▶️
+* you can save or load motion paths using the icon top-right 💾
+* activate webcam 📸
 
-Shortcut to robot simulation view.
+If there is no "real" robot connected we offer a simulation of the two-axis module. Press __'F2'__ to open view.
 
 ## Multi-user support
 To access the webinterface and server from another machine in the local network use the IP and port number of the machine running the server. For example ```http://192.168.188.22:3000```
