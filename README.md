@@ -85,7 +85,7 @@ If no "real" robot is connected to the network or you still have to build one, t
 ## How to use
 Take your favourite browser, we recommend Firefox and Chrome and go to [localhost:3000](localhost:3000).
 
-* choose your robot, icon top-left 🤖 and connect 🤝
+* choose your robot icon top-left 🤖 and connect 🤝
 * choose an emotion 🤢, 😥, 😧, 😐, 😄, 😡, 😯
 * draw motion path ✏️
 * set loop mode on/off ▶️
