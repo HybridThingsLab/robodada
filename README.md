@@ -1,6 +1,6 @@
 
 
-# ROBODADA > Logo Here
+![ROBODADA](./docs/ROBODADA_LOGO.png)
 
 ## Table of Contents
 * [What is ROBODADA?](#what-is-robodada)
@@ -23,12 +23,11 @@
 * [Credits](#credits)
 * [License](#license)
 ## What is ROBODADA?
-![robodada_01](./docs/ROBODADA_01.gif)
-__kurzer Walkthrouhg hier (select motion, record motion, emotion detection to motion robot max. 10 Sekunden)__
+![robodada_screencast](./docs/robodada_screencast.gif)
 
-ROBODADA is an open-source toolkit to map facial expressions to body language of a robot. By adapting appearance and kinetic behavior, different aspects of interaction with emotion-aware robots can be explored in a playful manner.
+ROBODADA is an open-source toolkit to map facial expressions to body language of a robot. A web-based interface allows you to move a two-axis robot, record different movement patterns and assign them to [basic emotions](https://www.researchgate.net/publication/318447136_Basic_Emotions). Activating your webcam, ROBODADA tries to interpret your emotion based on a pre-trained model and activates the robot's recorded movement. 
 
-A web-based interface allows you to move a two-axis robot, record different movement patterns and assign them to [basic emotions](https://www.researchgate.net/publication/318447136_Basic_Emotions). Activating your webcam, ROBODADA tries to interpret your emotion based on a pre-trained model and activates the robot's recorded movement. We use the [face-api.js API](https://github.com/justadudewhohacks/face-api.js/) for face expression detection. We are aware, that emotion detection has to be [discussed](https://www.theverge.com/2019/7/25/8929793/emotion-recognition-analysis-ai-machine-learning-facial-expression-review) critically. ROBODADA underlines, that a machine is not really able to detect emotions. It just makes decisions on values, which can be [measured](https://github.com/justadudewhohacks/face-api.js/#features).
+We use the [face-api.js API](https://github.com/justadudewhohacks/face-api.js/) for face expression detection. We are aware, that machine based emotion detection has to be [discussed](https://www.theverge.com/2019/7/25/8929793/emotion-recognition-analysis-ai-machine-learning-facial-expression-review) critically. ROBODADA underlines, that a machine is not really able to detect "real" human emotions. It just makes decisions on values, which can be [measured](https://github.com/justadudewhohacks/face-api.js/#features).
 
 We see ROBODADA as a playful approach for further discussion:
 * To which level can a machine detect emotions?
@@ -79,7 +78,7 @@ Searching robots on <Your interface and ip here>
 Listening on 3000 in <Your Path>robodada-master/Serverland/controller
 ```
 It will search robots every few seconds - so don't mind the messages. Congratulations! This wasn't too hard, was it?
-If you don't have a robot yet, there is a robot simulation view available, see next part [How to use](#how-to-use).
+If you don't have a robot yet, there is a simulation view available, see [How to use](#how-to-use).
 
 
 ## How to use
@@ -87,9 +86,10 @@ Take your favourite browser, we recommend Firefox and Chrome and go to [localhos
 
 * choose your robot using button top-left 🤖 and connect 🤝
 * if there is no "real" robot available we offer a simulation view pressing __'F2'__ on your keyboard ⌨️
-* choose an emotion 🤢, 😥, 😧, 😐, 😄, 😡, 😯
+* choose an emotion 🤢 😥 😧 😐 😄 😡 😯
 * draw motion path ✏️ to move robot 
-* set loop mode on/off ▶️
+* re-play movement to test ▶️⏹️
+* set loop mode on/off 🔂
 * save or load motion paths using the button top-right 💾
 * activate webcam 📸
 
