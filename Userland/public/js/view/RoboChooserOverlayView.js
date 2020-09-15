@@ -1,5 +1,5 @@
-class RoboChooserOverlayView{
-    constructor(){
+class RoboChooserOverlayView {
+    constructor() {
         this._overlay = document.querySelector(".robo-chooser-overlay");
         this._mainMenu = document.querySelector(".main-menu");
         this._close = document.querySelector(".robo-chooser-overlay > .close");
@@ -7,7 +7,7 @@ class RoboChooserOverlayView{
         this._addEventListeners();
     }
 
-    _addEventListeners(){   
+    _addEventListeners() {
         this._overlayEventlistener();
     }
 
@@ -17,14 +17,14 @@ class RoboChooserOverlayView{
 
         //clicking outside the drawing area closes the overlay too
         this._overlay.addEventListener('mousedown', this.closeOverlay.bind(this));
-        this._overlay.childNodes.forEach((item)=>{
-            item.addEventListener('mousedown', (evt)=>{
+        this._overlay.childNodes.forEach((item) => {
+            item.addEventListener('mousedown', (evt) => {
                 evt.stopPropagation();
             })
         })
     }
 
-    updateOverlayContent(roboList, currentRobo){
+    updateOverlayContent(roboList, currentRobo) {
         this._interfaceWrapper.innerHTML = "";
         roboList.forEach(robo => {
             let icon = document.createElement("img");
@@ -34,24 +34,24 @@ class RoboChooserOverlayView{
             let name = document.createElement("p");
             name.classList.add("robo-name");
             name.innerText = robo.name;
-            
+
             let claimButton = document.createElement("div");
             claimButton.classList.add("claim-button");
             claimButton.classList.add("button");
             claimButton.style.display = "none";
-            
+
             // Wave button is not needed for now
-            
+
             // let waveButton = document.createElement("div");
             // waveButton.classList.add("wave-button");
             // waveButton.classList.add("button");
             // waveButton.style.display = "none";
-            
+
             // let waveEmoji = document.createElement("img");
             // waveEmoji.src = "img/roboChooser/wave.svg"
             // waveEmoji.classList.add("wave-emoji");
             // waveButton.appendChild(waveEmoji);
-            
+
             let buttonWrapper = document.createElement("div");
             buttonWrapper.classList.add("button-wrapper");
             buttonWrapper.appendChild(claimButton);
@@ -61,7 +61,7 @@ class RoboChooserOverlayView{
             infoText.classList.add("info-text");
             infoText.style.display = "none";
 
-            if(robo.state == 1){
+            if (robo.state == 1) {
                 infoText.innerText = robo.name + " is ready to be used.";
                 claimButton.innerText = "connect now";
                 claimButton.addEventListener('click', () => {
@@ -69,7 +69,7 @@ class RoboChooserOverlayView{
                     event.robotName = robo.name;
                     dispatchEvent(event);
                 });
-            } else if(robo.state == 0 && currentRobo == robo.name){
+            } else if (robo.state == 0 && currentRobo == robo.name) {
                 icon.src = "img/roboChooser/connected.svg"
                 infoText.innerText = "you are using " + robo.name + " as your robo.";
                 claimButton.innerText = "disconnect";
@@ -79,7 +79,7 @@ class RoboChooserOverlayView{
                 });
             } else {
                 icon.src = "img/roboChooser/connected_other.svg"
-                waveButton.style.display = "none";
+                // waveButton.style.display = "none";
                 infoText.innerText = robo.name + " is in use by someone else.";
                 claimButton.innerText = "connect anyway";
                 claimButton.addEventListener('click', () => {
@@ -88,9 +88,9 @@ class RoboChooserOverlayView{
                     dispatchEvent(event);
                 });
             }
-            
-            
-            
+
+
+
             let button = document.createElement("div");
             button.classList.add("robo-chooser-button");
             button.classList.add("button");
@@ -125,10 +125,10 @@ class RoboChooserOverlayView{
             //not very elegant, has to be changed when button text is changed
             if (clickedButton.childNodes[3].childNodes[0].innerText == "connect anyway") {
                 clickedButton.childNodes[3].childNodes[0].style.display = "inline-block";
-                clickedButton.childNodes[3].childNodes[1].style.display = "none";
+                //clickedButton.childNodes[3].childNodes[1].style.display = "none";
             } else {
                 clickedButton.childNodes[3].childNodes[0].style.display = "inline-block";
-                clickedButton.childNodes[3].childNodes[1].style.display = "inline-block";
+                //clickedButton.childNodes[3].childNodes[1].style.display = "inline-block";
             }
         }, 110);
 
@@ -142,6 +142,6 @@ class RoboChooserOverlayView{
 
     closeOverlay() {
         this._overlay.style.display = 'none';
-        this._mainMenu.style.filter = '';        
+        this._mainMenu.style.filter = '';
     }
 }
