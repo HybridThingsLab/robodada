@@ -102,7 +102,7 @@ Right now we have some issues to access the webcam if not running on localhost. 
 ![security](./docs/screenshot_chrome.png)
 
 ## Build your own Robot
-|||
+|Basic module|Customized module|
 :-------------------------:|:-------------------------:
 ![robo1](./docs/robo01.jpg)|![robo2](./docs/robo02.jpg)
 
