@@ -33,7 +33,7 @@ We see ROBODADA as a playful approach for further discussion:
 * To which level can a machine detect emotions?
 * How do we interpret the corresponding behaviour of a machine?
 * How is a machine’s behaviour affecting our behaviour?
-* ....
+* ...
 
 
 Our goal is to offer a tool as simple as possible, no coding skills are required. The robot module offers endless possibilites to add different analog materials and extensions. ROBODADA also provides multi-user and robots support in a local network. Users do not need to install any packages or hardware drivers. Just open your browser and select your robot.
