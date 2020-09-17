@@ -82,7 +82,7 @@ If you don't have a robot yet, there is a simulation view available, see [How to
 
 
 ## How to use
-Take your favourite browser, we recommend Firefox and Chrome and go to [localhost:3000](localhost:3000).
+Take your favourite browser, we recommend Firefox and Chrome and go to [http://localhost:3000](http://localhost:3000).
 
 * choose your robot using button top-left 🤖 and connect 🤝
 * if there is no "real" robot available we offer a simulation view pressing __'F2'__ on your keyboard ⌨️
