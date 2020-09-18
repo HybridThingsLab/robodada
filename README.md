@@ -1,4 +1,4 @@
-
+version 1.0.0
 
 ![ROBODADA](./docs/ROBODADA_LOGO.png)
 
