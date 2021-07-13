@@ -174,7 +174,7 @@ Solder the board as shown in the diagram. Start with the wire for the long conne
 ![flashing](./docs/flashing.jpg)
 We do this with the [Arduino](https://www.arduino.cc/en/Main/Software) software. Don't worry - it's straight forward.
 
-Before programming the robot, you need to add the board to the Arduino's board library and do some minor configurations. It is well documented [here](https://www.instructables.com/id/Setting-Up-the-Arduino-IDE-to-Program-the-ESP8266-/).
+Before programming the robot, you need to add the board to the Arduino's board library and do some minor configurations. It is well documented [here](https://www.instructables.com/id/Setting-Up-the-Arduino-IDE-to-Program-the-ESP8266-/). For NodeMCU boards we recommend to choose "NodeMUC 1.0 (ESP-12E Module)" in the Arduino IDE.
 
 You also need to add the [ArduinoOSC](https://github.com/hideakitai/ArduinoOSC) library.
 
