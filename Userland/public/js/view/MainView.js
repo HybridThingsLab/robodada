@@ -72,7 +72,7 @@ class MainView {
 
         let ctx = canvas.getContext('2d');
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        let scale = resizedResult.detection.box.width / canvas.width * 8;
+        let scale = resizedResult.detection.box.width / canvas.width * 4;
         ctx.setTransform(scale, 0, 0, scale, resizedResult.detection.box.x + resizedResult.detection.box.width / 2, resizedResult.detection.box.y + resizedResult.detection.box.height / 2);
 
         //@TODO: manage emoticons       

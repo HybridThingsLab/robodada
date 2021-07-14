@@ -13,9 +13,9 @@ class EmotionDetectionController{
     startCamInteraction(videoElement){
         this._getMedia({
             video: {width:
-                        {min: 640, ideal: 1280, max: 1900},
+                        {min: 640, ideal: 640, max: 1900},
                     height:
-                        {min: 480, ideal: 720, max: 1080}
+                        {min: 480, ideal: 480, max: 1080}
             }
         }, videoElement);
     }
