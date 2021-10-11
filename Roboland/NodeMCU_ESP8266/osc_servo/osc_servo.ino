@@ -14,8 +14,8 @@ const char* pwd = PWD;
 // servos
 Servo s1;
 Servo s2;
-uint8_t servo1Pin = D1;
-uint8_t servo2Pin = D2;
+uint8_t servo1Pin = 5;
+uint8_t servo2Pin = 4;
 
 // server
 String server_ip;
