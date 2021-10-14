@@ -56,7 +56,7 @@ module.exports = class Controller {
         return this.model.robots.find(element => element.clientDetails.id == socket.id); 
     }
 
-    searchRobots(){ 
+    async searchRobots(){ 
         
         let ifaces = os.networkInterfaces();
         let searchIf = "";
@@ -100,6 +100,7 @@ module.exports = class Controller {
         for(let i = 1; i<255; i++){
             let searchip = ipstring+i;
             let client_send = new osc.Client(searchip, '9999');
+            await new Promise(resolve => setTimeout(resolve, 5));
             client_send.send('/helloRobot','',() => {client_send.close(); });                                
         }
        
