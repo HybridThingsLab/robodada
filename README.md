@@ -95,7 +95,7 @@ Take your favourite browser, we recommend Firefox and Chrome and go to [http://l
 
 
 ## Multi-user and robots support
-To access the webinterface from another machine in the local network use the IP and port number of the machine running the server. For example ```http://192.168.188.22:3000```
+To access the webinterface from another machine in the local network use the IP and port number of the machine running the server. For example ```http://192.168.188.24:3000```
 
 Right now we have some issues to access the webcam if not running on localhost. For now this can be fixed in the settings of your webbrowser. For example in Chrome open ```chrome://flags/``` and add IP & port of the machine running the server.
 
