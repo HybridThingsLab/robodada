@@ -25,12 +25,13 @@ version 1.0.0
 ## What is ROBODADA?
 ![robodada_screencast](./docs/robodada_screencast.gif)
 
-ROBODADA is an open-source toolkit to map facial expressions to body language of a robot. A web-based interface allows you to move a two-axis robot, record different movement patterns and assign them to [basic emotions](https://www.researchgate.net/publication/318447136_Basic_Emotions). Activating your webcam, ROBODADA tries to interpret your emotion based on a pre-trained model and activates the robot's recorded movement. 
+ROBODADA is an open-source toolkit to map facial expressions to body language of a robot. A web-based interface allows you to move a two-axis robot, record different movement patterns and assign them to [face expressions](https://www.researchgate.net/publication/318447136_Basic_Emotions). Activating your webcam, ROBODADA tries to interpret your emotion based on a pre-trained model and activates the robot's recorded movement. 
 
-We use the [face-api.js API](https://github.com/justadudewhohacks/face-api.js/) for face expression detection. We are aware, that machine based emotion detection has to be [discussed](https://www.theverge.com/2019/7/25/8929793/emotion-recognition-analysis-ai-machine-learning-facial-expression-review) critically. ROBODADA underlines, that a machine is not really able to [detect human emotions](https://www.theatlantic.com/technology/archive/2021/04/artificial-intelligence-misreading-human-emotion/618696/). It just makes decisions on values, which can be [measured](https://github.com/justadudewhohacks/face-api.js/#features).
+We use the [face-api.js API](https://github.com/justadudewhohacks/face-api.js/) for face expression detection. We are aware, that machine based emotion detection has to be [discussed](https://www.theverge.com/2019/7/25/8929793/emotion-recognition-analysis-ai-machine-learning-facial-expression-review) very critically. ROBODADA underlines, that a machine is not really able to [detect human emotions](https://www.theatlantic.com/technology/archive/2021/04/artificial-intelligence-misreading-human-emotion/618696/). It just makes decisions on values, which can be [measured](https://github.com/justadudewhohacks/face-api.js/#features) by a machine.
 
 We see ROBODADA as a playful approach for further discussion:
-* To which level can a machine detect emotions?
+* How do we want to design future robots?
+* Can and should a machine detect emotions?
 * How do we interpret the corresponding behaviour of a machine?
 * How is a machine’s behaviour affecting our behaviour?
 * ...
