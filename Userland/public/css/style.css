@@ -34,13 +34,12 @@ body {
   font-family: Nunito, proxima-soft, sans-serif;
   font-weight: 700;
   font-style: normal;
-  font-size: 5vh;
+  font-size: 3vw;
   line-height: 100%;
   height: 100%;
   justify-content: center;
   align-content: center;
   color: black;
-  background-color: red;
 }
 
 .cursor {
@@ -309,14 +308,17 @@ body {
   position: fixed;
   top: 0;
   height: 100%;
-  width: 100%;
-}
-.main-menu .buttons-top {
-  position: fixed;
+  max-height: 100vh;
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+}
+.main-menu .buttons-top {
+  width: 100%;
+  height: auto;
+  display: flex;
   padding: 2vh;
+  padding-bottom: 1vh;
   z-index: 20;
   pointer-events: none;
   box-sizing: border-box;
@@ -333,52 +335,52 @@ body {
   transform: scale(2, 2) translate(0, 0.5px);
 }
 .main-menu .buttons-top .robo-button {
-  margin-right: auto;
+  align-self: flex-start;
 }
 .main-menu .buttons-top .save-button {
+  align-self: flex-end;
   margin-right: 2vh;
+  margin-left: auto;
 }
 .main-menu .buttons-top .save-button img {
   transform: scale(1.5, 1.5);
+}
+.main-menu .buttons-top .help-button {
+  align-self: flex-end;
 }
 .main-menu .buttons-top .help-button img {
   transform: scale(1.8, 1.8);
 }
 .main-menu .wrapper-emotion {
-  position: relative;
+  height: 100vh;
   display: flex;
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
   justify-content: center;
-  width: 80vw;
-  max-height: 80vh;
-  overflow: visible;
-  margin: auto;
-  margin-top: 5vh;
+  margin: 0 5vw;
+  box-sizing: content-box;
 }
 .main-menu .wrapper-emotion .button {
   margin: 1.2vh;
   border-radius: 6vh;
+  width: 15vw;
 }
 .main-menu .wrapper-emotion .button .button-content {
-  width: 100%;
   display: flex;
   flex-direction: column;
-  overflow: visible;
-  align-items: center;
+  align-content: center;
+  justify-content: space-between;
 }
 .main-menu .wrapper-emotion .button .button-content img {
-  width: 13vw;
-  height: 25vh;
-  object-fit: contain;
-  transform: scale(1.2, 1.2);
+  flex: 1 1 auto;
+  object-fit: fill;
+  max-width: 100%;
   pointer-events: none;
 }
 .main-menu .buttons-bottom {
   display: flex;
   justify-content: center;
   width: 100%;
-  position: absolute;
-  top: 88vh;
+  margin-bottom: 2vh;
 }
 .main-menu .buttons-bottom .camera-button {
   display: flex;
