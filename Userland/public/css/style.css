@@ -349,28 +349,41 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 5vw;
-  box-sizing: content-box;
+  margin: 0 5vh;
 }
 .main-menu .wrapper-emotion .button {
-  margin: 1.2vh;
+  margin: 1%;
   border-radius: 6vh;
   width: 15vw;
+  height: auto;
 }
 .main-menu .wrapper-emotion .button .button-content {
   display: flex;
   flex-direction: column;
   align-content: center;
   justify-content: space-between;
+  height: 100%;
 }
 .main-menu .wrapper-emotion .button .button-content img {
   flex: 1 1 auto;
-  object-fit: fill;
-  height: 100%;
+  object-fit: contain;
   max-height: 100%;
-  width: 100%;
   max-width: 100%;
   pointer-events: none;
+}
+.main-menu .wrapper-emotion .button .button-content .button-text {
+  margin: 0;
+}
+@media screen and (min-width: 1700px) {
+  .main-menu .wrapper-emotion .button {
+    height: 23vh;
+  }
+  .main-menu .wrapper-emotion .button .button-content img {
+    height: 8vh;
+  }
+  .main-menu .wrapper-emotion .button .button-content .button-text {
+    font-size: 4vh;
+  }
 }
 .main-menu .buttons-bottom {
   display: flex;

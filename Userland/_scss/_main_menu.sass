@@ -57,32 +57,46 @@ $cam_height: 45vh
         display: flex        
         flex-wrap: wrap
         justify-content: center
-        margin: 0 5vw
-        box-sizing: content-box       
-        
+        margin: 0 5vh
+                
         .button
-            margin: 1.2vh
+            margin: 1%
             border-radius: 6vh             
             width: 15vw
+            height: auto
+            
            
             .button-content               
                 display: flex
                 flex-direction: column                
                 align-content: center
-                justify-content: space-between               
+                justify-content: space-between
+                height: 100%              
                 
                 img 
                     flex: 1 1 auto                  
-                    object-fit: fill
-                    height: 100%
-                    max-height: 100%
-                    width: 100%
+                    object-fit: contain                    
+                    max-height: 100%                    
                     max-width: 100%
                     //transform: scale(.5, .5)                 
                     pointer-events: none
+
+                .button-text
+                    margin: 0
                     
 
-    .buttons-bottom
+        @media screen and (min-width: 1700px)
+            .button                
+                height: 23vh               
+                .button-content
+                    img
+                        height: 8vh
+                    .button-text
+                        font-size: 4vh
+                        
+                    
+
+    .buttons-bottom        
         display: flex
         justify-content: center
         width: 100%
