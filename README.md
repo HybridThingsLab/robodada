@@ -33,7 +33,7 @@ We see ROBODADA as a playful approach for further discussion:
 * How do we want to design future robots?
 * Can and should a machine detect emotions?
 * How do we interpret the corresponding behaviour of a machine?
-* How is a machine’s behaviour affecting human behaviour?
+* How is a machine’s behaviour affecting our behaviour?
 * ...
 
 
