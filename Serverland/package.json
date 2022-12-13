@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/HybridThingsLab/robodada#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "node-osc": "^5.2.0",
     "socket.io": "^2.3.0"
   }
