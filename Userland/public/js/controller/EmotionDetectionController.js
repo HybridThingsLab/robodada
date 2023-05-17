@@ -93,7 +93,7 @@ class EmotionDetectionController {
         await faceapi.nets.faceExpressionNet.loadFromUri(MODEL_URL);
         //await faceapi.loadFaceLandmarkModel(MODEL_URL);
         await changeFaceDetector(TINY_FACE_DETECTOR);
-        changeInputSize(224);
+        changeInputSize(320);
         console.log(getCurrentFaceDetectionNet().params);
         this._stream = await navigator.mediaDevices.getUserMedia(constraints);
 
