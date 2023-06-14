@@ -1,43 +1,51 @@
-$cam_height: 45vh;
+$cam_height: 45vh
 
 .main-menu
-    position: fixed;
-    top: 0;
-    height: 100%;
-    width: 100%;
-
-
+    position: fixed
+    top: 0
+    height: 100%
+    max-height: 100vh
+    width: 100%
+    display: flex
+    flex-direction: column
     
     .buttons-top
-        position: fixed;
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-        padding: 2vh;
-        z-index: 20;
-        pointer-events: none;
-        box-sizing: border-box; //argh this is already being inherited but i still need it
+        
+        width: 100%
+        height: auto              
+        display: flex        
+        padding: 2vh
+        padding-bottom: 1vh
+        z-index: 20
+        pointer-events: none
+        box-sizing: border-box
+        
+
         .button
-            pointer-events: auto;
-            width: 6vh;
-            padding: 2.5vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;        
+            pointer-events: auto
+            width: 6vh
+            padding: 2.5vh
+            display: flex
+            align-items: center
+            justify-content: center        
             img 
-                transform: scale(2,2) translate(0, 0.5px);
+                transform: scale(2,2) translate(0, 0.5px)
 
         .robo-button
-            margin-right: auto;
+            align-self: flex-start
+            
 
         .save-button
-            margin-right: 2vh;
+            align-self: flex-end
+            margin-right: 2vh
+            margin-left: auto
             img
-                transform: scale(1.5,1.5);
+                transform: scale(1.5,1.5)
 
         .help-button
+            align-self: flex-end
             img
-                transform: scale(1.8,1.8);
+                transform: scale(1.8,1.8)
                 
 
 
@@ -45,116 +53,131 @@ $cam_height: 45vh;
         
 
     .wrapper-emotion
-        position: relative;
-        display: flex;
-        flex-wrap: wrap-reverse;
-        justify-content: center;
-        width: 80vw;
-        max-height: 80vh;    
-        overflow: visible;
-        margin: auto;
-        margin-top: 5vh;
-        
+        height: 100%
+        display: flex        
+        flex-wrap: wrap
+        justify-content: center
+        margin: 0 5vh
+                
         .button
-            margin: 1.2vh;
-            border-radius: 6vh;
-            .button-content
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                overflow: visible;
-                align-items: center;
+            margin: 1%
+            border-radius: 6vh             
+            width: 15vw
+            height: auto
+            
+           
+            .button-content               
+                display: flex
+                flex-direction: column                
+                align-content: center
+                justify-content: space-between
+                height: 100%              
+                
                 img 
-                    width: calc(65vw / 5);
-                    height: calc(75vh / 3);
-                    object-fit: contain;
-                    transform: scale(1.2,1.2);
+                    flex: 1 1 auto                  
+                    object-fit: contain                    
+                    max-height: 100%                    
+                    max-width: 100%
+                    //transform: scale(.5, .5)                 
+                    pointer-events: none
 
-                    pointer-events: none;
+                .button-text
+                    margin: 0
+                    
 
+        @media screen and (min-width: 1700px)
+            .button                
+                height: 23vh               
+                .button-content
+                    img
+                        height: 8vh
+                    .button-text
+                        font-size: 4vh
+                        
+                    
 
-
-    .buttons-bottom
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        position: absolute;
+    .buttons-bottom        
+        display: flex
+        justify-content: center
+        width: 100%
+        margin-bottom: 2vh
+        margin-top: 4vh           
         
-        top: 88vh;
         .camera-button
-            display: flex;
-            height: 2vh;
-            justify-content: space-between;
-            padding: 3vh; 
-            padding-right: 1vh;
-            padding-left: 2.5vh;
-            align-items: center;
+            display: flex
+            height: 2vh
+            justify-content: space-between
+            padding: 3vh 
+            padding-right: 1vh
+            padding-left: 2.5vh
+            
+            align-items: center
             p 
-                margin-right: 1vh;
-                transform: translate(0px, -1px);
+                margin-right: 1vh
+                transform: translate(0px, -1px)
             img 
-                max-width: none;
-                max-height: none;
-                width: 9vh;
-                height: 9vh;
-                margin-right: .5vh;
-                transform: translate(0, 1px);
+                max-width: none
+                max-height: none
+                width: 9vh
+                height: 9vh
+                margin-right: .5vh
+                transform: translate(0, 1px)
 
 
 
 
     
 .camera-wrapper
-    position: absolute;
-    top: 105vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+    position: absolute
+    top: 105vh
+    width: 100%
+    display: flex
+    justify-content: center
     .camera-border
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        display: flex
+        justify-content: center
+        align-items: center
         
-        $cam_width: calc((#{$cam_height}/9) * 16);
-        height: calc(#{$cam_height} + 7vh);
-        width: calc(#{$cam_width} + 7vh);
+        $cam_width: calc((#{$cam_height}/9) * 16)
+        height: calc(#{$cam_height} + 7vh)
+        width: calc(#{$cam_width} + 7vh)
 
 
-        border: $stroke-weight solid black;
-        border-radius: 6vh;
+        border: $stroke-weight solid black
+        border-radius: 6vh
 
         .camera      
-            position: relative;
-            overflow: hidden;
-            height: $cam_height;
-            width: calc((#{$cam_height}/9) * 16);
+            position: relative
+            overflow: hidden
+            height: $cam_height
+            width: calc((#{$cam_height}/9) * 16)
 
-            border: $stroke-weight solid black;
-            border-radius: 3.5vh;
+            border: $stroke-weight solid black
+            border-radius: 3.5vh
 
 .donut-wrapper
-    position: absolute;
-    top: 165vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: absolute
+    top: 165vh
+    width: 100%
+    display: flex
+    justify-content: center
+    align-items: center
     .donut-view
         
     .inner-donut-wrapper
-        width: 15vh;
-        object-fit: contain;
-        position: relative;
+        width: 15vh
+        object-fit: contain
+        position: relative
         img 
-            width: 100%;
-            position: absolute;
-            object-fit: contain;
-            top: 0;
-            transform: scale(0.6,0.6);
+            width: 100%
+            position: absolute
+            object-fit: contain
+            top: 0
+            transform: scale(0.6,0.6)
         .donut     
-            top: 0;
-            position: absolute;
-            object-fit: contain;
-            width: 100%;
-            transform: rotate(-90deg)  scale(3, 3);
+            top: 0
+            position: absolute
+            object-fit: contain
+            width: 100%
+            transform: rotate(-90deg)  scale(3, 3)
             
