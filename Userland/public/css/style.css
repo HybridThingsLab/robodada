@@ -126,6 +126,7 @@ body {
   width: 17vh;
   border: solid black 0.8vh;
   border-radius: 5vh;
+  padding: 0.2em;
 }
 .robo-chooser-overlay .interface-wrapper .robo-chooser-button .robo-icon {
   height: 70%;
@@ -134,6 +135,7 @@ body {
 .robo-chooser-overlay .interface-wrapper .robo-chooser-button .robo-name {
   margin: 0;
   margin-top: 2.5vh;
+  font-size: 1.6vw;
 }
 .robo-chooser-overlay .interface-wrapper .robo-chooser-button .info-text {
   font-size: 2.5vh;
@@ -349,41 +351,26 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 5vh;
+  column-gap: 3vw;
+  row-gap: 1vh;
 }
 .main-menu .wrapper-emotion .button {
-  margin: 1%;
+  padding: 1.5vw;
   border-radius: 6vh;
-  width: 15vw;
-  height: auto;
+  height: fit-content;
 }
 .main-menu .wrapper-emotion .button .button-content {
   display: flex;
   flex-direction: column;
-  align-content: center;
-  justify-content: space-between;
-  height: 100%;
 }
 .main-menu .wrapper-emotion .button .button-content img {
-  flex: 1 1 auto;
-  object-fit: contain;
   max-height: 100%;
   max-width: 100%;
   pointer-events: none;
 }
 .main-menu .wrapper-emotion .button .button-content .button-text {
   margin: 0;
-}
-@media screen and (min-width: 1700px) {
-  .main-menu .wrapper-emotion .button {
-    height: 23vh;
-  }
-  .main-menu .wrapper-emotion .button .button-content img {
-    height: 8vh;
-  }
-  .main-menu .wrapper-emotion .button .button-content .button-text {
-    font-size: 4vh;
-  }
+  font-size: 4vh;
 }
 .main-menu .buttons-bottom {
   display: flex;
