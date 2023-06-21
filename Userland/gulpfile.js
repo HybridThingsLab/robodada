@@ -1,9 +1,10 @@
 var browserSync = require('browser-sync');
 const { watch } = require('gulp');
 var gulp = require('gulp');
-var sass = require('gulp-sass');
-sass.compiler = require('node-sass');
 var sourcemaps = require('gulp-sourcemaps');
+var dartSass = require('sass');
+var gulpSass = require('gulp-sass');
+var sass = gulpSass(dartSass);
 
 let config = {
     pubdir: "./public/",
