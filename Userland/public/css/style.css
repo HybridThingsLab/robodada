@@ -352,10 +352,12 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   column-gap: 3vw;
-  row-gap: 1vh;
+  row-gap: 2vh;
+  padding-left: 4vw;
+  padding-right: 4vw;
 }
 .main-menu .wrapper-emotion .button {
-  padding: 1.5vw;
+  padding: 0.5vw 0.5vw 0 0.5vw;
   border-radius: 6vh;
   height: fit-content;
 }
@@ -364,13 +366,12 @@ body {
   flex-direction: column;
 }
 .main-menu .wrapper-emotion .button .button-content img {
-  max-height: 100%;
-  max-width: 100%;
+  width: 15vw;
   pointer-events: none;
 }
 .main-menu .wrapper-emotion .button .button-content .button-text {
   margin: 0;
-  font-size: 4vh;
+  font-size: 2.5vw;
 }
 .main-menu .buttons-bottom {
   display: flex;

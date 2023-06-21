@@ -58,12 +58,15 @@ $cam_height: 45vh
         flex-wrap: wrap
         justify-content: center
         column-gap: 3vw
-        row-gap: 1vh
+        row-gap: 2vh
+        $wrapsize: 4vw
+        padding-left: $wrapsize
+        padding-right: $wrapsize
         
                 
         .button
             
-            padding: 1.5vw
+            padding: 0.5vw 0.5vw 0 0.5vw
             border-radius: 6vh
             height: fit-content             
            
@@ -72,14 +75,13 @@ $cam_height: 45vh
                 flex-direction: column 
                 
                 img                                         
-                    max-height: 100%                    
-                    max-width: 100%
+                    width: 15vw
                     //transform: scale(.5, .5)                 
                     pointer-events: none
 
                 .button-text
                     margin: 0
-                    font-size: 4vh    
+                    font-size: 2.5vw    
                         
                     
 
