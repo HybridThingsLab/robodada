@@ -4,7 +4,8 @@
   "description": "an explorative toolkit for controlling robots by emotiondetection",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp dev"
   },
   "author": "",
   "license": "ISC",
