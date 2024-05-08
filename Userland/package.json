@@ -4,16 +4,15 @@
   "description": "an explorative toolkit for controlling robots by emotiondetection",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "gulp dev"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.29.3",
+    "browser-sync": "^2.27.10",
     "gulp": "^4.0.2",
-    "gulp-sass": "^5.1.0",
+    "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
-    "sass": "^1.54.3"
+    "node-sass": "^4.13.1"
   }
 }
