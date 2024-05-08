@@ -1,6 +1,14 @@
+const config = require('../../../../Serverland/config.js');
 class AvailableRobotsController {
     constructor(){
-        this.socket = io();
+        this.socket = io(config.certifiedURL, {            
+            transports: ['websocket']            
+        });
+
+        this.socket.on("connect_error", err => {
+            console.log('could not connect due to: '+ err.message);
+        })
+
         this.socket.on("availableRobotsMessage", (message) =>{
             console.log("Recieved new available Robots list:");
             console.log(message);

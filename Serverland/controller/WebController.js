@@ -1,24 +1,43 @@
-var express = require('express');
-var app = express();
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
-var webPort = 3000;
 const path = require('path');
 var config = require('../config');
+var fs = require('fs');
+var https = require('https');
+
+var express = require('express');
+var app = express();
+
+var options = {
+    key: fs.readFileSync(config.privateSSLKey_location_relative),
+    cert: fs.readFileSync(config.publicCert_location_relative)    
+};
+
+var webPort = 443;
+
+var io; 
+
+
 
 module.exports = class WebController{
     constructor(model){
         
         let self = this;
         this._model = model;
+
+     
+        var server = https.createServer(options, app);
+        io = require('socket.io')(server);
+        
+    
         server.listen(webPort, function(){
             console.log("Listening on "+webPort+" in "+__dirname);
         });
+        
         
         //app.use(express.static(path.join(__dirname + './../public')));
         app.use(express.static(path.join(__dirname + config.frontend_location_relative)));
                 
         io.on('connection', function(socket){
+            console.log("A client connected...");
             socket.on('moveToMsg', function(e){                
                 self.controller.moveTo(e);
             })
@@ -52,7 +71,7 @@ module.exports = class WebController{
             self._sendAvailableRobots(socket);            
             
         });
-        
+       
         this._model.on("notifyRobotListChanged", this._notifyRobotListChangedClients.bind(this));
         
     }
