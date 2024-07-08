@@ -6,14 +6,14 @@
     "scripts": {
         "clean": "rm -rf public/css",
         "sass:dev": "sass --watch --update --style=expanded _scss:public/css",
-        "sass:build": "sass --style=expanded _scss:public/css",
+        "sass:build": "sass --no-source-map --style=expanded _scss:public/css",
         "serve": "browser-sync start --server './public' --files './public'",
         "postcss:dev": "postcss ./public/css/style.css -u autoprefixer -o ./public/css/style.css --map",
-        "postcss:build": "postcss ./public/css/style.css -u autoprefixer cssnano -o ./public/css/style.min.css --no-map",
+        "postcss:build": "postcss ./public/css/style.css -u autoprefixer cssnano -o ./public/css/style.css --no-map",
         "prestart": "npm run clean",
         "start": "npm run sass:dev & npm run serve",
         "prebuild": "npm run clean",
-        "build": "npm run sass:build && npm run postcss:dev && npm run postcss:build"
+        "build": "npm run sass:build && npm run postcss:build"
     },
     "author": "",
     "license": "ISC",
