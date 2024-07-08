@@ -1,18 +1,35 @@
 {
-  "name": "robodada",
-  "version": "1.0.0",
-  "description": "an explorative toolkit for controlling robots by emotiondetection",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "browser-sync": "^2.27.10",
-    "gulp": "^4.0.2",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5",
-    "node-sass": "^4.13.1"
-  }
+	"name": "robodada",
+	"version": "1.1.0",
+	"description": "an explorative toolkit for controlling robots by emotiondetection",
+	"main": "app.js",
+	"scripts": {
+		"clean": "rm -rf public/css",
+		"sass:dev": "sass --watch --update --style=expanded _scss:public/css",
+		"sass:build": "sass --style=expanded _scss:public/css",
+		"serve": "browser-sync start --server './public' --files './public'",
+		"postcss:dev": "postcss ./public/css/style.css -u autoprefixer -o ./public/css/style.css --map",
+		"postcss:build": "postcss ./public/css/style.css -u autoprefixer cssnano -o ./public/css/style.min.css --no-map",
+		"prestart": "npm run clean",
+		"start": "npm run sass:dev & npm run serve",
+		"prebuild": "npm run clean",
+		"build": "npm run sass:build && npm run postcss:dev && npm run postcss:build"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"autoprefixer": "^10.4.19",
+		"browser-sync": "^3.0.2",
+		"cssnano": "^7.0.4",
+		"postcss": "^8.4.39",
+		"postcss-cli": "^11.0.0",
+		"sass": "^1.77.6"
+	},
+	"browserslist": [
+		"last 2 versions, > 1%"
+	],
+	"engines": {
+		"npm": ">=10.0.0 <11.0.0",
+		"node": ">=22.0.0 <23.0.0"
+	}
 }
