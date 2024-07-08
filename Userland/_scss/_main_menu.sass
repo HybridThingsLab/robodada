@@ -8,18 +8,16 @@ $cam_height: 45vh
     width: 100%
     display: flex
     flex-direction: column
-    
+
     .buttons-top
-        
         width: 100%
-        height: auto              
-        display: flex        
+        height: auto
+        display: flex
         padding: 2vh
         padding-bottom: 1vh
         z-index: 20
         pointer-events: none
         box-sizing: border-box
-        
 
         .button
             pointer-events: auto
@@ -27,13 +25,12 @@ $cam_height: 45vh
             padding: 2.5vh
             display: flex
             align-items: center
-            justify-content: center        
-            img 
+            justify-content: center
+            img
                 transform: scale(2,2) translate(0, 0.5px)
 
         .robo-button
             align-self: flex-start
-            
 
         .save-button
             align-self: flex-end
@@ -46,64 +43,57 @@ $cam_height: 45vh
             align-self: flex-end
             img
                 transform: scale(1.8,1.8)
-                
-
-       
 
     .wrapper-emotion
         height: 100%
-        display: flex        
+        display: flex
         flex-wrap: wrap-reverse
         justify-content: center
-        column-gap: 3vw        
+        column-gap: 3vw
         $wrapsize: 4vw
         padding-left: $wrapsize
         padding-right: $wrapsize
         margin-top: -1em
         align-items: start
-        
-                
+
         .button
-            
             padding: 0.5vw 0.5vw 0 0.5vw
             border-radius: 6vh
-            height: fit-content             
-           
-            .button-content               
+            height: fit-content
+
+            .button-content
                 display: flex
-                flex-direction: column 
-                
-                img                                         
+                flex-direction: column
+
+                img
                     width: 15vw
-                    //transform: scale(.5, .5)                 
+                    //transform: scale(.5, .5)
                     pointer-events: none
 
                 .button-text
                     margin: 0
-                    font-size: 2.5vw    
-                        
-                    
+                    font-size: 2.5vw
 
-    .buttons-bottom        
+    .buttons-bottom
         display: flex
         justify-content: center
         width: 100%
         margin-bottom: 2vh
-        margin-top: 4vh           
-        
+        margin-top: 4vh
+
         .camera-button
             display: flex
             height: 2vh
             justify-content: space-between
-            padding: 3vh 
+            padding: 3vh
             padding-right: 1vh
             padding-left: 2.5vh
-            
+
             align-items: center
-            p 
+            p
                 margin-right: 1vh
                 transform: translate(0px, -1px)
-            img 
+            img
                 max-width: none
                 max-height: none
                 width: 9vh
@@ -111,10 +101,6 @@ $cam_height: 45vh
                 margin-right: .5vh
                 transform: translate(0, 1px)
 
-
-
-
-    
 .camera-wrapper
     position: absolute
     top: 105vh
@@ -125,16 +111,15 @@ $cam_height: 45vh
         display: flex
         justify-content: center
         align-items: center
-        
+
         $cam_width: calc((#{$cam_height}/9) * 16)
         height: calc(#{$cam_height} + 7vh)
         width: calc(#{$cam_width} + 7vh)
 
-
         border: $stroke-weight solid black
         border-radius: 6vh
 
-        .camera      
+        .camera
             position: relative
             overflow: hidden
             height: $cam_height
@@ -154,16 +139,15 @@ $cam_height: 45vh
         width: 15vh
         object-fit: contain
         position: relative
-        img 
+        img
             width: 100%
             position: absolute
             object-fit: contain
             top: 0
             transform: scale(0.6,0.6)
-        .donut     
+        .donut
             top: 0
             position: absolute
             object-fit: contain
             width: 100%
-            transform: rotate(-90deg)  scale(3, 3)
-            
+            transform: rotate(-90deg) scale(3, 3)

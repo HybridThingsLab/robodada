@@ -6,9 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
     <title>ROBODADA</title>
-    
 </head>
-<body>     
+<body>
     <div class="main-screen">
         <div class="main-menu">
             <div class="buttons-top">
@@ -39,7 +38,7 @@
                     <div class="button-content"><img src="img/emotions/fearful.svg" alt=""><p class="button-text">fearful</p></div>
                 </div>
             </div>
-    
+
             <div class="buttons-bottom">
                 <div class="camera-button button"><p>activate&nbsp;cam</p><img class="icon" src=img/menu/camera_on.svg alt=""></div>
             </div>
@@ -50,29 +49,29 @@
                         <video class="cam-video" onloadedmetadata="" autoplay muted></video>
                         <canvas class="emoji-canvas"></canvas>
                     </div>
-                    
+
                 </div>
-                
+
             </div>
             <div class="donut-wrapper">
                 <div class="donut-view" id="donut-view"></div>
             </div>
         </div>
-        
-       
-    
+
+
+
         <div class="drawing-overlay overlay">
             <div class="close button">
                 <p>X</p>
             </div>
             <div class="instructions">
-                <p>How should your robot move when you look <span class="emotion-var">*emotion*</span>?</p> 
-                <p>Draw the motion path into the box.</p> 
+                <p>How should your robot move when you look <span class="emotion-var">*emotion*</span>?</p>
+                <p>Draw the motion path into the box.</p>
             </div>
             <div class="interface-wrapper">
                 <div class="canvas-panel">
                     <div class="canvas-wrapper">
-                        <canvas class="path-drawing-canvas" id="canvas"></canvas>                   
+                        <canvas class="path-drawing-canvas" id="canvas"></canvas>
                     </div>
                     <span class="emotion-var">*emotion*</span>
                 </div>
@@ -113,7 +112,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="help-overlay overlay">
             <div class="close button">
                 <p>X</p>
@@ -123,7 +122,7 @@
             </div>
             <div class="interface-wrapper">
                 <p class="help-text">
-                    ROBODADA is an open-source toolkit to map facial expressions to body language of a robot.    
+                    ROBODADA is an open-source toolkit to map facial expressions to body language of a robot.
                     </br></br>
                     Made with &hearts; by <a href="https://hybridthings.hs-augsburg.de/" target="_blank">HYBRID THINGS LAB</a> at <a href="https://www.hs-augsburg.de/Gestaltung.html" target="_blank">University of Applied Sciences Augsburg</a>.
                     Find further informations and updates <a href="https://github.com/HybridThingsLab/robodada" target="_blank">here</a>.
@@ -134,15 +133,14 @@
         </div>
 
     </div>
-    
+
     <script src="./js/lib/jQuery341.js"></script>
     <script src="./js/lib/socket.io.js"></script>
     <script src="./js/lib/materialize.min.js"></script>
     <script src="./js/lib/face-api.min.js"></script>
     <script src="./js/lib/commons.js"></script>
-    <script src="./js/lib/faceDetectionControls.js"></script>    
-    
-    
+    <script src="./js/lib/faceDetectionControls.js"></script>
+
     <script src="./js/lib/p5.js"></script>
     <script src="./js/model/MainModel.js"></script>
     <script src="./js/model/EmotionModel.js"></script>
@@ -160,6 +158,5 @@
     <script src="./js/view/SaveLoadOverloadView.js"></script>
     <script src="./js/view/HelpOverlayView.js"></script>
     <script src="./js/main.js"></script>
-  
 </body>
 </html>

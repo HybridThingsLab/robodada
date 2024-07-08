@@ -19,20 +19,20 @@
         padding: 2vh
         p
             transform: translate(0, 2px)
-    
+
     .instructions
         text-align: center
         margin-top: 5vh
 
     .interface-wrapper
-        width: 60vw 
-        border: solid black $stroke-weight 
+        width: 60vw
+        border: solid black $stroke-weight
         border-radius: 5vh
         background-color: white
         margin: auto
         display: flex
         flex-wrap: wrap
-        justify-content: center 
+        justify-content: center
 
 .robo-chooser-overlay
     .interface-wrapper
@@ -53,7 +53,7 @@
             padding: 0.2em
 
             .robo-icon
-                height: 70% 
+                height: 70%
                 transform: scale(1.5, 1.5)
             .robo-name
                 margin: 0
@@ -74,7 +74,7 @@
                 width: 100%
                 .claim-button
                     font-size: 3vh
-                .wave-button 
+                .wave-button
                     display: flex
                     align-items: center
                     justify-content: center
@@ -95,11 +95,9 @@
             width: 30vh
             &:hover
                 transform: scale(1.00)
-        
+
             &:active
                 transform: scale(1.00)
-            
-
 
 .save-load-overlay
     flex-direction: column
@@ -124,7 +122,7 @@
 
 .help-overlay
     .interface-wrapper
-        .help-text 
+        .help-text
             width: 100%
             padding-left: 2vh
             padding-right: 2vh
@@ -136,7 +134,7 @@
         background-color: transparent
         width: 45vh
         height: 60vh
-        .canvas-panel            
+        .canvas-panel
             border: $stroke-weight solid black
             border-radius: 1.5rem
             min-width: 100%
@@ -145,7 +143,7 @@
             align-items: center
             background-color: #FFFFFF
             box-sizing: border-box // WHY do i need this if i have border box defined in html
-        
+
             .canvas-wrapper
                 width: 40vh !important
                 height: 40vh !important
@@ -167,7 +165,7 @@
                     border-radius: 50%
                     opacity: 1.0
 
-                .path-drawing-canvas              
+                .path-drawing-canvas
                     box-sizing: border-box
 
             .draw-icon
@@ -175,16 +173,15 @@
                 //disables selecting
                 pointer-events: none
                 -webkit-user-drag: none
-                
+
         .interface-buttons
             width: 100%
             display: flex
             justify-content: flex-end
             flex-direction: row
             margin-top: 1vh
-            img 
+            img
                 transform: scale(1.3,1.3)
-
 
             .interface-button
                 border: $stroke-weight solid black
@@ -195,7 +192,7 @@
                 margin-left: 1vh
                 //min-width: 8vh
                 //min-height: 8vh
-            
+
             .delete
                 margin-left: 0
                 margin-right: auto
@@ -206,9 +203,7 @@
 @keyframes blinking
     50%
         opacity: 0.0
-        
 
 @keyframes fadeout
     100%
         opacity: 0.0
-        
