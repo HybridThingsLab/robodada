@@ -259,18 +259,18 @@ class PathDrawingOverlayView{
      * @param {EmotionObject} emotion 
      */
     openOverlay(emotion) {
-        this._overlay.style.display = 'block';
-        this._mainMenu.style.filter = 'blur(4px)';         
+        this._overlay.classList.add('is-active');
+        this._mainMenu.classList.add('has-active-overlay');
         this._initCanvas();
 
         this.switchLoopButton(emotion._loop);
         this.switchPlaybackButton(emotion._playback);
 
-        let emotionInInstruction = document.querySelector('.instructions .emotion-var');
+        let emotionInInstruction = document.querySelector('.js-emotion-var-info');
         emotionInInstruction.innerText = emotion._name;
 
-        let emotionImageOnPanel = document.querySelector('.canvas-panel .emotion-var');
-        emotionImageOnPanel.innerHTML = "<img class=\"draw-icon\" src=" + emotion._svg + ">";
+        let emotionImageOnPanel = document.querySelector('.js-emotion-var-canvas');
+        emotionImageOnPanel.innerHTML = "<img class=\"icon draw-icon\" src=" + emotion._svg + ">";
     }
 
     /**
@@ -282,7 +282,7 @@ class PathDrawingOverlayView{
         dispatchEvent(notifyCloseOverlay);
         //bug here
         this.removeConfirmIndicator();
-        this._overlay.style.display = 'none';
-        this._mainMenu.style.filter = '';        
+        this._overlay.classList.remove('is-active');
+        this._mainMenu.classList.remove('has-active-overlay');
     }
 }

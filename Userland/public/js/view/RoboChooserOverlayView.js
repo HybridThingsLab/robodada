@@ -3,7 +3,7 @@ class RoboChooserOverlayView {
         this._overlay = document.querySelector(".robo-chooser-overlay");
         this._mainMenu = document.querySelector(".main-menu");
         this._close = document.querySelector(".robo-chooser-overlay > .close");
-        this._interfaceWrapper = document.querySelector(".robo-chooser-overlay > .interface-wrapper");
+        this._interfaceWrapper = document.querySelector(".robo-chooser-overlay .robo-chooser-nav");
         this._addEventListeners();
     }
 
@@ -136,12 +136,12 @@ class RoboChooserOverlayView {
 
     openOverlay(roboList, currentRobo) {
         this.updateOverlayContent(roboList, currentRobo);
-        this._overlay.style.display = 'block';
-        this._mainMenu.style.filter = 'blur(4px)';
+        this._overlay.classList.add('is-active');
+        this._mainMenu.classList.add('has-active-overlay');
     }
 
     closeOverlay() {
-        this._overlay.style.display = 'none';
-        this._mainMenu.style.filter = '';
+        this._overlay.classList.remove('is-active');
+        this._mainMenu.classList.remove('has-active-overlay');
     }
 }

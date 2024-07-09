@@ -1,0 +1,43 @@
+.overlay
+    height: 100vh
+    width: 100vw
+    background: rgba(255, 255, 255, 0.7)
+    position: fixed
+    top: 0
+    z-index: 1
+    display: flex
+    justify-content: center
+    align-items: center
+    overflow: auto
+    &:not(.is-active)
+        display: none
+
+    .close
+        position: fixed
+        top: var(--margin-site)
+        right: var(--margin-site)
+
+    &__body
+        border: var(--border-width) solid black
+        border-radius: var(--border-radius-overlay)
+        background-color: white
+        width: min(calc(100vw - var(--margin-site)* 2), max(960px, 60vw))
+        margin-inline: auto
+        text-align: center
+        min-height: 25vh
+        display: flex
+        flex-direction: column
+        overflow: hidden
+    &__header
+        padding-block: 0.5em
+        border-block-end: var(--border-width) solid black
+        font-size: var(--font-size-small)
+        > * + *
+            margin-block-start: 0
+    &__content
+        padding: 0.5em 0.5em 0.75em
+        flex-grow: 1
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center

@@ -1,0 +1,64 @@
+// @todo nest this with actual robot data
+.robo-chooser-overlay
+    .interface-wrapper
+        padding: 2vh
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        overflow-y: auto
+        overflow-x: hidden
+        .active
+            // flex-grow: 1
+            flex-wrap: wrap
+            flex-direction: row
+            width: 30vh
+            &:hover
+                transform: scale(1.00)
+            &:active
+                transform: scale(1.00)
+
+    .robo-chooser-button
+        margin: 1vh
+        display: flex
+        flex-direction: column
+        max-height: 20vh
+        width: 17vh
+        border: var(--border-width) solid black
+        border-radius: 5vh
+        padding: 0.2em
+
+        .robo-icon
+            height: 70%
+            transform: scale(1.5, 1.5)
+        .robo-name
+            margin: 0
+            margin-top: 2.5vh
+            font-size: 1.6vw
+        .info-text
+            font-size: 2.5vh
+            width: 12vh
+            text-align: left
+            line-height: 1.2
+            margin-left: 1vh
+            margin-top: 1vh
+            padding-left: 2vh
+            margin-block-end: 0
+        .button-wrapper
+            margin-top: 1vh
+            justify-content: space-around
+            width: 100%
+            .claim-button
+                font-size: 3vh
+            .wave-button
+                display: flex
+                align-items: center
+                justify-content: center
+                .wave-emoji
+                    width: 1vh
+                    transform-origin: center
+                    transform: scale(5) translate(.07vh, -.33vh)
+        .button
+            border-radius: 2.5vh
+            padding-top: .5vh
+            padding-bottom: .5vh
+            height: 3vh

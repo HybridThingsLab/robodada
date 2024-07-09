@@ -1,7 +1,11 @@
 .buttons
     display: flex
     gap: 1.5vw
-    justify-content: space-between
+    justify-content: flex-start
+    &.is-space-between
+        justify-content: space-between
+    &.is-center
+        justify-content: center
 
 .button
     border: var(--border-width) solid black
@@ -21,4 +25,6 @@
     &:active
         transform: scale(0.98)
     > .icon:last-child:not(:first-child)
-        margin-left: 0.25em
+        margin-inline-start: 0.25em
+    > .icon:first-child:not(:last-child)
+        margin-inline-end: 0.25em

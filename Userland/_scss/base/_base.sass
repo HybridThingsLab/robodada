@@ -32,10 +32,28 @@ body
     font-weight: 700
     font-style: normal
     font-size: 3vw
-    line-height: 1.5
+    line-height: 1.3
     color: black
     cursor: $cursor_default
 
 img
     //disables selecting of images
     -webkit-user-drag: none
+
+a
+    cursor: $cursor_button
+
+p:first-child
+    margin-block-start: 0
+
+em
+    font-style: unset
+    font-weight: 400
+
+@keyframes blinking
+    50%
+        opacity: 0.0
+
+@keyframes fadeout
+    100%
+        opacity: 0.0

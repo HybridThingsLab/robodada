@@ -24,12 +24,12 @@ class HelpOverlayView{
     }
 
     openOverlay() {
-        this._overlay.style.display = 'block';
-        this._mainMenu.style.filter = 'blur(4px)';
+        this._overlay.classList.add('is-active');
+        this._mainMenu.classList.add('has-active-overlay');
     }
 
     closeOverlay() {
-        this._overlay.style.display = 'none';
-        this._mainMenu.style.filter = '';        
+        this._overlay.classList.remove('is-active');
+        this._mainMenu.classList.remove('has-active-overlay');
     }
 }

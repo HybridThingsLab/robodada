@@ -1,0 +1,58 @@
+
+.drawing-overlay
+    .interface-wrapper
+        border: none
+        background-color: transparent
+        width: 45vh
+        height: 60vh
+
+    .canvas-panel
+        display: flex
+        flex-direction: column
+        align-items: center
+        .icon
+            //disables selecting
+            pointer-events: none
+            -webkit-user-drag: none
+
+    .canvas-wrapper
+        width: min(100vw - var(--margin-site) * 4px, max(340px, 20vw))
+        height: auto
+        aspect-ratio: 1
+        border: var(--border-width) solid black
+        border-radius: var(--border-radius)
+        box-sizing: border-box
+        position: relative
+        overflow: hidden
+
+        .path-drawing-canvas
+            cursor: $cursor_drawing
+            background-color: aliceblue
+
+        .indicator
+            width: 9%
+            height: 9%
+            position: absolute
+            top: 4%
+            left: 4%
+            border-radius: 50%
+            opacity: 1.0
+
+        .path-drawing-canvas
+            box-sizing: border-box
+
+    .drawing-buttons
+        width: 100%
+        img
+            transform: scale(1.3,1.3)
+        .drawing-button
+            border: var(--border-width) solid black
+            border-radius: 2.5vh
+            padding: .3rem
+            width: 5vh
+            height: 5vh
+            &.delete
+                margin-right: auto
+                transition: 0.25s ease-in-out
+                &:active
+                    background: #EA5A47
