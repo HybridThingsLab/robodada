@@ -1,151 +1,17 @@
+// handles screen
+.main-screen
+    transition: transform 1s ease-in-out
+    &.has-active-cam
+        transform: translate(0, calc(-100vh + var(--cam-button-height, 0)))
+
 .main-menu
-    position: fixed
-    top: 0
-    height: 100%
-    max-height: 100vh
-    width: 100%
     display: flex
     flex-direction: column
+    position: relative
+    padding-inline: var(--margin-site)
 
-    .buttons-top
-        width: 100%
-        height: auto
-        display: flex
-        padding: 2vh
-        padding-bottom: 1vh
-        z-index: 20
-        pointer-events: none
-        box-sizing: border-box
-
-        .button
-            pointer-events: auto
-            width: 6vh
-            padding: 2.5vh
-            display: flex
-            align-items: center
-            justify-content: center
-            img
-                transform: scale(2,2) translate(0, 0.5px)
-
-        .robo-button
-            align-self: flex-start
-
-        .save-button
-            align-self: flex-end
-            margin-right: 2vh
-            margin-left: auto
-            img
-                transform: scale(1.5,1.5)
-
-        .help-button
-            align-self: flex-end
-            img
-                transform: scale(1.8,1.8)
-
-    .wrapper-emotion
-        height: 100%
-        display: flex
-        flex-wrap: wrap-reverse
-        justify-content: center
-        column-gap: 3vw
-        $wrapsize: 4vw
-        padding-left: $wrapsize
-        padding-right: $wrapsize
-        margin-top: -1em
-        align-items: start
-
-        .button
-            padding: 0.5vw 0.5vw 0 0.5vw
-            border-radius: 6vh
-            height: fit-content
-
-            .button-content
-                display: flex
-                flex-direction: column
-
-                img
-                    width: 15vw
-                    //transform: scale(.5, .5)
-                    pointer-events: none
-
-                .button-text
-                    margin: 0
-                    font-size: 2.5vw
-
-    .buttons-bottom
-        display: flex
-        justify-content: center
-        width: 100%
-        margin-bottom: 2vh
-        margin-top: 4vh
-
-        .camera-button
-            display: flex
-            height: 2vh
-            justify-content: space-between
-            padding: 3vh
-            padding-right: 1vh
-            padding-left: 2.5vh
-
-            align-items: center
-            p
-                margin-right: 1vh
-                transform: translate(0px, -1px)
-            img
-                max-width: none
-                max-height: none
-                width: 9vh
-                height: 9vh
-                margin-right: .5vh
-                transform: translate(0, 1px)
-
-.camera-wrapper
-    position: absolute
-    top: 105vh
-    width: 100%
-    display: flex
-    justify-content: center
-    .camera-border
-        display: flex
-        justify-content: center
-        align-items: center
-
-        $cam_width: calc((#{$cam_height}/9) * 16)
-        height: calc(#{$cam_height} + 7vh)
-        width: calc(#{$cam_width} + 7vh)
-
-        border: $stroke-weight solid black
-        border-radius: 6vh
-
-        .camera
-            position: relative
-            overflow: hidden
-            height: $cam_height
-            width: calc((#{$cam_height}/9) * 16)
-
-            border: $stroke-weight solid black
-            border-radius: 3.5vh
-
-.donut-wrapper
-    position: absolute
-    top: 165vh
-    width: 100%
+.buttons-bottom
     display: flex
     justify-content: center
     align-items: center
-    .inner-donut-wrapper
-        width: 15vh
-        object-fit: contain
-        position: relative
-        img
-            width: 100%
-            position: absolute
-            object-fit: contain
-            top: 0
-            transform: scale(0.6,0.6)
-        .donut
-            top: 0
-            position: absolute
-            object-fit: contain
-            width: 100%
-            transform: rotate(-90deg) scale(3, 3)
+    height: var(--cam-button-height)
