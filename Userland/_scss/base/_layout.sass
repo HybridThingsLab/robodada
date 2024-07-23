@@ -19,6 +19,28 @@
 .camera-wrapper
     height: var(--main-height)
 
+.wrapper-emotion
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: stretch
+    overflow: auto
+    gap: 3vw
+    padding-top: calc(4vw + 0.5em + var(--margin-site) * 2)
+    +desktop
+        align-content: center
+
+.buttons-top
+    display: flex
+    padding-top: var(--margin-site)
+    z-index: 20
+    pointer-events: none
+    position: absolute
+    left: var(--margin-site)
+    right: var(--margin-site)
+    .button
+        pointer-events: auto
+
 .buttons-bottom
     display: flex
     justify-content: center
