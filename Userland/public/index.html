@@ -18,25 +18,25 @@
                 </div>
             </div>
             <div class="wrapper-emotion">
-                <button class="button">
+                <button class="card">
                     <figure><img src="img/emotions/neutral.svg" alt="" width="100" height="100" /><figcaption>neutral</figcaption></figure>
                 </button>
-                <button class="button">
+                <button class="card">
                     <figure><img src="img/emotions/happy.svg" alt="" width="100" height="100" /><figcaption>happy</figcaption></figure>
                 </button>
-                <button class="button">
+                <button class="card">
                     <figure><img src="img/emotions/angry.svg" alt="" width="100" height="100" /><figcaption>angry</figcaption></figure>
                 </button>
-                <button class="button">
+                <button class="card">
                     <figure><img src="img/emotions/surprised.svg" alt="" width="100" height="100" /><figcaption>surprised</figcaption></figure>
                 </button>
-                <button class="button">
+                <button class="card">
                     <figure><img src="img/emotions/disgusted.svg" alt="" width="100" height="100" /><figcaption>disgusted</figcaption></figure>
                 </button>
-                <button class="button">
+                <button class="card">
                     <figure><img src="img/emotions/sad.svg" alt="" width="100" height="100" /><figcaption>sad</figcaption></figure>
                 </button>
-                <button class="button">
+                <button class="card">
                     <figure><img src="img/emotions/fearful.svg" alt="" width="100" height="100" /><figcaption>fearful</figcaption></figure>
                 </button>
             </div>
@@ -64,7 +64,7 @@
             <button class="close button"><span class="icon">&times;</span></button>
             <div class="overlay__body">
                 <div class="overlay__header">
-                    <p>How should your robot move when you look <em><span class="js-emotion-var-info">*emotion*</span></em>?</p>
+                    <p>How should your robot move when you look <em><span class="js-emotion-var-info">*emotion*</span></em><span class="js-emotion-var-canvas">*emotion*</span>?</p>
                     <p>Draw the motion path into the box.</p>
                 </div>
                 <div class="overlay__content">
@@ -72,7 +72,7 @@
                         <div class="canvas-wrapper">
                             <canvas class="path-drawing-canvas" id="canvas"></canvas>
                         </div>
-                        <span class="js-emotion-var-canvas">*emotion*</span>
+
                         <div class="buttons is-space-between drawing-buttons">
                             <div class="button drawing-button delete"><img class="icon" src="img/overlay/delete.svg" alt=""></div>
                             <div class="button drawing-button loop"><img class="icon" src="img/overlay/loop.svg" alt=""></div>
@@ -91,7 +91,6 @@
                 </div>
                 <div class="overlay__content">
                     <div class="robo-chooser-nav">
-                        @todo Check if robots js injections and layout is correct
                     </div>
                 </div>
             </div>

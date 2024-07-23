@@ -1,15 +1,15 @@
 
 .drawing-overlay
-    .interface-wrapper
-        border: none
-        background-color: transparent
-        width: 45vh
-        height: 60vh
+    .overlay__content
+        display: flex
+        align-items: center
+        justify-content: center
 
     .canvas-panel
         display: flex
         flex-direction: column
         align-items: center
+        position: relative
         .icon
             //disables selecting
             pointer-events: none
@@ -24,10 +24,12 @@
         box-sizing: border-box
         position: relative
         overflow: hidden
-
+        // @todo min height
+        +desktop
+            height: 50vh
         .path-drawing-canvas
             cursor: $cursor_drawing
-            background-color: aliceblue
+            background-color: #f6f6f6
 
         .indicator
             width: 9%
@@ -38,21 +40,27 @@
             border-radius: 50%
             opacity: 1.0
 
-        .path-drawing-canvas
-            box-sizing: border-box
-
     .drawing-buttons
         width: 100%
-        img
-            transform: scale(1.3,1.3)
-        .drawing-button
-            border: var(--border-width) solid black
-            border-radius: 2.5vh
-            padding: .3rem
-            width: 5vh
-            height: 5vh
-            &.delete
-                margin-right: auto
-                transition: 0.25s ease-in-out
-                &:active
-                    background: #EA5A47
+        gap: min(0.75rem, 1.5vw)
+        margin-top: 0.25em
+
+    .drawing-button
+        padding: 0
+        width: 4rem
+        aspect-ratio: 1
+        border-width: var(--border-width-small)
+        border-radius: var(--border-radius-small)
+        &.delete
+            margin-right: auto
+            transition: 0.25s ease-in-out
+        &.delete:active
+            background: #EA5A47
+
+    // icon in heading
+    .js-emotion-var-canvas .icon
+        display: inline
+        height: 1.5em
+        width: auto
+        font-size: 1em
+        vertical-align: bottom

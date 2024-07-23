@@ -39,7 +39,7 @@ class MainMenuView{
      * @property {emotion string} emotionName Contains the string type name of the pressed button
      */
     _addEmotionEventlisteners() {
-        document.querySelectorAll(".wrapper-emotion>.button")
+        document.querySelectorAll(".wrapper-emotion > button")
         .forEach(function(button) {
             button.addEventListener('click', function() {
                 let notifyOpenOverlayEvent = new CustomEvent("notifyOpenOverlay");

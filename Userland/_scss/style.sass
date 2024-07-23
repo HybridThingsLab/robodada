@@ -1,16 +1,25 @@
+=mobile
+  @media screen and (max-width: 959px)
+    @content
+=desktop
+  @media screen and (min-width: 960px)
+    @content
+=uhd
+  @media screen and (min-width: 3840px)
+    @content
+
 @import base/reset
 @import base/vars
 @import base/base
+@import base/layout
 
 @import components/button
 @import components/buttons-top
-@import components/icon
 @import components/camera
+@import components/card
 @import components/donut
 @import components/emotions
+@import components/icon
 @import components/overlay
 @import components/overlay-drawing
 @import components/overlay-robots
-
-@import main_menu
-@import faceapi

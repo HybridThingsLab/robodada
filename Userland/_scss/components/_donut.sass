@@ -4,23 +4,26 @@
     justify-content: center
     align-items: center
     margin-top: var(--block-spacing)
+    .donut-view
+        max-width: 100%
+        overflow: auto
     canvas
         display: block
 
 // isn't this in the canvas?
-.inner-donut-wrapper
-    width: 15vh
-    object-fit: contain
-    position: relative
-    img
-        width: 100%
-        position: absolute
-        object-fit: contain
-        top: 0
-        transform: scale(0.6,0.6)
-    .donut
-        top: 0
-        position: absolute
-        object-fit: contain
-        width: 100%
-        transform: rotate(-90deg) scale(3, 3)
+// .inner-donut-wrapper
+//     width: 15vh
+//     object-fit: contain
+//     position: relative
+//     img
+//         width: 100%
+//         position: absolute
+//         object-fit: contain
+//         top: 0
+//         transform: scale(0.6,0.6)
+//     .donut
+//         top: 0
+//         position: absolute
+//         object-fit: contain
+//         width: 100%
+//         transform: rotate(-90deg) scale(3, 3)

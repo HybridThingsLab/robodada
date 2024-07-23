@@ -1,0 +1,27 @@
+.main-screen
+    --gap-sections: 0.5em
+    --main-height: calc(100vh - var(--cam-button-height, 0) - (1.5 * var(--gap-sections, 0)))
+    // handles screen transition
+    transition: transform 0.65s cubic-bezier(.07, .37, .36, .97)
+    &.has-active-cam
+        transform: translate(0, calc(var(--main-height) * -1))
+
+.main-menu
+    display: flex
+    flex-direction: column
+    position: relative
+    padding-inline: var(--margin-site)
+    gap: 0.5em
+    &.has-active-overlay
+        filter: blur(4px)
+
+.wrapper-emotion,
+.camera-wrapper
+    height: var(--main-height)
+
+.buttons-bottom
+    display: flex
+    justify-content: center
+    align-items: center
+    height: var(--cam-button-height)
+    padding-block: 0.25em

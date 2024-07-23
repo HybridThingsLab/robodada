@@ -10,7 +10,7 @@ overlay.style.display = 'none';
 
 let current_emotion;
 
-document.querySelectorAll(".wrapper-emotion>.button")
+document.querySelectorAll(".wrapper-emotion > button")
     .forEach(function(button) {
         button.addEventListener('click', function() {
             //main.style.display = 'none';
