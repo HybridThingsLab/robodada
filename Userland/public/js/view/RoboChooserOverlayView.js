@@ -25,6 +25,12 @@ class RoboChooserOverlayView {
     }
 
     updateOverlayContent(roboList, currentRobo) {
+        // @note injects testdata during development
+        if (typeof roboListTestData !== 'undefined' && typeof currentRoboTestData !== 'undefined') {
+            roboList = roboListTestData;
+            currentRobo = currentRoboTestData;
+        }
+
         this._interfaceWrapper.innerHTML = "";
         roboList.forEach(robo => {
             let icon = document.createElement("img");

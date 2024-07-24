@@ -1,4 +1,6 @@
-const config = require('../../../../Serverland/config.js');
+// @note there is no require available during development
+const config = (typeof require !== 'undefined') ? require('../../../../Serverland/config.js') : configTestData;
+
 class AvailableRobotsController {
     constructor(){
         this.socket = io(config.certifiedURL, {            
