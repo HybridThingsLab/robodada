@@ -1,11 +1,11 @@
 // detected emotions below camera view
-
 .donut-wrapper
-    width: 100%
+    // same width as the camera
     display: flex
     justify-content: center
     align-items: center
     margin-top: var(--block-spacing)
+    width: min(70vw - var(--margin-site) * 2, max(860px, 40vw))
     .donut-view
         max-width: 100%
         overflow: auto
