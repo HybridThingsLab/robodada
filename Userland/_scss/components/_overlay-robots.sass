@@ -9,22 +9,46 @@
     +uhd
         grid-template-columns: repeat( auto-fit, minmax(480px, 1fr) )
 
-.robo-chooser-button
-    flex-direction: column
-    justify-content: flex-start
-    .robo-icon
+.robo
+    display: block
+    transition: transform 0.6s, box-shadow 0.6s
+    transform-style: preserve-3d
+    padding: 0
+    &__icon
         width: 80%
-    .robo-name
+    &__name
         margin: 0
+    &__info
+        margin: 0
+        font-size: var(--font-size-small)
+        em
+            font-weight: inherit
+    .buttons
+        gap: 0.2em
+        justify-content: center
+        flex-wrap: nowrap
+    .button
+        font-size: var(--font-size-small)
+        border-radius: var(--border-radius-small)
+    .icon
+        height: 1em
+        width: auto
 
-    .button-wrapper
-        margin-top: auto
-        padding-top: 0.25em
-        // .wave-button
-        //     display: flex
-        //     align-items: center
-        //     justify-content: center
-        // .wave-emoji
-        //     width: 1vh
-        //     transform-origin: center
-        //     transform: scale(5) translate(.07vh, -.33vh)
+// card flip
+.robo
+    &.active
+        transform: rotateY(180deg) scale(1.1)
+        box-shadow: var(--box-shadow-overlay)
+    &__front,
+    &__back
+        backface-visibility: hidden
+        padding: 0.25em
+        display: flex
+        flex-direction: column
+        align-items: center
+        gap: 0.2em
+    &__back
+        position: absolute
+        inset: 0
+        transform: rotateY(-180deg)
+        justify-content: space-around
