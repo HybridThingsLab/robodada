@@ -1,5 +1,9 @@
 // @note there is no require available during development
-const config = (typeof require !== 'undefined') ? require('../../../../Serverland/config.js') : configTestData;
+let config = {
+    certifiedURL: "https://robots.hybridthings.com"
+};
+
+config = (typeof require !== 'undefined') ? require('../../../../Serverland/config.js') : configTestData;
 
 class AvailableRobotsController {
     constructor(){
