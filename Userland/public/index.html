@@ -6,42 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
     <title>ROBODADA</title>
-    
 </head>
-<body>     
+<body>
     <div class="main-screen">
         <div class="main-menu">
-            <div class="buttons-top">
-                <div class="robo-button button"><img class="icon" src="img/menu/not_connected.svg" alt=""></div>
-                <div class="save-button button"><img class="icon" src="img/menu/save.svg" alt=""></div>
-                <div class="help-button button"><img class="icon" src="img/menu/help.svg" alt=""></div>
+            <div class="buttons-top buttons is-space-between">
+                <button class="robo-button button"><img class="icon" src="img/menu/not_connected.svg" alt="" width="100" height="100" /></button>
+                <div class="buttons">
+                    <button class="save-button button"><img class="icon" src="img/menu/save.svg" alt="" width="100" height="100" /></button>
+                    <button class="help-button button"><img class="icon" src="img/menu/help.svg" alt="" width="100" height="100" /></button>
+                </div>
             </div>
             <div class="wrapper-emotion">
-                <div class="button">
-                    <div class="button-content"><img src="img/emotions/neutral.svg" alt=""><p class="button-text">neutral</p></div>
-                </div>
-                <div class="button">
-                    <div class="button-content"><img src="img/emotions/happy.svg" alt=""><p class="button-text">happy</p></div>
-                </div>
-                <div class="button">
-                    <div class="button-content"><img src="img/emotions/angry.svg" alt=""><p class="button-text">angry</p></div>
-                </div>
-                <div class="button">
-                    <div class="button-content"><img src="img/emotions/surprised.svg" alt=""><p class="button-text">surprised</p></div>
-                </div>
-                <div class="button">
-                    <div class="button-content"><img src="img/emotions/disgusted.svg" alt=""><p class="button-text">disgusted</p></div>
-                </div>
-                <div class="button">
-                    <div class="button-content"><img src="img/emotions/sad.svg" alt=""><p class="button-text">sad</p></div>
-                </div>
-                <div class="button">
-                    <div class="button-content"><img src="img/emotions/fearful.svg" alt=""><p class="button-text">fearful</p></div>
-                </div>
+                <button class="card">
+                    <figure><img src="img/emotions/neutral.svg" alt="" width="100" height="100" /><figcaption>neutral</figcaption></figure>
+                </button>
+                <button class="card">
+                    <figure><img src="img/emotions/happy.svg" alt="" width="100" height="100" /><figcaption>happy</figcaption></figure>
+                </button>
+                <button class="card">
+                    <figure><img src="img/emotions/angry.svg" alt="" width="100" height="100" /><figcaption>angry</figcaption></figure>
+                </button>
+                <button class="card">
+                    <figure><img src="img/emotions/surprised.svg" alt="" width="100" height="100" /><figcaption>surprised</figcaption></figure>
+                </button>
+                <button class="card">
+                    <figure><img src="img/emotions/disgusted.svg" alt="" width="100" height="100" /><figcaption>disgusted</figcaption></figure>
+                </button>
+                <button class="card">
+                    <figure><img src="img/emotions/sad.svg" alt="" width="100" height="100" /><figcaption>sad</figcaption></figure>
+                </button>
+                <button class="card">
+                    <figure><img src="img/emotions/fearful.svg" alt="" width="100" height="100" /><figcaption>fearful</figcaption></figure>
+                </button>
             </div>
-    
+
             <div class="buttons-bottom">
-                <div class="camera-button button"><p>activate&nbsp;cam</p><img class="icon" src=img/menu/camera_on.svg alt=""></div>
+                <button class="camera-button button"><span>activate&nbsp;cam</span><img class="icon" src=img/menu/camera_on.svg alt="" width="100" height="100" /></button>
             </div>
 
             <div class="camera-wrapper">
@@ -50,99 +51,98 @@
                         <video class="cam-video" onloadedmetadata="" autoplay muted></video>
                         <canvas class="emoji-canvas"></canvas>
                     </div>
-                    
                 </div>
-                
-            </div>
-            <div class="donut-wrapper">
-                <div class="donut-view" id="donut-view"></div>
+                <div class="donut-wrapper">
+                    <div class="donut-view" id="donut-view"></div>
+                </div>
             </div>
         </div>
-        
-       
-    
+
+
+
         <div class="drawing-overlay overlay">
-            <div class="close button">
-                <p>X</p>
-            </div>
-            <div class="instructions">
-                <p>How should your robot move when you look <span class="emotion-var">*emotion*</span>?</p> 
-                <p>Draw the motion path into the box.</p> 
-            </div>
-            <div class="interface-wrapper">
-                <div class="canvas-panel">
-                    <div class="canvas-wrapper">
-                        <canvas class="path-drawing-canvas" id="canvas"></canvas>                   
-                    </div>
-                    <span class="emotion-var">*emotion*</span>
+            <button class="close button"><span class="icon">&times;</span></button>
+            <div class="overlay__body">
+                <div class="overlay__header">
+                    <p>How should your robot move when you look <em><span class="js-emotion-var-info">*emotion*</span></em><span class="js-emotion-var-canvas">*emotion*</span>?</p>
+                    <p>Draw the motion path into the box.</p>
                 </div>
-                <div class="interface-buttons">
-                    <div class="delete interface-button button"><img class="icon" src="img/overlay/delete.svg" alt=""></div>
-                    <div class="loop interface-button button"><img class="icon" src="img/overlay/loop.svg" alt=""></div>
-                    <div class="play interface-button button"><img class="icon" src="img/overlay/play.svg" alt=""></div>
+                <div class="overlay__content">
+                    <div class="canvas-panel">
+                        <div class="canvas-wrapper">
+                            <canvas class="path-drawing-canvas" id="canvas"></canvas>
+                        </div>
+
+                        <div class="buttons is-space-between drawing-buttons">
+                            <div class="button drawing-button delete"><img class="icon" src="img/overlay/delete.svg" alt=""></div>
+                            <div class="button drawing-button loop"><img class="icon" src="img/overlay/loop.svg" alt=""></div>
+                            <div class="button drawing-button play"><img class="icon" src="img/overlay/play.svg" alt=""></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="robo-chooser-overlay overlay">
-            <div class="close button">
-                <p>X</p>
-            </div>
-            <div class="instructions">
-                <p>Choose your robot and connect.</p>
-            </div>
-            <div class="interface-wrapper">
+            <button class="close button"><span class="icon">&times;</span></button>
+            <div class="overlay__body">
+                <div class="overlay__header">
+                    <p>Choose your robot and connect.</p>
+                </div>
+                <div class="overlay__content">
+                    <div class="robo-chooser-nav">
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="save-load-overlay overlay">
-            <div class="close button">
-                <p>X</p>
-            </div>
-            <div class="instructions">
-                <p>Save or load your movements.</p>
-            </div>
-            <div class="interface-wrapper">
-                <div class="save-paths-button button">
-                    <img class="icon" src="img/menu/save.svg" alt="">
-                    <p>save</p>
+            <button class="close button"><span class="icon">&times;</span></button>
+            <div class="overlay__body">
+                <div class="overlay__header">
+                    <p>Save or load your movements.</p>
                 </div>
-                <div class="load-paths-button button">
-                    <img class="icon" src="img/menu/load.svg" alt="">
-                    <p>load</p>
+                <div class="overlay__content">
+                    <div class="buttons is-center">
+                        <div class="save-paths-button button">
+                            <img class="icon" src="img/menu/save.svg" alt="" width="100" height="100" />
+                            <span>save</span>
+                        </div>
+                        <div class="load-paths-button button">
+                            <img class="icon" src="img/menu/load.svg" alt="" width="100" height="100" />
+                            <span>load</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        
+
         <div class="help-overlay overlay">
-            <div class="close button">
-                <p>X</p>
-            </div>
-            <div class="instructions">
-                <p>About</p>
-            </div>
-            <div class="interface-wrapper">
-                <p class="help-text">
-                    ROBODADA is an open-source toolkit to map facial expressions to body language of a robot.    
-                    </br></br>
-                    Made with &hearts; by <a href="https://hybridthings.hs-augsburg.de/" target="_blank">HYBRID THINGS LAB</a> at <a href="https://www.hs-augsburg.de/Gestaltung.html" target="_blank">University of Applied Sciences Augsburg</a>.
-                    Find further informations and updates <a href="https://github.com/HybridThingsLab/robodada" target="_blank">here</a>.
-                    </br></br>
-                    &copy; 2020 Andreas Muxel, Elias Naphausen,</br> Fabian Pitzer, Andreas Kraus
-                </p>
+            <button class="close button"><span class="icon">&times;</span></button>
+            <div class="overlay__body">
+                <div class="overlay__header">
+                    <p>About</p>
+                </div>
+                <div class="overlay__content">
+                    <p>ROBODADA is an open-source toolkit to map facial expressions to body language of a robot.</p>
+                    <p>Made with &hearts; by <a href="https://hybridthings.hs-augsburg.de/" target="_blank">HYBRID THINGS LAB</a> at <a href="https://www.hs-augsburg.de/Gestaltung.html" target="_blank">University of Applied Sciences Augsburg</a>.
+                        Find further informations and updates <a href="https://github.com/HybridThingsLab/robodada" target="_blank">here</a>.</p>
+                    <p>&copy; 2020 Andreas Muxel, Elias Naphausen,</br> Fabian Pitzer, Andreas Kraus</p>
+                </div>
             </div>
         </div>
 
     </div>
-    
+
+    <!-- <script src="./js/test-data.js"></script> -->
+
     <script src="./js/lib/jQuery341.js"></script>
     <script src="./js/lib/socket.io.js"></script>
     <script src="./js/lib/materialize.min.js"></script>
     <script src="./js/lib/face-api.min.js"></script>
     <script src="./js/lib/commons.js"></script>
-    <script src="./js/lib/faceDetectionControls.js"></script>    
-    
-    
+    <script src="./js/lib/faceDetectionControls.js"></script>
+
     <script src="./js/lib/p5.js"></script>
     <script src="./js/model/MainModel.js"></script>
     <script src="./js/model/EmotionModel.js"></script>
@@ -160,6 +160,5 @@
     <script src="./js/view/SaveLoadOverloadView.js"></script>
     <script src="./js/view/HelpOverlayView.js"></script>
     <script src="./js/main.js"></script>
-  
 </body>
 </html>

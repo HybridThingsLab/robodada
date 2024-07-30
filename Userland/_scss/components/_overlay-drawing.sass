@@ -1,0 +1,64 @@
+.drawing-overlay
+    .overlay__content
+        display: flex
+        align-items: center
+        justify-content: center
+
+    .canvas-panel
+        display: flex
+        flex-direction: column
+        align-items: center
+        position: relative
+        .icon
+            //disables selecting
+            pointer-events: none
+            -webkit-user-drag: none
+
+    .canvas-wrapper
+        width: min(100vw - var(--margin-site) * 4px, max(340px, 20vw))
+        height: auto
+        aspect-ratio: 1
+        border: var(--border-width) solid black
+        border-radius: var(--border-radius-small)
+        box-sizing: border-box
+        position: relative
+        overflow: hidden
+        +desktop
+            height: 50vh
+        .path-drawing-canvas
+            cursor: $cursor_drawing
+            background-color: #f6f6f6
+
+        .indicator
+            width: 9%
+            height: 9%
+            position: absolute
+            top: 4%
+            left: 4%
+            border-radius: 50%
+            opacity: 1.0
+
+    .drawing-buttons
+        width: 100%
+        gap: min(0.75rem, 1.5vw)
+        margin-top: 0.25em
+
+    .drawing-button
+        padding: 0
+        width: max(4rem, 1.75em)
+        aspect-ratio: 1
+        border-width: var(--border-width)
+        border-radius: var(--border-radius-small)
+        &.delete
+            margin-right: auto
+            transition: 0.25s ease-in-out
+        &.delete:active
+            background: #EA5A47
+
+    // icon in heading
+    .js-emotion-var-canvas .icon
+        display: inline
+        height: 1.5em
+        width: auto
+        font-size: 1em
+        vertical-align: bottom

@@ -1,0 +1,29 @@
+// an emotion grid item
+
+.card
+    border: var(--border-width) solid black
+    border-radius: var(--border-radius)
+    background: #ffffff
+    text-align: center
+    cursor: $cursor_button
+    padding: 0.25em
+    box-shadow: var(--box-shadow)
+    max-height: 30vh
+    width: min(calc(50% - 1.5vw), max(220px, 20vw))
+    transition: .1s ease-in-out
+    &:hover
+        transform: scale(1.02)
+    &:active
+        transform: scale(0.98)
+
+    figure
+        margin: 0
+        display: flex
+        flex-direction: column
+        align-items: center
+        width: 100%
+        height: 100%
+        img
+            width: 100%
+            height: 50%
+            flex-grow: 1

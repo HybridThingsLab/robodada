@@ -1,0 +1,33 @@
+.buttons
+    display: flex
+    flex-wrap: wrap
+    gap: 1.5vw
+    justify-content: flex-start
+    &.is-space-between
+        justify-content: space-between
+    &.is-center
+        justify-content: center
+
+.button
+    border: var(--border-width) solid black
+    border-radius: var(--border-radius)
+    background: #ffffff
+    text-align: center
+    line-height: 1
+    padding: .25em
+    transition: .1s ease-in-out
+    box-shadow: var(--box-shadow)
+    cursor: $cursor_button
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    &:hover
+        transform: scale(1.02)
+    &:active
+        transform: scale(0.98)
+    > .icon:last-child:not(:first-child)
+        margin-inline-start: 0.25em
+    > .icon:first-child:not(:last-child)
+        margin-inline-end: 0.25em
+    > .icon
+        transform: scale(1.2)

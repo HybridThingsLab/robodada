@@ -1,0 +1,41 @@
+.camera-wrapper
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    padding-bottom: 1em
+
+.camera-border
+    border: var(--border-width) solid black
+    border-radius: var(--border-radius-overlay)
+    padding: 0.75vw
+
+.camera
+    position: relative
+    overflow: hidden
+    border: var(--border-width) solid black
+    border-radius: var(--border-radius-small)
+    background: black
+    aspect-ratio: 16 / 9
+    height: auto
+    width: min(70vw - var(--margin-site) * 2, max(860px, 40vw))
+    .cam-video
+        display: block
+        position: absolute
+        top: 50%
+        left: 0
+        width: 100%
+        transform: translateY(-50%)
+    .emoji-canvas
+        position: absolute
+        top: 50%
+        left: 0
+        width: 100%
+        transform: translateY(-50%)
+        z-index: 1
+        pointer-events: none
+
+.camera-button
+    padding-inline: 0.75em
+    min-width: max(280px, 33vw)
+    z-index: 10
