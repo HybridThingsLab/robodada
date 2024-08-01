@@ -1,14 +1,5 @@
-// we need these variables during development to mock otherwise broken functionality
+// we need these variables during development to mock some robots
 // don't include this file in production
-
-// used as dummy config in AvailableRobotsController
-configTestData = {
-    robot_ip: "192.168.188.36",
-    frontend_location_relative: "./../../Userland/public",
-    privateSSLKey_location_relative: "./cert/privkey.pem",
-    publicCert_location_relative: "./cert/fullchain.pem",
-    certifiedURL: "https://robodada.exampleurl.com",
-};
 
 // used as demo data in RoboChooserOverlayView
 roboListTestData = [

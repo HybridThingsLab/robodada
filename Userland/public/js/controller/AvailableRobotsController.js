@@ -1,10 +1,3 @@
-// @note there is no require available during development
-let config = {
-    certifiedURL: "https://robots.hybridthings.com"
-};
-
-//config = (typeof require !== 'undefined') ? require('../../../../Serverland/config.js') : configTestData;
-
 class AvailableRobotsController {
     constructor(){
         this.socket = io(config.certifiedURL, {            
