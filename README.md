@@ -113,7 +113,7 @@ So you decided to build your own robot - in the future this will be done by robo
 
 We assume that you have worked with [Arduino](https://www.arduino.cc/) or similar in the past and __you know what you are doing__ when plugging in soldered stuff into your beloved Laptop/Computer.
 
-Our robot module is just a proposal, and you can modify it in any way you like. [Let us know](mailto:robodada@hybridthings.com) when you did something cool!
+Our robot module is just a proposal, and you can modify it in any way you like. [Let us know](https://hybridthings.tha.de/contact/) when you did something cool!
 
 It consists of three main components:
 * a servo pan tilt module (we recommend modules from [DaguRobot](http://www.dagurobot.com/Sensor_pan_tilt_kit_DGS3003_servo?search=pan%20tilt&category_id=0))
